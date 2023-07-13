@@ -6,16 +6,16 @@
 ?>
 <div class="row">
             <div class="row formtitle">
-                <h1>CẬP NHẬT LOẠI KHÓA HỌC</h1>
+                <h1>CẬP NHẬT LOẠI DANH MỤC</h1>
             </div>
             <div class="row formcontent">
                 <form action="index.php?act=updatedm" method="post">
                     <div class="row mb10">
-                        Mã khóa học <br>
+                        Mã danh mục <br>
                         <input type="text" name="makhoahoc" disabled>
                     </div>
                     <div class="row mb10">
-                        Tên khóa học <br>
+                        Tên danh mục <br>
                         <input type="text" name="tenkhoahoc" value="<?php if(isset($tendm)&&($tendm!="")) echo $tendm;?>">
                     </div>
                     <div class="row mb10">
