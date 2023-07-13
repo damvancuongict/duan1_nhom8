@@ -6,7 +6,7 @@
 ?>
 <div class="row">
             <div class="row formtitle">
-                <h1>CẬP NHẬT LOẠI DANH MỤC</h1>
+                <h1>CẬP NHẬT LOẠI DANH MỤC</h1> //Tien da den day
             </div>
             <div class="row formcontent">
                 <form action="index.php?act=updatedm" method="post">
