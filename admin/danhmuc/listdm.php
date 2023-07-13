@@ -1,14 +1,14 @@
 <div class="row">
             <div class="row formtitle">
-                <h1>DANH SÁCH KHÓA HỌC</h1>
+                <h1>DANH SÁCH DANH MỤC</h1>
             </div>
             <div class="row formcontent">
                 <div class="row mb10 formdanhsach">
                     <table>
                         <tr>
                             <th></th>
-                            <th>Mã khóa học</th>
-                            <th>Tên khóa học</th>
+                            <th>Mã danh mục</th>
+                            <th>Tên danh mục</th>
                             <th></th>
                         </tr>
                         <?php
