@@ -1,9 +1,8 @@
 <?php
     include "../model/pdo.php";
-    pdo_get_connection();
     include "../model/danhmuc.php";
     // include "../model/sanpham.php";
-    // include "../model/taikhoan.php";
+    include "../model/nguoidung.php";
     // include "../model/binhluan.php";
     include "header.php";
     //controller
@@ -14,8 +13,8 @@
             case 'adddm':
                 //kiểm tra người dùng có click vào add hay không
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-                    $tenkhoahoc=$_POST['tenkhoahoc'];
-                    insert_danhmuc($tenkhoahoc);
+                    $tendanhmuc=$_POST['tendanhmuc'];
+                    insert_danhmuc($tendanhmuc);
                     $thongbao="Thêm thành công";
                 }
                 include "danhmuc/adddm.php";
@@ -25,30 +24,32 @@
                 include "danhmuc/listdm.php";
                 break;
             case 'xoadm':
-                if(isset($_GET['id'])&&($_GET['id']>0)){
-                    delete_danhmuc($_GET['id']);
+                if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                    delete_danhmuc($_GET['iddm']);
+                    $thongbao="Xóa thành công";
                 }
                 $listdanhmuc=loadall_danhmuc();
                 include "danhmuc/listdm.php";
                 break;
             case 'suadm' :
-                if(isset($_GET['id'])&&($_GET['id']>0)){
-                    $dm=loadone_danhmuc($_GET['id']);
+                if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                    $dm=loadone_danhmuc($_GET['iddm']);
                 }
                 include "danhmuc/updatedm.php";
                 break;
             case 'updatedm' :
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-                    $tendm=$_POST['tenkhoahoc'];
-                    $iddm=$_POST['id'];
+                    $tendm=$_POST['tendanhmuc'];
+                    $iddm=$_POST['iddm'];
                     update_danhmuc($iddm,$tendm);
                     $thongbao="Cập nhật thành công";
                 }
                 $listdanhmuc = loadall_danhmuc();
                 include "danhmuc/adddm.php";
                 break;
+                
                 //controler  phần sản phẩm
-                case 'addkh':
+            case 'addkh':
                     // kiểm tra xem người dùng có lick vào nút add hay không
                     if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                         $iddm=$_POST['iddm'];
@@ -142,10 +143,10 @@
     //             $listsanpham = loadall_sanpham("",0);
     //             include "sanpham/add.php";
     //             break;
-    //         case 'dskh':
-    //             $listtaikhoan=loadall_taikhoan();
-    //             include "taikhoan/list.php";
-    //             break;
+            case 'dsuser':
+                $listuser=loadall_user();
+                include "nguoidung/list.php";
+                break;
     //         case 'dsbl':
     //             $listbinhluan=loadall_binhluan(0);
     //             include "binhluan/list.php";

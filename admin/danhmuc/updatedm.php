@@ -12,14 +12,14 @@
                 <form action="index.php?act=updatedm" method="post">
                     <div class="row mb10">
                         Mã danh mục <br>
-                        <input type="text" name="makhoahoc" disabled>
+                        <input type="text" name="madanhmuc" disabled>
                     </div>
                     <div class="row mb10">
                         Tên danh mục <br>
-                        <input type="text" name="tenkhoahoc" value="<?php if(isset($tendm)&&($tendm!="")) echo $tendm;?>">
+                        <input type="text" name="tendanhmuc" value="<?php if(isset($tendm)&&($tendm!="")) echo $tendm;?>">
                     </div>
                     <div class="row mb10">
-                        <input type="hidden" name="id" value="<?php if(isset($iddm)&&($iddm!="")) echo $iddm;?>">
+                        <input type="hidden" name="iddm" value="<?php if(isset($iddm)&&($iddm!="")) echo $iddm;?>">
                         <input type="submit" name="capnhat" value="cập nhật">
                         <input type="reset" value="Nhập lại">
                         <a href="index.php?act=listdm"><input type="button" value="DANH SÁCH"></a>

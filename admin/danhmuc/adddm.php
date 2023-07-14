@@ -6,11 +6,11 @@
                 <form action="index.php?act=adddm" method="post">
                     <div class="row mb10">
                         Mã danh mục <br>
-                        <input type="text" name="makhoahoc" disabled>
+                        <input type="text" name="madanhmuc" disabled>
                     </div>
                     <div class="row mb10">
                         Tên danh mục <br>
-                        <input type="text" name="tenkhoahoc" id="">
+                        <input type="text" name="tendanhmuc" id="">
                     </div>
                     <div class="row mb10">
                         <input type="submit" name="themmoi" value="THÊM MỚI">
