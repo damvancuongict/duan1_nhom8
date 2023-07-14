@@ -47,6 +47,29 @@
                 $listdanhmuc = loadall_danhmuc();
                 include "danhmuc/adddm.php";
                 break;
+                //controler  phần sản phẩm
+                case 'addkh':
+                    // kiểm tra xem người dùng có lick vào nút add hay không
+                    if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                        $iddm=$_POST['iddm'];
+                        $tensp=$_POST['tensp'];
+                        $gia=$_POST['giasp'];
+                        $mota=$_POST['mota'];
+                        $filename=$_FILES['anhsp']['name'];
+                        $target_dir = "../upload/";
+                        $target_file = $target_dir . basename($_FILES["anhsp"]["name"]);
+                        if (move_uploaded_file($_FILES["anhsp"]["tmp_name"], $target_file)) {
+                           // echo "The file ". htmlspecialchars( basename( $_FILES["anh"]["name"])). " has been uploaded.";
+                          } else {
+                           // echo "Sorry, there was an error uploading your file.";
+                          }
+                        insert_sanpham($tensp,$gia,$filename,$mota,$iddm);
+                        $thongbao= "thêm thành công !";
+                    }
+                    $listdm=loadall_danhmuc();
+                    //var_dump($listdm);
+                    include "khoahoc/addkh.php";
+                    break;
             /*controller sản phẩm */
 
     //         case 'addsp':
