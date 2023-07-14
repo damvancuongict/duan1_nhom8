@@ -1,6 +1,6 @@
 <?php
-    function insert_danhmuc($tenkhoahoc){
-        $sql="insert into danhmuc(tendm) values ('$tenkhoahoc')";
+    function insert_danhmuc($tendanhmuc){
+        $sql="insert into danhmuc(tendm) values ('$tendanhmuc')";
         pdo_execute($sql);
     }
     function delete_danhmuc($iddm){
