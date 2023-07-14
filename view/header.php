@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="view/style.css">
 </head>
 <body class="body__wrapper">
     <main class="main_wrapper">
@@ -78,22 +79,13 @@
                                             </ul>
                                         </li>
 
-                                        <li><a class="headerarea__has__dropdown" href="course.html">Khóa học
+                                        <li><a class="headerarea__has__dropdown" href="course.html">Danh mục
                                         <i class="icofont-rounded-down"></i>
                                     </a>
                                             <ul class="headerarea__submenu">
-                                                <li><a href="course.html">Course</a></li>
-                                                <li><a href="course-dark.html">Course (Dark)</a></li>
-                                                <li><a href="course-list.html">Course List</a></li>
-                                                <li><a href="course-list-dark.html">Course List (Dark)</a></li>
-                                                <li><a href="course-grid.html">Course Grid</a></li>
-                                                <li><a href="course-grid-dark.html">Course Grid (Dark)</a></li>
-                                                <li><a href="course-details.html">Course-Details</a></li>
-                                                <li><a href="course-details-dark.html">Details (Dark)</a></li>
-                                                <li><a href="course-details-2.html">Details 2</a></li>
-                                                <li><a href="course-details-2-dark.html">Details 2 (Dark)</a></li>
-                                                <li><a href="course-details-3.html">Details 3</a></li>
-                                                <li><a href="course-details-3-dark.html">Details 3 (Dark)</a></li>
+                                                <li><a href="course.html">lập trình mobile</a></li>
+                                                <li><a href="course-dark.html">lập trình webside</a></li>
+                                                <li><a href="course-list.html">khóa học máy tính</a></li>
                                             </ul>
                                         </li>
 

@@ -1,0 +1,61 @@
+.boxsp {
+    float: left;
+    width: 22%;
+    min-height: 250px;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 1%;
+    flex-direction: column;
+    justify-content: space-between;
+   text-align: center;
+    
+}
+
+
+
+.boxsp img{
+    padding: 15px;
+}
+.boxsp .img{
+   min-height: 220px;
+   text-align: center;
+}
+
+.row{
+    float: left;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.mb{
+    margin-bottom: 20px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.boxsp a strong {
+    font-weight: bold;
+    font-size: 16px;
+}
+.boxsp .btnaddtocart input[type="submit"] {
+    width: 80px;
+    border-radius: 5px;
+    border: 1px #6b6363 solid;
+    background-color:rgb(80, 80, 231); /* Hoặc màu hồng đậm khác */
+    color: white;
+
+}
+.boxsp .btnaddtocart input[type="submit"]:hover {
+    background-color:white; /* Hoặc màu hồng đậm khác */
+    color: blue;
+    border: 1px blue solid;
+}
+.gridarea__img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+/* class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 grid-item filter2 filter3" */

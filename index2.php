@@ -1,9 +1,14 @@
 <?php
     include "view/header.php";
+    include "model/pdo.php";
+    include "model/khoahoc.php";
+    include "global.php";
+
+    $spnew = load10_khoahoc_home();
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'khoahoc':
+            case 'sanpham':
                 if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
                     $kyw=$_POST['kyw'];
                 }else{
@@ -15,22 +20,22 @@
                 }else{
                     $iddm=0;
                 }
-                    $dssp=loadds_khoahoc($kyw, $iddm);
-                    
-                      include "view/khoahoc.php";
+                $dssp=loadds_sanpham($kyw, $iddm);
+                $tendm=loadten_danhmuc($iddm);
+                include "view/sanpham.php";
                 break;
 
-            case '':
-               
+            case 'sanphamct':
+                // Xử lý khi 'act' là 'sanphamct'
                 break;
-                default:
-                   
-                    break;
-            }
-        }else{
-            include "view/home.php";
-}
 
+            default:
+                include "view/home.php";
+                break;
+        }
+    } else {
+        include "view/home.php";
+    }
 
     include "view/footer.php";
 ?>

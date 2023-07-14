@@ -1,4 +1,5 @@
 <?php
+ 
 function loadds_khoahoc($kyw="", $iddm) {
     $sql = "SELECT * FROM khoahoc WHERE 1";   
     if ($kyw != "") {
@@ -8,8 +9,14 @@ function loadds_khoahoc($kyw="", $iddm) {
         $sql .= " AND iddm = '" . $iddm . "' ";
     }    
     $sql .= " ORDER BY id DESC";   
-    $listsp = pdo_query($sql); 
-    return $listsp;
+    $listkh = pdo_query($sql); 
+    return $listkh;
 }
+function load10_khoahoc_home(){
+    $sql="SELECT * from khoahoc where 1 order by idkhoahoc desc limit 0,9";
+    $listkh = pdo_query($sql);
+    return $listkh;
+
+  }
 
 ?>
