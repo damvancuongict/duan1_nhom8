@@ -14,8 +14,8 @@
                         <?php
                             foreach($listdanhmuc as $danhmuc){
                                 extract($danhmuc);
-                                $suadm="index.php?act=suadm&id=".$iddm;
-                                $xoadm="index.php?act=xoadm&id=".$iddm;
+                                $suadm="index.php?act=suadm&iddm=".$iddm;
+                                $xoadm="index.php?act=xoadm&iddm=".$iddm;
                                 echo '<tr>
                                         <td><input type="checkbox"></td>
                                         <td>'.$iddm.'</td>

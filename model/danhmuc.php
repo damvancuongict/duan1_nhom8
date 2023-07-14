@@ -4,7 +4,7 @@
         pdo_execute($sql);
     }
     function delete_danhmuc($iddm){
-        $sql="delete from danhmuc where id=".$iddm;
+        $sql="delete from danhmuc where iddm=".$iddm;
                     pdo_execute($sql);
     }
     function loadall_danhmuc(){
@@ -13,13 +13,13 @@
         return $listdanhmuc;
     }
     function loadone_danhmuc($iddm){
-        $sql="select * from danhmuc where id=".$iddm;
+        $sql="select * from danhmuc where iddm=".$iddm;
         $dm=pdo_query_one($sql);
         return $dm;
         
     }
     function update_danhmuc($iddm,$tendm){
-        $sql="update danhmuc set name='".$tendm."' where id=".$iddm;
+        $sql="update danhmuc set tendm='".$tendm."' where iddm=".$iddm;
         pdo_execute($sql);
     }
 ?>
