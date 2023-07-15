@@ -2,6 +2,19 @@
             <div class="row formtitle">
                 <h1>DANH SÁCH KHÓA HỌC</h1>
             </div>
+            <form action="index.php?act=listkh" method="post">
+                    <input type="text" name="kyw">
+                    <select name="iddm" id="">
+                        <option value="0" selected>Tất cả</option>
+                        <?php
+                            foreach($listdanhmuc as $danhmuc){
+                                extract($danhmuc);
+                                echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
+                            }
+                        ?>
+                    </select>
+                    <input type="submit" name="listok" value="GO">
+            </form>
             <div class="row formcontent">
                 <div class="row mb10 formdanhsach">
                     <table>
@@ -11,21 +24,21 @@
                             <th>Tên khóa học</th>
                             <th>Giá</th>
                             <th>Ảnh</th>
-                            <th>Lượt xem</th>
+                            <!-- <th>Lượt xem</th> -->
                             <th>Mô tả</th>
                             <th></th>
                         </tr>
                         <?php
-                            foreach($listkhoahoc as $khoahoc){
+                            foreach($listkh as $khoahoc){
                                 extract($khoahoc);
-                                $suakh="index.php?act=suadm&iddm=".$iddm;
-                                $xoakh="index.php?act=xoadm&iddm=".$iddm;
+                                $suakh="index.php?act=suakh&iddm=".$idkhoahoc;
+                                $xoakh="index.php?act=xoakh&iddm=".$idkhoahoc;
                                 echo '<tr>
                                         <td><input type="checkbox"></td>
                                         <td>'.$idkhoahoc.'</td>
                                         <td>'.$tenkhoahoc.'</td>
-                                        <td>'.$giakh.'</td>
-                                        <td>'.$anhkh.'</td>
+                                        <td>'.$gia.'</td>
+                                        <td>'.$anh.'</td>
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$suakh.'"><input type="button" value="Sửa"></a>
                                         <a href="'.$xoakh.'"><input type="button" value="Xóa"></a></td>
