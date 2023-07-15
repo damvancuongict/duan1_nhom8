@@ -1,4 +1,4 @@
-<div class="row header" ><h1>THÊM MỚI LOẠI KHÓA HỌC</h1></div>
+<div class="row header" ><h1>THÊM MỚI KHÓA HỌC</h1></div>
         <div class="row formcontend" >
             <form action="index.php?act=addkh" method="post" enctype="multipart/form-data">
                 <div class="row mb">
