@@ -85,42 +85,42 @@
                 $listkh = loadall_khoahoc($kyw,$iddm);
                 include "khoahoc/listkh.php";
                 break;
-            // case 'xoakh':
-            //     if(isset($_GET['id'])&&($_GET['id']>0)){
-            //         delete_sanpham($_GET['id']);
-            //     }
-            //     $listsanpham=loadall_sanpham("",0);
-            //     include "sanpham/list.php";
-            //     break;
-            // case 'suakh' :
-            //     if(isset($_GET['id'])&&($_GET['id']>0)){
-            //         $sanpham =loadone_sanpham($_GET['id']);
-            //     }
-            //     $listdanhmuc = loadall_danhmuc();
-            //     include "sanpham/update.php";
-            //     break;
-            // case 'updatekh' :
-            //     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-            //         $id=$_POST['id'];
-            //         $iddm=$_POST['iddm'];
-            //         $tensp=$_POST['tensp'];
-            //         $giasp=$_POST['giasp'];
-            //         $mota=$_POST['mota'];
-            //         $hinh=$_FILES['hinh']['name'];
-            //         $target_dir = "../upload/";
-            //         $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-            //         if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-            //           //  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-            //           } else {
-            //           // echo "Sorry, there was an error uploading your file.";
-            //           }
-            //         update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
-            //         $thongbao="Cập nhật thành công";
-            //     }
-            //     $listdanhmuc = loadall_danhmuc();
-            //     $listsanpham = loadall_sanpham("",0);
-            //     include "sanpham/add.php";
-            //     break;
+            case 'xoakh':
+                if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
+                    delete_khoahoc($_GET['idkhoahoc']);
+                }
+                $listkh=loadall_khoahoc("",0);
+                include "khoahoc/listkh.php";
+                break;
+            case 'suakh' :
+                if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
+                    $khoahoc =loadone_khoahoc($_GET['idkhoahoc']);
+                }
+                $listdanhmuc = loadall_danhmuc();
+                include "khoahoc/updatekh.php";
+                break;
+            case 'updatekh' :
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $idkhoahoc=$_POST['idkhoahoc'];
+                    $iddm=$_POST['iddm'];
+                    $tenkh=$_POST['tenkhoahoc'];
+                    $gia=$_POST['gia'];
+                    $mota=$_POST['mota'];
+                    $filename=$_FILES['hinh']['tenkhoahoc'];
+                    $target_dir = "../upload/";
+                    $target_file = $target_dir . basename($_FILES["hinh"]["tenkhoahoc"]);
+                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                      //  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["tenkhoahoc"])). " has been uploaded.";
+                      } else {
+                      // echo "Sorry, there was an error uploading your file.";
+                      }
+                    update_khoahoc($idkhoahoc,$tenkh,$gia,$filename,$mota,$iddm);
+                    $thongbao="Cập nhật thành công";
+                }
+                $listdanhmuc = loadall_danhmuc();
+                $listkh = loadall_khoahoc("",0);
+                include "khoahoc/addkh.php";
+                break;
             // case 'dsuser':
             //     $listuser=loadall_user();
             //     include "nguoidung/list.php";
