@@ -3,13 +3,13 @@
     $sql="INSERT INTO khoahoc(tenkhoahoc,gia,anh,mota,iddm) values ('$tenkh','$gia','$filename','$mota','$iddm')";
     pdo_execute($sql);
 }
-function loadall_khoahoc($kyw="",$iddm=0){
+function loadall_khoahoc($kyw="",$idkhoahoc=0){
     $sql="SELECT * FROM khoahoc WHERE 1";
     if($kyw!=""){
-        $sql.=" AND name LIKE '%".$kyw."%'";
+        $sql.=" AND tenkhoahoc LIKE '%".$kyw."%'";
     }
-    if($iddm>0){
-        $sql.=" AND iddm ='".$iddm."'";
+    if($idkhoahoc>0){
+        $sql.=" AND idkhoahoc ='".$idkhoahoc."'";
     }
     $sql.=" ORDER BY idkhoahoc desc";
     $listkh=pdo_query($sql);
@@ -20,7 +20,7 @@ function delete_khoahoc($idkhoahoc){
     pdo_execute($sql);
 }
 function  update_khoahoc($idkhoahoc,$tenkh,$gia,$filename,$mota,$iddm){
-    if($hinh!="")
+    if($filename!="")
         $sql="UPDATE khoahoc SET iddm='".$iddm."', tenkhoahoc='".$tenkh."', gia='".$gia."', mota='".$mota."', anh='".$filename."' WHERE idkhoahoc=".$idkhoahoc; 
     else 
         $sql="UPDATE khoahoc SET iddm='".$iddm."', tenkhoahoc='".$tenkh."', gia='".$gia."', mota='".$mota."' WHERE idkhoahoc=".$idkhoahoc;

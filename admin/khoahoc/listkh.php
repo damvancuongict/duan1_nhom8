@@ -4,11 +4,11 @@
             </div>
             <form action="index.php?act=listkh" method="post">
                     <input type="text" name="kyw">
-                    <select name="iddm" id="">
+                    <select name="idkhoahoc" id="">
                         <option value="0" selected>Tất cả</option>
                         <?php
-                            foreach($listdanhmuc as $danhmuc){
-                                extract($danhmuc);
+                            foreach($listkh as $khoahoc){
+                                extract($khoahoc);
                                 echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
                             }
                         ?>

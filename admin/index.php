@@ -76,13 +76,13 @@
             case 'listkh':
                 if(isset($_POST['listok'])&&($_POST['listok'])){
                     $kyw=$_POST['kyw'];
-                    $iddm=$_POST['iddm'];
+                    $idkhoahoc=$_POST['idkhoahoc'];
                 }else{
                     $kyw='';
-                    $iddm=0;
+                    $idkhoahoc=0;
                 }
                 $listdanhmuc = loadall_danhmuc();
-                $listkh = loadall_khoahoc($kyw,$iddm);
+                $listkh = loadall_khoahoc($kyw,$idkhoahoc);
                 include "khoahoc/listkh.php";
                 break;
             case 'xoakh':
@@ -106,9 +106,9 @@
                     $tenkh=$_POST['tenkhoahoc'];
                     $gia=$_POST['gia'];
                     $mota=$_POST['mota'];
-                    $filename=$_FILES['hinh']['tenkhoahoc'];
+                    $filename=$_FILES['hinh']['name'];
                     $target_dir = "../upload/";
-                    $target_file = $target_dir . basename($_FILES["hinh"]["tenkhoahoc"]);
+                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                       //  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["tenkhoahoc"])). " has been uploaded.";
                       } else {
