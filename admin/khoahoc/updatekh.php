@@ -21,8 +21,8 @@ if(is_file($hinhpath)){
                         <?php
                             foreach ($listdanhmuc as $danhmuc){
                                 extract($danhmuc);
-                                if($iddm==$idkhoahoc) $s="selected"; else $s="";
-                                 echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
+                                if($iddm==$iddm) $s="selected"; else $s="";
+                                 echo '<option value="'.$iddm.'" '.$s.'>'.$tendm.'</option>';
                             }
                         ?>
                     </select>
