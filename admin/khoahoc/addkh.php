@@ -7,7 +7,7 @@
                         <?php
                        foreach ($listdm as $loai) {
                         extract($loai);
-                        echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
+                        echo '<option value="'.$iddm.'">'.$tendm.'</option>';
                     }
                         ?>
                      </select>
@@ -23,6 +23,10 @@
                 <div class="row mb10">
                     <label for="">Ảnh</label><br>
                      <input type="file" name="anhkh" id="" >
+                </div>
+                <div class="row mb10">
+                    <label for="">Lượt xem</label><br>
+                     <input type="text" name="luotxem" id="" >
                 </div>
                 <div class="row mb10">
                     <label for="">Mô Tả</label><br>
