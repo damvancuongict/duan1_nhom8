@@ -5,8 +5,13 @@
                     <label for="">Id Danh Mục</label><br>
                      <select name="iddm" id="">
                         <?php
+<<<<<<< HEAD
                        foreach ($listdm as $danhmuc) {
                         extract($danhmuc);
+=======
+                       foreach ($listdm as $loai) {
+                        extract($loai);
+>>>>>>> 2b25190e0fb4ef2ecb76d9da5133a0d4805cda95
                         echo '<option value="'.$iddm.'">'.$tendm.'</option>';
                     }
                         ?>
@@ -23,6 +28,10 @@
                 <div class="row mb10">
                     <label for="">Ảnh</label><br>
                      <input type="file" name="anh" id="" >
+                </div>
+                <div class="row mb10">
+                    <label for="">Lượt xem</label><br>
+                     <input type="text" name="luotxem" id="" >
                 </div>
                 <div class="row mb10">
                     <label for="">Mô Tả</label><br>
