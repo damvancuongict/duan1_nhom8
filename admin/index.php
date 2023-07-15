@@ -1,6 +1,7 @@
 <?php
     include "../model/pdo.php";
     include "../model/danhmuc.php";
+    include "../model/khoahoc.php";
     // include "../model/sanpham.php";
     include "../model/nguoidung.php";
     // include "../model/binhluan.php";
@@ -53,18 +54,18 @@
                     // kiểm tra xem người dùng có lick vào nút add hay không
                     if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                         $iddm=$_POST['iddm'];
-                        $tensp=$_POST['tensp'];
-                        $gia=$_POST['giasp'];
+                        $tenkh=$_POST['tenkh'];
+                        $gia=$_POST['giakh'];
                         $mota=$_POST['mota'];
-                        $filename=$_FILES['anhsp']['name'];
+                        $filename=$_FILES['anh']['name'];
                         $target_dir = "../upload/";
-                        $target_file = $target_dir . basename($_FILES["anhsp"]["name"]);
-                        if (move_uploaded_file($_FILES["anhsp"]["tmp_name"], $target_file)) {
+                        $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                        if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
                            // echo "The file ". htmlspecialchars( basename( $_FILES["anh"]["name"])). " has been uploaded.";
                           } else {
                            // echo "Sorry, there was an error uploading your file.";
                           }
-                        insert_sanpham($tensp,$gia,$filename,$mota,$iddm);
+                          insert_khoahoc($tenkh,$gia,$filename,$mota,$iddm);
                         $thongbao= "thêm thành công !";
                     }
                     $listdm=loadall_danhmuc();

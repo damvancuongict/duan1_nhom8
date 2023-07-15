@@ -5,9 +5,9 @@
                     <label for="">Id Danh Mục</label><br>
                      <select name="iddm" id="">
                         <?php
-                       foreach ($listdm as $loai) {
-                        extract($loai);
-                        echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
+                       foreach ($listdm as $danhmuc) {
+                        extract($danhmuc);
+                        echo '<option value="'.$iddm.'">'.$tendm.'</option>';
                     }
                         ?>
                      </select>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="row mb10">
                     <label for="">Ảnh</label><br>
-                     <input type="file" name="anhkh" id="" >
+                     <input type="file" name="anh" id="" >
                 </div>
                 <div class="row mb10">
                     <label for="">Mô Tả</label><br>

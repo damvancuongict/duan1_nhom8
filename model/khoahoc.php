@@ -18,5 +18,9 @@ function load10_khoahoc_home(){
     return $listkh;
 
   }
+  function insert_khoahoc($tenkh,$gia,$filename,$mota,$iddm){
+    $sql="INSERT INTO khoahoc(tenkhoahoc,gia,anh,mota,iddanhmuc) values ('$tenkh','$gia','$filename','$mota','$iddm')";
+    pdo_execute($sql);
+}
 
 ?>
