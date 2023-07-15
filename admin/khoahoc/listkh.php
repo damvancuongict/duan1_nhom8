@@ -2,7 +2,7 @@
             <div class="row formtitle">
                 <h1>DANH SÁCH KHÓA HỌC</h1>
             </div>
-            <form action="index.php?act=listkh" method="post">
+            <!-- <form action="index.php?act=listkh" method="post">
                     <input type="text" name="kyw">
                     <select name="iddm" id="">
                         <option value="0" selected>Tất cả</option>
@@ -14,7 +14,7 @@
                         ?>
                     </select>
                     <input type="submit" name="listok" value="GO">
-            </form>
+            </form> -->
             <div class="row formcontent">
                 <div class="row mb10 formdanhsach">
                     <table>
@@ -25,7 +25,7 @@
                             <th>Giá</th>
                             <th>Ảnh</th>
                             <!-- <th>Lượt xem</th> -->
-                            <th>Mô tả</th>
+                            <th>Mô tả</th>  
                             <th></th>
                         </tr>
                         <?php

@@ -1,8 +1,9 @@
 <div class="row">
-            <div class="row formtitle">
+            <!-- <div class="row formtitle">
                 <h1>THÊM MỚI DANH MỤC</h1>
-            </div>
-            <div class="row formcontent">
+            </div> -->
+            <div class="row header" ><h1>THÊM MỚI DANH MỤC</h1></div>
+            <div class="row formcontend">
                 <form action="index.php?act=adddm" method="post">
                     <div class="row mb10">
                         Mã danh mục <br>
