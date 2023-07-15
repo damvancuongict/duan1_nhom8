@@ -1,8 +1,8 @@
-<div class="row header" ><h1>Thêm Mới Loại khóa học</h1></div>
+<div class="row header" ><h1>THÊM MỚI LOẠI KHÓA HỌC</h1></div>
         <div class="row formcontend" >
             <form action="index.php?act=addkh" method="post" enctype="multipart/form-data">
                 <div class="row mb">
-                    <label for="">Id Danh Mục</label><br>
+                    <label for="">Danh Mục</label><br>
                      <select name="iddm" id="">
                         <?php
                             foreach ($listdm as $danhmuc) {

@@ -27,10 +27,10 @@
     min-height: 100px;
 }
 .header{
-    background-color: rgb(141, 194, 176);
+    background-color: #eee;
     border: 1px rgb(3, 191, 248) solid;
     font-size: 1vw;
-    color: green;
+    color: #666;
     border-radius: 5px;
 }
 .footer{
@@ -145,6 +145,39 @@
     
 
 }
+.formtitle{
+    background-color: #eee;
+    border: 1px #ccc solid;
+    color: #666;
+    border-radius: 5PX;
+    padding: 0px 20px;
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+.formdanhsach table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.formdanhsach table th{
+    padding: 20px;
+    background-color: #ccc;
+}
+/* .formdanhsach table th:nth-child(2){
+    width: 30%;
+    background-color: #ccc;
+}
+.formdanhsach table th:nth-child(3){
+    width: 40%;
+    background-color: #ccc;
+}
+.formdanhsach table th:nth-child(4){
+    width: 20%;
+    background-color: #ccc;
+} */
+.formdanhsach table td{
+    padding: 10px 20px;
+    border: 1px #ccc solid;
+}
 .formtaikhoan{
     line-height: 150%;
 }
@@ -228,8 +261,8 @@ border-radius: 5px ;
     text-decoration:underline;
 }
 .headeradmin{
-    color: coral;
-    background-color: rgb(141, 194, 176);
+    color: #666;
+    background-color: #eee;
     border: 1px rgb(3, 191, 248) solid;
     border-radius: 5px;
 }
