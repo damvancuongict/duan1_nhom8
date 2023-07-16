@@ -2,7 +2,7 @@
     include "../model/pdo.php";
     include "../model/danhmuc.php";
     include "../model/khoahoc.php";
-    // include "../model/sanpham.php";
+    include "../model/taikhoan.php";
     include "../model/nguoidung.php";
     // include "../model/binhluan.php";
     include "header.php";
@@ -121,10 +121,10 @@
                 $listkh = loadall_khoahoc("",0);
                 include "khoahoc/addkh.php";
                 break;
-            // case 'dsuser':
-            //     $listuser=loadall_user();
-            //     include "nguoidung/list.php";
-            //     break;
+                case 'taikhoan':
+                    $listtaikhoan=loadalltaikhoan();
+                    include "taikhoan/list.php";
+                    break;
     //         case 'dsbl':
     //             $listbinhluan=loadall_binhluan(0);
     //             include "binhluan/list.php";
