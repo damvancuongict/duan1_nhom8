@@ -4,7 +4,7 @@ function loadalltaikhoan() {
     $listtk = pdo_query($sql);
     return $listtk;
 }
-<?php
+
 function loadall_user(){
     $sql="select * from user order by id desc";
     $listuser=pdo_query($sql);
@@ -30,4 +30,3 @@ function update_user($id,$user,$pass,$email,$address,$tel){
 }
 ?>
 
-?>
