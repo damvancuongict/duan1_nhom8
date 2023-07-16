@@ -1,8 +1,8 @@
 <?php
 function loadalltaikhoan() {
     $sql = "SELECT * FROM user ORDER BY iduser DESC";
-    $listtk = pdo_query($sql);
-    return $listtk;
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
 }
 
 function loadall_user(){
