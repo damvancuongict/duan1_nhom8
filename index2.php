@@ -4,11 +4,11 @@
     include "model/khoahoc.php";
     include "global.php";
 
-    $spnew = load10_khoahoc_home();
+    $spnew = load8_khoahoc_home();
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'sanpham':
+            case 'khoahoc':
                 if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
                     $kyw=$_POST['kyw'];
                 }else{
@@ -20,12 +20,12 @@
                 }else{
                     $iddm=0;
                 }
-                $dssp=loadds_sanpham($kyw, $iddm);
+                $dssp=loadds_khoahoc($kyw, $iddm);
                 $tendm=loadten_danhmuc($iddm);
-                include "view/sanpham.php";
+                include "view/khoahoc.php";
                 break;
 
-            case 'sanphamct':
+            case 'khoahoc':
                 // Xử lý khi 'act' là 'sanphamct'
                 break;
 

@@ -31,4 +31,11 @@ function loadone_khoahoc($idkhoahoc){
     $kh=pdo_query_one($sql);
     return $kh;
 }
+// ham load khoa học ra giao diẹn
+function load8_khoahoc_home(){
+    $sql="SELECT * from khoahoc where 1 order by idkhoahoc desc limit 0,8";
+    $listkh=pdo_query($sql);
+    return $listkh;
+
+  }
 ?>
