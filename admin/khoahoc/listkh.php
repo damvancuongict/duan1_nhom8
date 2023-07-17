@@ -2,19 +2,6 @@
             <div class="row formtitle">
                 <h1>DANH SÁCH KHÓA HỌC</h1>
             </div>
-            <!-- <form action="index.php?act=listkh" method="post">
-                    <input type="text" name="kyw">
-                    <select name="idkhoahoc" id="">
-                        <option value="0" selected>Tất cả</option>
-                        <?php
-                            foreach($listkh as $khoahoc){
-                                extract($khoahoc);
-                                echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
-                            }
-                        ?>
-                    </select>
-                    <input type="submit" name="listok" value="GO">
-            </form> -->
             <div class="row formcontent">
                 <div class="row mb10 formdanhsach">
                     <table>
@@ -33,12 +20,19 @@
                                 extract($khoahoc);
                                 $suakh="index.php?act=suakh&idkhoahoc=".$idkhoahoc;
                                 $xoakh="index.php?act=xoakh&idkhoahoc=".$idkhoahoc;
+                                $hinhpath = "../upload/".$anh;
+                                if(is_file($hinhpath)){
+                                    $hinh = "<img src='".$hinhpath."' height='80'>";
+                                }
+                                else{
+                                    $hinh="no photo";
+                                }
                                 echo '<tr>
                                         <td><input type="checkbox"></td>
                                         <td>'.$idkhoahoc.'</td>
                                         <td>'.$tenkhoahoc.'</td>
                                         <td>'.$gia.'</td>
-                                        <td>'.$anh.'</td>
+                                        <td>'.$hinh.'</td>
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$suakh.'"><input type="button" value="Sửa"></a>
                                         <a href="'.$xoakh.'"><input type="button" value="Xóa"></a></td>
