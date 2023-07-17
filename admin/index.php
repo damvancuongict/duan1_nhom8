@@ -3,7 +3,6 @@
     include "../model/danhmuc.php";
     include "../model/khoahoc.php";
     include "../model/taikhoan.php";
-    include "../model/nguoidung.php";
     // include "../model/binhluan.php";
     include "header.php";
     //controller

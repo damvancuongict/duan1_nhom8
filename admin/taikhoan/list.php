@@ -18,12 +18,12 @@
                         
                             foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
-                                $suataikhoan="index.php?act=suataikhoan&id=".$id;
-                                $xoataikhoan="index.php?act=xoataikhoan&id=".$id;
+                                $suataikhoan="index.php?act=suataikhoan&id=".$iduser;
+                                $xoataikhoan="index.php?act=xoataikhoan&id=".$iduser;
                                 echo ' <tr>
                                 <td><input type="checkbox" name="" id=""></td>
-                                <td>'.$id.'</td>
-                                <td>'.$user.'</td>
+                                <td>'.$iduser.'</td>
+                                <td>'.$username.'</td>
                                 <td>'.$password.'</td>
                                 <td>'.$email.'</td>
                                 <td>'.$address.'</td>

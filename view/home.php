@@ -10,7 +10,7 @@
                 
                     foreach ($spnew as  $sp) {
                         extract($sp);
-                        $linkkh="index2.php?act=khoahocct&idkhoahoc=".$idkhoahoc;
+                        $linkkh="index2.php?act=dangkykhoahoc&idkhoahoc=".$idkhoahoc;
                         $anh=$img_path.$anh;
                         if(($i==2)||($i==5)||($i==8)){
                                 $mr="";
@@ -22,12 +22,14 @@
                             <p>Giá:'.$gia.'</p>
                             <a href="'.$linkkh.'"><strong>'.$tenkhoahoc.'</strong></a>
                                      <div class="row btnaddtocart" >
-                                        <form action="index2.php?act=addtocart" method="post">
+                                        <form action="index2.php?act=dangkykhoahoc&idkhoahoc" method="post">
                                         <input type="hidden" name="id" value="'.$idkhoahoc.'">
                                         <input type="hidden" name="name" value="'.$tenkhoahoc.'">
                                         <input type="hidden" name="img" value="'.$anh.'">
                                         <input type="hidden" name="price" value="'.$gia.'">
-                                        <input type="submit" name="addtocart"value="Đăng ký">
+                                        
+                                        <input formaction="'.$linkkh.'" type="submit" name="addtocart" value="Đăng ký">
+
                                         </form>
                                      </div>
                                     

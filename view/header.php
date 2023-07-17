@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="view/style.css">
+    
 </head>
 <body class="body__wrapper">
     <main class="main_wrapper">
