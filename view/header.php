@@ -25,6 +25,23 @@
     <link rel="stylesheet" href="view/style.css">
     
 </head>
+<style>
+
+.tong {
+display: flex;
+justify-content: space-between;
+margin: 80px;
+border 1
+}
+
+.boxtrai,
+.boxphai {
+flex-basis: 50%;
+box-sizing: border-box;
+margin-top: 150px;
+}
+
+</style>
 <body class="body__wrapper">
     <main class="main_wrapper">
 
