@@ -5,6 +5,7 @@
                 <div >
                         <div class="gridarea__wraper">
                             <div class="gridarea__img">
+                                
                     <?php
                     $i=0;
                 

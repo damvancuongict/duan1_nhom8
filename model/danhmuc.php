@@ -22,4 +22,5 @@
         $sql="update danhmuc set tendm='".$tendm."' where iddm=".$iddm;
         pdo_execute($sql);
     }
+  
 ?>

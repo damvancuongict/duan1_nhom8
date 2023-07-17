@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -27,19 +28,7 @@
 </head>
 <style>
 
-.tong {
-display: flex;
-justify-content: space-between;
-margin: 80px;
-border 1
-}
 
-.boxtrai,
-.boxphai {
-flex-basis: 50%;
-box-sizing: border-box;
-margin-top: 150px;
-}
 
 </style>
 <body class="body__wrapper">
@@ -101,9 +90,18 @@ margin-top: 150px;
                                         <i class="icofont-rounded-down"></i>
                                     </a>
                                             <ul class="headerarea__submenu">
-                                                <li><a href="course.html">lập trình mobile</a></li>
-                                                <li><a href="course-dark.html">lập trình webside</a></li>
-                                                <li><a href="course-list.html">khóa học máy tính</a></li>
+                                            <?php
+                                               
+                                                    foreach ($danhsach as  $dm) {
+                                                        extract($dm);
+                                                        $linkdm="index1.php?act=sanpham&iddm=".$iddm;
+                                                        echo '<li>
+                                                                <a href="'.$linkdm.'">'.$tendm.'</a>
+                                                            </li>';
+                                                    }
+                                                 
+                                            ?>
+                            
                                             </ul>
                                         </li>
 
