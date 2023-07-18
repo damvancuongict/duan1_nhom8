@@ -17,6 +17,7 @@
                 <li><a href="#">Trang chủ</a> </li>
                 <li><a href="index.php?act=adddm">Danh mục</a> </li>
                 <li><a href="index.php?act=addkh">Khóa học</a> </li>
+                <li><a href="index.php?act=addlop">Lớp học</a> </li>
                 <li><a href="index.php?act=taikhoan">Người dùng</a> </li>
                 <li><a href="#">Bình luận</a> </li>
                 <li><a href="#">Thống kê</a> </li>

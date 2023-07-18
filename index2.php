@@ -1,9 +1,12 @@
 <?php
-    
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
+<<<<<<< HEAD
     include "model/lop.php";
+=======
+    include "model/lophoc.php";
+>>>>>>> 37a12a8476c90912e101ed25170468710e15abed
     include "global.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
