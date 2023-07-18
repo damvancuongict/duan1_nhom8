@@ -1,8 +1,6 @@
 
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-
 <!-- Mirrored from html.themewin.com/edurock-preview/edurock/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Jul 2023 15:56:02 GMT -->
 <head>
     <meta charset="utf-8">
@@ -10,10 +8,8 @@
     <title>Index | Edurock - Education LMS Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
-
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
@@ -23,17 +19,12 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="view/style.css">
-    
+    <link rel="stylesheet" href="view/style.css">   
 </head>
 <style>
-
-
-
 </style>
 <body class="body__wrapper">
     <main class="main_wrapper">
-
         <!-- header section start -->
         <header>
             <div class="headerarea transparent__header header__sticky header__area">
@@ -52,7 +43,7 @@
                             <div class="headerarea__main__menu">
                                 <nav>
                                     <ul>
-                                        <li><a class="headerarea__has__dropdown" href="index.html">Trang chủ
+                                        <li><a class="headerarea__has__dropdown" href="index2.php">Trang chủ
                                         <!-- <i class="icofont-rounded-down"></i></a>
                                             <ul class="headerarea__submenu ">
                                                 <li><a href="index.html">Home Style 1</a></li>
@@ -85,27 +76,21 @@
                                                 <li><a href="blog-details-dark.html">Blog-details (Dark)</a></li>
                                             </ul>
                                         </li>
-
                                         <li><a class="headerarea__has__dropdown" href="course.html">Danh mục
                                         <i class="icofont-rounded-down"></i>
                                     </a>
                                             <ul class="headerarea__submenu">
                                             <?php
-                                               
                                                     foreach ($danhsach as  $dm) {
                                                         extract($dm);
-                                                        $linkdm="index1.php?act=sanpham&iddm=".$iddm;
+                                                        $linkdm="index2.php?act=khoahoc&iddm=".$iddm;
                                                         echo '<li>
                                                                 <a href="'.$linkdm.'">'.$tendm.'</a>
                                                             </li>';
-                                                    }
-                                                 
-                                            ?>
-                            
+                                                    }                                                 
+                                            ?>                            
                                             </ul>
                                         </li>
-
-
                                         <li><a class="headerarea__has__dropdown" href="instructor.html">Tin tức
                                         <!-- <i class="icofont-rounded-down"></i> </a>
                                             <ul class="headerarea__submenu">
@@ -124,12 +109,8 @@
                                                 <li><a href="error.html">Error</a></li>
                                                 <li><a href="error-dark.html">Error (Dark)</a></li>
                                             </ul>
-
                                         </li> -->
-
-
                                         <li><a href="contact.html">Liên hệ</a>
-
                                         </li>
                                     </ul>
                                 </nav>
@@ -140,19 +121,13 @@
                                 <div class="headerarea__login">
                                     <a href="login.html">Đăng nhập</a>
                                 </div>
-
-
                                 <div class="headerarea__button">
                                     <a href="#">Bắt đầu miến phí</a>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
-
                 <div class="container-fluid mob_menu_wrapper">
                     <div class="row align-items-center">
                         <div class="col-6">

@@ -3,7 +3,7 @@
     $sql="INSERT INTO khoahoc(tenkhoahoc,gia,anh,mota,iddm) values ('$tenkh','$gia','$filename','$mota','$iddm')";
     pdo_execute($sql);
 }
-function loadall_khoahoc($kyw="",$idkhoahoc=0){
+function loadall_khoahoc1($kyw="",$idkhoahoc=0){
     $sql="SELECT * FROM khoahoc WHERE 1";
     if($kyw!=""){
         $sql.=" AND tenkhoahoc LIKE '%".$kyw."%'";
@@ -13,6 +13,18 @@ function loadall_khoahoc($kyw="",$idkhoahoc=0){
     }
     $sql.=" ORDER BY idkhoahoc desc";
     $listkh=pdo_query($sql);
+    return $listkh;
+}
+function loadall_khoahoc($kyw="",$idkhoahoc=0){
+    $sql = "SELECT * FROM khoahoc WHERE 1";   
+    if ($kyw != "") {
+        $sql .= " AND tenkhoahoc LIKE '%" . $kyw . "%' ";
+    }   
+    if ($idkhoahoc > 0) {
+        $sql .= " AND idkhoahoc = '" .$idkhoahoc. "' ";
+    }    
+    $sql .= " ORDER BY idkhoahoc DESC";   
+    $listkh = pdo_query($sql); 
     return $listkh;
 }
 function delete_khoahoc($idkhoahoc){

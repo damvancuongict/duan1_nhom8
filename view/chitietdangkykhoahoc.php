@@ -1,4 +1,4 @@
-      <style>
+<style>
             .chitietdangky {
             width: 100%;
             background-color: #f5f5f5;
@@ -106,7 +106,7 @@
                                 ?>
                                 </div>
                             </div>
-                            <div class="boxphai">
+<div class="boxphai">
                                         <div class="form-container">
                                         
                                         <form action="submit.php" method="POST">
