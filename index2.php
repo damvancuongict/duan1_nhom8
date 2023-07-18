@@ -5,33 +5,20 @@
     include "model/danhmuc.php";
     include "global.php";
     $danhsach=loadall_danhmuc();
-    include "view/header.php";
+    include "view/header.php"; 
     $khoahoc = load8_khoahoc_home();
    
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'khoahoc': 
-               
-                    // if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
-                    //     $kyw=$_POST['kyw'];
-                    // }else{
-                    //     $kyw="";
-                    // }
-                    // if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
-                    //     $iddm=$_GET['iddm'];
-                         
-                    // }else{
-                    //     $iddm=0;
-                    // }
-                    // $dskh=loadall_khoahoc("",$iddm);
-                        
-                    // include "view/khoahoc.php";
+            case 'khoahoc':  
                   
-                
+              
                     if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                       
                         $iddm=$_GET['iddm'];
-                         $dskh=loadall_khoahoc("",$iddm);
+                         $dskh=loadall_kh_danhmuc("",$iddm);
+                    
                          include "view/khoahoc.php";
                       
                     }else{

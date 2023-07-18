@@ -3,7 +3,6 @@
         <div>
             <div class="gridarea__wraper">
                 <div class="gridarea__img">
-                    <h1>dam van cuong</h1>
                     <?php
                     $i = 0;   
                     foreach ($dskh as $kh) {    
