@@ -3,14 +3,18 @@
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
+    include "model/lop.php";
     include "global.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
-    $khoahoc = load8_khoahoc_home();
-   
+    $khoahoc =load8_khoahoc_home();
+    $lopch = loadall_lop();
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
+            case 'dangkylop':
+                include "view/dangkylop.php";
+                break;
             case 'khoahoc':  
                   
               
@@ -26,14 +30,8 @@
                     }
                    
                 break;
-            case 'khoahoc2': 
-               
-               
-         
-               
-                
-                break;
-               
+
+        
             case 'dangkykhoahoc':
                 if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
                     $id=$_GET['idkhoahoc'];
