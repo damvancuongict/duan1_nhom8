@@ -3,6 +3,7 @@
     include "../model/danhmuc.php";
     include "../model/khoahoc.php";
     include "../model/taikhoan.php";
+    include "../model/lophoc.php";
     // include "../model/binhluan.php";
     include "header.php";
     //controller
@@ -120,6 +121,24 @@
                 $listkh = loadall_khoahoc("",0);
                 include "khoahoc/addkh.php";
                 break;
+            case 'addlop' :
+                // kiểm tra xem người dùng có lick vào nút add hay không
+                if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                    $idkhoahoc=$_POST['idkhoahoc'];
+                    $tenlop=$_POST['tenlop'];
+                    $username=$_POST['username'];
+                    $cahoc=$_POST['cahoc'];
+                    $ngaybatdau=$_POST['ngaybatdau'];
+                    $ngayketthuc=$_POST['ngayketthuc'];
+                    
+                      insert_lophoc($tenlop,$username,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
+                    $thongbao= "thêm thành công !";
+                }
+                $listkh=loadall_khoahoc();
+                //var_dump($listdm);
+                include "lophoc/addlop.php";
+                break;
+
                 case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/list.php";

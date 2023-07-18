@@ -11,15 +11,31 @@
                             }
                         ?>
                      </select>
-                        </div>
+                </div>
+                
                 <div class="row mb10">
                     <label for="">Tên lớp</label><br>
                      <input type="text" name="tenlop" id="" >
                 </div>
-                <div class="row mb10">
+                <div class="row mb">
+                    <label for="">Giáo viên</label><br>
+                     <select name="iduser" id="">
+                        <?php
+                        $role = checkuser($user,$pass);
+                        $_SESSION['role'] = $role;
+                        if($role==2){
+                            foreach ($listuser as $user) {
+                                extract($user);
+                                echo '<option value="'.$iduser.'">'.$username.'</option>';
+                            }
+                        } 
+                        ?>
+                     </select>
+                </div>
+                <!-- <div class="row mb10">
                     <label for="">Giáo viên</label><br>
                      <input type="text" name="tengiaovien" id="" >
-                </div>
+                </div> -->
                 <div class="row mb10">
                     <label for="">Ca học</label><br>
                      <input type="text" name="cahoc" id="" >

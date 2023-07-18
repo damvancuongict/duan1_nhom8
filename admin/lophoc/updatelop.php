@@ -10,16 +10,16 @@ if(is_array($lophoc)){
             <div class="row formcontent">
                 <form action="index.php?act=updatelop" method="post" enctype="multipart/form-data">
                     <div class="row mb10">
-                    <select name="idkhoahoc">
-                        <option value="0" selected>Tất cả</option>
-                        <?php
-                            foreach ($listkhoahoc as $khoahoc){
-                                extract($khoahoc);
-                                if($idkhoahoc==$idkhoahoc) $s="selected"; else $s="";
-                                 echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
-                            }
-                        ?>
-                    </select>
+                        <select name="idkhoahoc">
+                            <option value="0" selected>Tất cả</option>
+                            <?php
+                                foreach ($listkhoahoc as $khoahoc){
+                                    extract($khoahoc);
+                                    if($idkhoahoc==$idkhoahoc) $s="selected"; else $s="";
+                                    echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
+                                }
+                            ?>
+                        </select>
                     </div>
                     <div class="row mb10">
                         Tên lớp học<br>
@@ -27,8 +27,8 @@ if(is_array($lophoc)){
                     </div>               
                     <div class="row mb10">
                         Giáo viên<br>
-                        <input type="text" name="giaovien" value="<?= $tengiaovien?>">
-                    </div>               
+                        <input type="text" name="username" value="<?= $username?>">
+                    </div>        
                     <div class="row mb10">
                         Ca học<br>
                         <input type="text" name="cahoc"> <?= $cahoc?>

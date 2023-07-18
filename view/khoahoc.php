@@ -1,20 +1,22 @@
 <div class="gridarea">
     <div class="container">
-    
+        <div>
             <div class="gridarea__wraper">
                 <div class="gridarea__img">
                     <?php
-                    $i = 0;
-                    foreach ($khoahoc as $sp) {
-                        extract($sp);
+                    $i = 0;   
+                    foreach ($dskh as $kh) {    
+                        // var_dump($dskh);
+                       extract($kh); 
                         $linkkh = "index2.php?act=dangkykhoahoc&idkhoahoc=" . $idkhoahoc;
                         $anh = $img_path . $anh;
-                        if (($i == 2) || ($i == 5) || ($i == 8)) {
+                        if (($i == 2) || ($i == 5) || ($i == 11)) {
                             $mr = "";
                         } else {
                             $mr = "mr";
-                        }
+                        }                      
                         echo '
+                        
                         <div class="boxsp ' . $mr . '">
                             <div class="roww img"><a href="' . $linkkh . '"><img src="' . $anh . '" alt=""></a></div>
                             <p>Giá: ' . $gia . '</p>
@@ -30,10 +32,13 @@
                             </div>
                         </div>';
                         $i += 1;
+                       
                     }
+             
                     ?>
+                    
                 </div>
             </div>
-        
+        </div>
     </div>
 </div>

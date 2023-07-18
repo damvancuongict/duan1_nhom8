@@ -15,6 +15,19 @@ function loadall_khoahoc($kyw="",$idkhoahoc=0){
     $listkh=pdo_query($sql);
     return $listkh;
 }
+function loadall_kh_danhmuc($kyw="",$idkhoahoc=0){
+    $sql = "SELECT * FROM khoahoc WHERE 1";   
+    if ($kyw != "") {
+        $sql .= " AND tenkhoahoc LIKE '%" . $kyw . "%' ";
+    }   
+    if ($idkhoahoc > 0) {
+        $sql .= " AND iddm = '" .$idkhoahoc. "' ";
+    }    
+    $sql .= " ORDER BY idkhoahoc DESC";   
+
+    $listkh = pdo_query($sql); 
+    return $listkh;
+}
 function delete_khoahoc($idkhoahoc){
     $sql="DELETE FROM khoahoc WHERE idkhoahoc=".$idkhoahoc;
     pdo_execute($sql);
