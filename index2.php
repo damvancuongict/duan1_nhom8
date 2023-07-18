@@ -2,6 +2,7 @@
     include "view/header.php";
     include "model/pdo.php";
     include "model/khoahoc.php";
+    include "model/lophoc.php";
     include "global.php";
 
     $spnew = load8_khoahoc_home();

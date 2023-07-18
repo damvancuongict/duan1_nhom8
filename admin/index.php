@@ -81,7 +81,7 @@
                     $idkhoahoc=0;
                 }
                 $listdanhmuc = loadall_danhmuc();
-                $listkh = loadall_khoahoc($kyw,$idkhoahoc);
+                $listkh = loadall_khoahoc($kyw,$idkhoahoc);             
                 include "khoahoc/listkh.php";
                 break;
             case 'xoakh':
