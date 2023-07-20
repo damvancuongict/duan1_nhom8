@@ -14,9 +14,7 @@
             case 'dangkylop':
                 include "view/dangkylop.php";
                 break;
-            case 'khoahoc':  
-                  
-              
+            case 'khoahoc':               
                     if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
                        
                         $iddm=$_GET['iddm'];

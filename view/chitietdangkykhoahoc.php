@@ -1,160 +1,210 @@
       <style>
+         
            
-         .chitietdangky {
-          
-          display: flex;
-          justify-content: center;
-           align-items: center;
-            /* Thay đổi các thuộc tính của phần tử chitietdangky ở đây */
-          }
+         
+         .boxtrai {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #eee;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .boxstitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-          
-          table {
-            /* Thay đổi các thuộc tính của bảng ở đây */
-            width: 100%;
-          }
+   
+    .boxstitle {
+        font-size: 30px; 
+        color: #007bff; 
+    }
+    .mr {
+        margin-right: 20px;
+    }
 
-          td {
-            /* Thay đổi các thuộc tính của ô trong bảng ở đây */
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ccc;
-          }
+    .boxcontent {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
 
-          .lop-options,
-          .cahoc-options {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-          }
+    .tong1 {
+        flex-basis: 60%;
+        display: flex;
+        align-items: center;
+    }
 
-          .lop-options div,
-          .cahoc-options div {
-            /* Thay đổi các thuộc tính của các tùy chọn lớp và ca học ở đây */
-            padding: 5px;
-            background-color: #f2f2f2;
-          }
+    .thumbnail-image {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 5px;
+    }
 
-          input[type="submit"] {
-            /* Thay đổi các thuộc tính của nút "Đăng ký" ở đây */
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-          }
-          .thumbnail-image {
-            max-width: 550px;
-            /* Thay đổi các thuộc tính của phần tử thumbnail-image ở đây */
-          }
-          .tong1{
-            display: flex;
-          }
-              .boxstitle {
-                      font-size: 24px;
-                      font-weight: bold;
-                      color: #333;
-                }
-                .chitiet{
-                
-                  width: 100%;
-                  margin-left:20px;
-                }
-      </style> 
-    <div class="gridarea">
-    <div class="container">
-        <div>
-            <div class="gridarea__wraper">
-                <div class="gridarea__img">
-                      <div class="chitietdangky">     
-                        <div class="tong">
-                          <div class="boxtrai mr">
-                                <?php 
-                                extract($kh);
-                                ?>
-                               <div>
-                                <div class="boxstitle"><?=$tenkhoahoc ?></div>
-                                <div class="row boxcontent">
-                                <?php
-                                    $anh=$img_path.$anh;
-                                    echo ' <div class="tong1" ><div class="row mb spct"> <img src="'.$anh.'" alt="" class="thumbnail-image"> </div>';
-                                    // echo '<div class="thu"> <img src="'.$hinh.'" alt="""> </div>';
-                                    echo '<div class="chitiet"><h3>Mã khóa học:'.$idkhoahoc.'</h3>';
-                                    echo '<h3>Giá:<span class="price">' . $gia . '</span></h3>';
-                                    echo '<h3>Lượt xem:'.$luotxem.'</h3> </div> </div>';
-                                    echo '<h3>Mô Tả:</h3>'.$mota;
-                                ?>
-                                </div>
+    .chitiet {
+        padding-left: 20px;
+    }
+
+ 
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .price {
+      color: #ff0000;
+    }
+
+    
+    p {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #ccc;
+    }
+
+    
+    .register-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .register-button:hover {
+        background-color: #45a049;
+    }
+
+    
+    td:first-child {
+        padding-left: 20px;
+    }
+
+   
+    tr:last-child td:last-child {
+        padding-bottom: 20px;
+    }
+
+    
+    .warning-message {
+        color: red;
+        font-size: 14px;
+        font-weight: bold;
+    }
+   
+
+</style> 
+                        <div class="gridarea">
+                          <div class="container">
+                              <div class="gridarea__wraper">
+                                  <div class="gridarea__img">
+                                  <div class="chitietdangky">
+                  <div class="tong">
+                    <div class="boxtrai mr">
+                      <?php 
+                      extract($kh);
+                      ?>
+                      <div>
+                        
+                        <div class="row boxcontent">
+                          <div class="tong1">
+                            
+                            <div class="row mb spct">
+                              <img src="<?=$img_path.$anh?>" alt="" class="thumbnail-image">
                             </div>
-                            <div class="boxphai">
-                                  <div class="form-container">
-                                  <table>
-                                        <tr>
-                                          <td><label for="tenlop">Tên Lớp</label></td>
-                                          <td>
-                                            <div class="lop-options">
-                                              <?php
-                                              foreach ($lopch as $row) {
-                                                extract($row);
-                                                echo '<div>Lớp ' . $tenlop . '</div>';
-                                              }
-                                              ?>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td><label for="cahoc">Ca học:</label></td>
-                                          <td>
-                                            <div class="cahoc-options">
-                                              <?php
-                                              foreach ($lopch as $row) {
-                                                extract($row);
-                                                echo '<div>' . $cahoc . '</div>';
-                                              }
-                                              ?>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td><label for="cahoc">Ngày bắt đâu:</label></td>
-                                          <td>
-                                            <div class="cahoc-options">
-                                              <?php
-                                              foreach ($lopch as $row) {
-                                                extract($row);
-                                                echo '<div>' . $ngaybatdau . '</div>';
-                                              }
-                                              ?>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        <tr>
-                                          <td><label for="cahoc">Ngày bắt kết thúc:</label></td>
-                                          <td>
-                                            <div class="cahoc-options">
-                                              <?php
-                                              foreach ($lopch as $row) {
-                                                extract($row);
-                                                echo '<div>' . $ngayketthuc . '</div>';
-                                              }
-                                              ?>
-                                            </div>
-                                          </td>
-                                        </tr>
-                                        
-                                          
-                                        </tr>
-                                      </table>
-                                      <button><a href="index2.php?act=dangkylop">Đăng ký</a></button> 
-                                            
-                                      
-                                  </div>
-                                </div>
-
-                                </div>
-        
+                            <div class="chitiet">
+                              <div class="boxstitle"><?=$tenkhoahoc ?></div>
+                              <h3>Mã khóa học:<?=$idkhoahoc?></h3>
+                              <h3>Giá:<span class="price"><?=$gia?></span></h3>
+                              <h3>Lượt xem:<?=$luotxem?></h3>
+                              
+                            </div>
                           </div>
+                          <h3>Mô Tả:</h3>
+                          <p><?=$mota?></p>
                         </div>
+                      </div>
+                    </div>
+                        <div class="boxphai">
+                          
+                            <div class="class-container">
+                            <table>
+                                <tr>
+                                    <th>Tên Lớp</th>
+                                    <th>Mã Lớp</th>
+                                    <th>Ca học</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Giá</th>
+                                    <th>Giảng viên</th>
+                                    <th>Số lượng</th>
+                                    <th>Đăng ký</th>
+                                </tr>
+                                <?php
+                                foreach ($lopch as $row) {
+                                    extract($row);
+                                    echo '<tr>';
+                                    echo '<td>' . $tenlop . '</td>';
+                                    echo '<td>' . $idlop . '</td>';
+                                    echo '<td>' . $cahoc . '</td>';
+                                    echo '<td>' . $ngaybatdau . '</td>';
+                                    echo '<td>' . $ngayketthuc . '</td>';
+                                    echo '<td>' . $gia . '</td>';
+                                    echo '<td>' . $username . '</td>';
+                                    echo '<td>' . $soluong . '/' . $soluongtoida . '</td>';
+                                    echo '<td>';
+                                    if ($soluong >= $soluongtoida) {
+                                        echo '<p style="color: red;">Số lượng học viên đã đầy</p>';
+                                    } else {
+                                        echo '<button type="button" class="register-button" onclick="registerClass(' . $idlop . ')">Đăng ký</button>';
+                                    }
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </table>
+
+                            </div>
+                            <input type="hidden" id="selected_classes" name="selected_classes" value="">
+                            <button type="submit" style="display: none;" id="submit_button">Submit</button>
+                          
+
+                          <script>
+                            function registerClass(classId) {
+                              var selectedClasses = document.getElementById('selected_classes').value;
+                              if (selectedClasses.length > 0) {
+                                selectedClasses += ',';
+                              }
+                              selectedClasses += classId;
+                              document.getElementById('selected_classes').value = selectedClasses;
+                              document.getElementById('submit_button').click();
+                            }
+                          </script>
+                        </div>
+  </div>
+</div>
+
+        
+                         
+                    </div>
                 </div>
             </div>
         </div>
