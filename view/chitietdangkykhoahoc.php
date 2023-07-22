@@ -1,150 +1,212 @@
-<style>
-            .chitietdangky {
-            width: 100%;
-            background-color: #f5f5f5;
-            margin-top:100px;
-            padding: 20px;
-            }
-
-            .tong {
-            display: flex;
-            justify-content: space-between;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-top:0;
-            }
-
-            .boxtrai {
-            flex-basis: 65%;
-            margin-top:10px;
-            margin-left:60px;
-        
+      <style>
+         
            
-            }
+         
+         .boxtrai {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #eee;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .boxstitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-            .boxphai {
-                flex-basis: 35%;
-                margin-top: 1px;
-                display: flex;
-                align-items: center;
-                }
-                .boxstitle {
-                font-size: 24px;
-                font-weight: bold;
-                color: blue;
-                margin-bottom: 10px;
-            }
+   
+    .boxstitle {
+        font-size: 30px; 
+        color: #007bff; 
+    }
+    .mr {
+        margin-right: 20px;
+    }
 
-            .price {
-                color: red;
-            }
-.thumbnail-image {
-    width: 300px; //
-    height: auto;
-    margin-bottom: 10px;
-}
+    .boxcontent {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
 
-.form-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+    .tong1 {
+        flex-basis: 60%;
+        display: flex;
+        align-items: center;
+    }
 
-.form-container label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+    .thumbnail-image {
+        max-width: 100%;
+        max-height: 200px;
+        border-radius: 5px;
+    }
 
-.form-container select,
-.form-container input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-}
+    .chitiet {
+        padding-left: 20px;
+    }
 
-.form-container input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+ 
+    h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-.form-container input[type="submit"]:hover {
-  background-color: #45a049;
-}
+    .price {
+      color: #ff0000;
+    }
 
-      </style> 
-                <div class="chitietdangky">
+    
+    p {
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
 
-      
-                        <div class="tong">
-                          <div class="boxtrai mr">
-                                <?php 
-                                extract($kh);
-                                ?>
-                                <div class="boxstitle"><?=$tenkhoahoc ?></div>
-                                <div class="row boxcontent">
-                                <?php
-                                    $anh=$img_path.$anh;
-                                    echo '<div class="row mb spct"> <img src="'.$anh.'" alt="" class="thumbnail-image"> </div>';
-                                    // echo '<div class="thu"> <img src="'.$hinh.'" alt="""> </div>';
-                                    echo '<h3>Mã khóa học:'.$idkhoahoc.'</h3>';
-                                    echo '<h3>Giá:<span class="price">' . $gia . '</span></h3>';
-                                    echo '<h3>Lượt xem:'.$luotxem.'</h3>';
-                                    echo '<h3>Mô Tả:</h3>'.$mota;
-                                ?>
-                                </div>
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #ccc;
+    }
+
+    
+    .register-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .register-button:hover {
+        background-color: #45a049;
+    }
+
+    
+    td:first-child {
+        padding-left: 20px;
+    }
+
+   
+    tr:last-child td:last-child {
+        padding-bottom: 20px;
+    }
+
+    
+    .warning-message {
+        color: red;
+        font-size: 14px;
+        font-weight: bold;
+    }
+   
+
+</style> 
+                        <div class="gridarea">
+                          <div class="container">
+                              <div class="gridarea__wraper">
+                                  <div class="gridarea__img">
+                                  <div class="chitietdangky">
+                  <div class="tong">
+                    <div class="boxtrai mr">
+                      <?php 
+                      extract($kh);
+                      ?>
+                      <div>
+                        
+                        <div class="row boxcontent">
+                          <div class="tong1">
+                            
+                            <div class="row mb spct">
+                              <img src="<?=$img_path.$anh?>" alt="" class="thumbnail-image">
                             </div>
-<div class="boxphai">
-                                        <div class="form-container">
-                                        
-                                        <form action="submit.php" method="POST">
-                                            <label for="iduser">Email</label>
-                                            <input type="text" id="iduser" name="iduser" required>
-                                            <label for="tenlop">Tên Lớp</label>
-                                            <select id="idlop" name="idlop" required>
-                                                <option value="">-- Chọn lớp --</option>
-                                                <option value="lop1">Lớp 1</option>
-                                                <option value="lop2">Lớp 2</option>
-                                                <option value="lop3">Lớp 3</option>
-                                                <!-- Thêm các lớp khác vào đây -->
-                                                </select>   
-                                            
-                                            <label for="cahoc">Ca học:</label>
-                                                <select id="cahoc" name="cahoc" required>
-                                                <option value="">-- Chọn ca học --</option>
-                                                <?php
-                                                    // Lấy dữ liệu ca học từ ngôn ngữ PHP (ví dụ: mảng $listCaHoc chứa danh sách ca học)
-                                                    $listCaHoc = array("Ca 1", "Ca 2", "Ca 3", "Ca 4");
+                            <div class="chitiet">
+                              <div class="boxstitle"><?=$tenkhoahoc ?></div>
+                              <h3>Mã khóa học:<?=$idkhoahoc?></h3>
+                              <h3>Giá:<span class="price"><?=$gia?></span></h3>
+                              <h3>Lượt xem:<?=$luotxem?></h3>
+                              
+                            </div>
+                          </div>
+                          <h3>Mô Tả:</h3>
+                          <p><?=$mota?></p>
+                        </div>
+                      </div>
+                    </div>
+                        <div class="boxphai">
+                          
+                            <div class="class-container">
+                            <table>
+                                <tr>
+                                    <th>Tên Lớp</th>
+                                    <th>Mã Lớp</th>
+                                    <th>Ca học</th>
+                                    <th>Ngày bắt đầu</th>
+                                    <th>Ngày kết thúc</th>
+                                    <th>Giá</th>
+                                    <th>Giảng viên</th>
+                                    <th>Số lượng</th>
+                                    <th>Đăng ký</th>
+                                </tr>
+                                <?php
+                                foreach ($lopch as $row) {
+                                    extract($row);
+                                    echo '<tr>';
+                                    echo '<td>' . $tenlop . '</td>';
+                                    echo '<td>' . $idlop . '</td>';
+                                    echo '<td>' . $cahoc . '</td>';
+                                    echo '<td>' . $ngaybatdau . '</td>';
+                                    echo '<td>' . $ngayketthuc . '</td>';
+                                    echo '<td>' . $gia . '</td>';
+                                    echo '<td>' . $username . '</td>';
+                                    echo '<td>' . $soluong . '/' . $soluongtoida . '</td>';
+                                    echo '<td>';
+                                    if ($soluong >= $soluongtoida) {
+                                        echo '<p style="color: red;">Số lượng học viên đã đầy</p>';
+                                    } else {
+                                        echo '<button type="button" class="register-button" onclick="registerClass(' . $idlop . ')">Đăng ký</button>';
+                                    }
+                                    echo '</td>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </table>
 
-                                                    // Duyệt qua danh sách và tạo các tùy chọn
-                                                    foreach ($listCaHoc as $cahoc) {
-                                                    // Kiểm tra nếu giá trị $cahoc trùng với giá trị đã được chọn trước đó
-                                                    $selected = ($cahoc == $selectedCaHoc) ? 'selected' : '';
+                            </div>
+                            <input type="hidden" id="selected_classes" name="selected_classes" value="">
+                            <button type="submit" style="display: none;" id="submit_button">Submit</button>
+                          
 
-                                                    // In ra các tùy chọn
-                                                    echo '<option value="' . $cahoc . '" ' . $selected . '>' . $cahoc . '</option>';
-                                                    }
-                                                ?>
-                                                </select>
-                                            <label for="gia">Giá:</label>
-                                            <input type="text" id="gia" name="gia" required>
-                                            <input type="submit" value="Đăng ký">
-                                        </form>
-                                        </div>
-                                    </div>
+                          <script>
+                            function registerClass(classId) {
+                              var selectedClasses = document.getElementById('selected_classes').value;
+                              if (selectedClasses.length > 0) {
+                                selectedClasses += ',';
+                              }
+                              selectedClasses += classId;
+                              document.getElementById('selected_classes').value = selectedClasses;
+                              document.getElementById('submit_button').click();
+                            }
+                          </script>
+                        </div>
+  </div>
+</div>
 
-                                </div>
         
-                 </div>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+                    

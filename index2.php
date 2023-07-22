@@ -1,20 +1,25 @@
 <?php
+<<<<<<< HEAD
     session_start();
+=======
+>>>>>>> 5589562e5ae5fb9ec627cce1caff3cafae6e760c
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
+    include "model/lophoc.php";
     include "global.php";
     include "model/taikhoan.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
-    $khoahoc = load8_khoahoc_home();
-   
+    $khoahoc =load8_khoahoc_home();
+    $lopch = loadall_lop();
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'khoahoc':  
-                  
-              
+            case 'dangkylop':
+                include "view/dangkylop.php";
+                break;
+            case 'khoahoc':               
                     if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
                        
                         $iddm=$_GET['iddm'];
@@ -27,6 +32,7 @@
                     }
                    
                 break;
+<<<<<<< HEAD
             case 'dangky': 
                 if(isset($_POST['dangky'])&&($_POST['dangky'])){
                     $username=$_POST['username'];
@@ -73,6 +79,10 @@
                 include "view/dangnhap.php";
                 break;
                
+=======
+
+        
+>>>>>>> 5589562e5ae5fb9ec627cce1caff3cafae6e760c
             case 'dangkykhoahoc':
                 if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
                     $id=$_GET['idkhoahoc'];
