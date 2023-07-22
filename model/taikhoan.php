@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 function loadalltaikhoan() {
     $sql = "SELECT * FROM user ORDER BY iduser DESC";
     $listtaikhoan = pdo_query($sql);
@@ -15,16 +14,15 @@ function loadalltaikhoan() {
 //     $sql="insert into user(email,username,password) values('$email','$user','$pass')";
 //     pdo_execute($sql);
 // }
-function checkuser($username,$password){
-    $sql="select * from user where username='".$username."' AND password='".$password."'";
-    $role=pdo_query_one($sql);
-    return $role[0]['role'];
-=======
+// function checkuser($username,$password){
+//     $sql="select * from user where username='".$username."' AND password='".$password."'";
+//     $role=pdo_query_one($sql);
+//     return $role[0]['role'];
+// }
 function loadall_user(){
     $sql="select * from user order by iduser desc";
     $listuser=pdo_query($sql);
     return $listuser;
->>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0
 }
 function insert_user($username,$password,$email,$address,$tel){
     $sql="INSERT INTO `user` ( `username`, `password`, `email`, `address`, `tel`) VALUES ('$username', '$password', '$email', '$address', '$tel')";

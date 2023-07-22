@@ -3,8 +3,6 @@
         $sql="INSERT INTO lop(tenlop,iduser,cahoc,ngaybatdau,ngayketthuc,idkhoahoc) values ('$tenlop','$iduser','$cahoc','$ngaybatdau,$ngayketthuc','$idkhoahoc')";
         pdo_execute($sql);
     }
-<<<<<<< HEAD
-    
     function loadall_lophoc($kyw="",$idkhoahoc=0){
         $sql="SELECT * FROM lophoc WHERE 1";
         if($kyw!=""){
@@ -30,7 +28,6 @@
     //     $listlop = pdo_query($sql); 
     //     return $listlop;
     // }
-=======
     function loadall_lop(){
         $sql = "SELECT l.tenlop, l.cahoc,l.idlop,l.idkhoahoc,l.soluong,l.soluongtoida, l.ngaybatdau, l.ngayketthuc, l.soluong, u.username
         FROM lop l
@@ -40,5 +37,4 @@
         return $listlop;
     
     }
->>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0
 ?>

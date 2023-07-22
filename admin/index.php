@@ -138,7 +138,7 @@
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
-<<<<<<< HEAD
+
             case 'listlop':
                 if(isset($_POST['listlop'])&&($_POST['listlop'])){
                     $kyw=$_POST['kyw'];
@@ -152,10 +152,8 @@
                 $listlop = loadall_lophoc($kyw,$idlop);             
                 include "lophoc/listlop.php";
                 break;
-            case 'taikhoan':
-=======
 
-                case 'taikhoan':
+            case 'taikhoan':
                     $listtaikhoan=loadall_user();
                     include "taikhoan/list.php";
                     break;
@@ -163,7 +161,6 @@
                     if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
                         delete_tk($_GET['iduser']);
                     }
->>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/list.php";
                     break;
