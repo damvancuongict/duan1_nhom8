@@ -140,7 +140,7 @@
                 break;
 
                 case 'taikhoan':
-                    $listtaikhoan=loadalltaikhoan();
+                    $listtaikhoan=loadall_user();
                     include "taikhoan/list.php";
                     break;
                 case 'deletetk':
