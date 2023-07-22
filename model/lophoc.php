@@ -21,6 +21,19 @@
     //         $sql .= " AND tenlop LIKE '%" . $kyw . "%' ";
     //     }   
     //     if ($idlop > 0) {
+    //         $sql .= " AND idkhoahoc = '" .$idlop. "' ";
+    //     }    
+    //     $sql .= " ORDER BY idlop DESC";   
+    
+    //     $listlop = pdo_query($sql); 
+    //     return $listlop;
+    // }
+    // function loadall_lop_user($kyw="",$iduser=0){
+    //     $sql = "SELECT * FROM lophoc WHERE 1";   
+    //     if ($kyw != "") {
+    //         $sql .= " AND tenlop LIKE '%" . $kyw . "%' ";
+    //     }   
+    //     if ($idlop > 0) {
     //         $sql .= " AND iduser = '" .$idlop. "' ";
     //     }    
     //     $sql .= " ORDER BY idlop DESC";   
