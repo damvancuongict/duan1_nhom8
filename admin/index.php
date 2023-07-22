@@ -126,20 +126,32 @@
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                     $idkhoahoc=$_POST['idkhoahoc'];
                     $tenlop=$_POST['tenlop'];
-                    $username=$_POST['username'];
+                    $iduser=$_POST['iduser'];
+                    // $username=$_POST['username'];
                     $cahoc=$_POST['cahoc'];
                     $ngaybatdau=$_POST['ngaybatdau'];
                     $ngayketthuc=$_POST['ngayketthuc'];
-                    
-                      insert_lophoc($tenlop,$username,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
+                      insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
                     $thongbao= "thêm thành công !";
                 }
                 $listkh=loadall_khoahoc();
-                //var_dump($listdm);
+                $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
-
-                case 'taikhoan':
+            case 'listlop':
+                if(isset($_POST['listlop'])&&($_POST['listlop'])){
+                    $kyw=$_POST['kyw'];
+                    $idlop=$_POST['idlop'];
+                }else{
+                    $kyw='';
+                    $idlop=0;
+                }
+                $listkhoahoc = loadall_khoahoc();
+                $listtaikhoan=loadalltaikhoan();
+                $listlop = loadall_lophoc($kyw,$idlop);             
+                include "lophoc/listlop.php";
+                break;
+            case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/list.php";
                     break;

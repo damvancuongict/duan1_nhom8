@@ -24,7 +24,7 @@
                                         <td><input type="checkbox"></td>
                                         <td>'.$idlop.'</td>
                                         <td>'.$tenlop.'</td>
-                                        <td>'.$username.'</td>
+                                        <td>'.$iduser.'</td>
                                         <td>'.$cahoc.'</td>
                                         <td>'.$ngaybatdau.'</td>
                                         <td>'.$ngayketthuc.'</td>

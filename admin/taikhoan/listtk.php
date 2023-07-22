@@ -5,7 +5,7 @@
                     <tr>
                         <th></th>
                         <th>MÃ TÀI KHOẢN</th>
-                        <th>TÊN TÊN TÀI KHOẢN</th>
+                        <th>TÊN TÀI KHOẢN</th>
                         <th>MẬT KHẨU</th>   
                         <th>EMAIL</th>   
                         <th>ĐỊA CHỈ</th>   
@@ -18,8 +18,8 @@
                         
                             foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
-                                $suataikhoan="index.php?act=suataikhoan&id=".$iduser;
-                                $xoataikhoan="index.php?act=xoataikhoan&id=".$iduser;
+                                $suataikhoan="index.php?act=suataikhoan&iduser=".$iduser;
+                                $xoataikhoan="index.php?act=xoataikhoan&iduser=".$iduser;
                                 echo ' <tr>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td>'.$iduser.'</td>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    ob_start();
+?>
 <div class="row header" ><h1>THÊM MỚI LỚP HỌC</h1></div>
         <div class="row formcontend" >
             <form action="index.php?act=addlop" method="post" enctype="multipart/form-data">
@@ -21,21 +25,31 @@
                     <label for="">Giáo viên</label><br>
                      <select name="iduser" id="">
                         <?php
-                        $role = checkuser($user,$pass);
-                        $_SESSION['role'] = $role;
-                        if($role==2){
-                            foreach ($listuser as $user) {
-                                extract($user);
-                                echo '<option value="'.$iduser.'">'.$username.'</option>';
-                            }
-                        } 
+                        // $role = checkuser($username,$password);
+                        // $_SESSION['role'] = $role;
+                        // if($role==2){
+                            
+                        //     foreach ($listuser as $user) {
+                        //         extract($user);
+                                
+                        //         // if($iduser==$iduser) $s="selected"; else $s="";
+                        //         //  echo '<option value="'.$iduser.'" '.$s.'>'.$username.'</option>';
+                        //         echo '<option value="'.$iduser.'">'.$username.'</option>';
+                        //     }
+                        // } else{
+                        //     echo 'ok';
+                        // }
+                        // foreach ($listtk as $user) {
+                        //     extract($user);
+                        //     echo '<option value="'.$iduser.'">'.$username.'</option>';
+                        // }
+                        foreach ($listtk as $taikhoan) {
+                            extract($taikhoan);
+                            echo '<option value="'.$iduser.'">'.$username.'</option>';
+                        }
                         ?>
                      </select>
                 </div>
-                <!-- <div class="row mb10">
-                    <label for="">Giáo viên</label><br>
-                     <input type="text" name="tengiaovien" id="" >
-                </div> -->
                 <div class="row mb10">
                     <label for="">Ca học</label><br>
                      <input type="text" name="cahoc" id="" >
@@ -48,10 +62,6 @@
                     <label for="">Ngày kết thúc</label><br>
                      <input type="text" name="ngayketthuc" id="" >
                 </div>
-                <!-- <div class="row mb10">
-                    <label for="">Ngày kết thúc</label><br>
-                     <textarea name="ngayketthuc" id="" cols="30" rows="10"></textarea>
-                </div> -->
                 <div class="row mb10">
                     <input type="submit" name="themmoi" value="Thêm Mới">
                     <input type="reset" value="Nhập Lại">
