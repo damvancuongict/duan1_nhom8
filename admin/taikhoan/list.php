@@ -18,8 +18,8 @@
                         
                             foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
-                                $suataikhoan="index.php?act=suataikhoan&id=".$iduser;
-                                $xoataikhoan="index.php?act=xoataikhoan&id=".$iduser;
+                                $suataikhoan="index.php?act=updatetk&iduser=".$iduser;
+                                $xoataikhoan="index.php?act=deletetk&iduser=".$iduser;
                                 echo ' <tr>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td>'.$iduser.'</td>
@@ -31,7 +31,7 @@
                                 <td>'.$role.'</td>
                                 <td><a href="'.$suataikhoan.'"><input type="button" value="Sửa"></a>
                                 <a href="'.$xoataikhoan.'"><input type="button" value="Xóa"></a>
-                                    </td>   
+                                </td>   
                                       </tr>';
                             }
                         ?> 
@@ -43,7 +43,7 @@
                 <input type="button" value="Chọn Tất Cả">
                 <input type="button" value="Bỏ Chọn Tất cả">
                 <input type="button" value="Xóa các Mục Đã Chọn">
-                <a href="index.php?act=dstk"><input type="button" value="Nhập Thêm"></a>
+                <a href="#"><input type="button" value="Nhập Thêm"></a>
                 
                 
             </div>

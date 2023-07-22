@@ -5,6 +5,7 @@
     include "model/danhmuc.php";
     include "model/lophoc.php";
     include "global.php";
+    include "model/taikhoan.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
     $khoahoc =load8_khoahoc_home();
@@ -44,8 +45,36 @@
                     }
                    
                 break;
-
-        
+            case 'dangky': 
+                if(isset($_POST['dangky'])&&($_POST['dangky'])){
+                    $username=$_POST['username'];
+                    $password=$_POST['password'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    insert_user($username,$password,$email,$address,$tel);
+                    $thongbao="Đăng ký thành công";
+                }
+                include "view/dangky.php";
+                break;
+            case 'dangnhap': 
+                if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                    $username=$_POST['username'];
+                    $password=$_POST['password'];
+                    $email=$_POST['email'];
+                    $checkuser=checkuser($username, $password);
+                   
+                    if(is_array($checkuser)){
+                        $_SESSION['username']=$checkuser; 
+                        // $thongbao="Đăng nhập thành công";
+                        header('Location: index2.php');
+                }else{
+                    $thongbao="Tài khoản không tồn tại! Vui lòng kiểm tra lại và đăng ký!";
+                }
+            }
+                include "view/dangnhap.php";
+                break;
+            
             case 'dangkykhoahoc':
                 if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
                     $id=$_GET['idkhoahoc'];
@@ -60,7 +89,7 @@
                 break;
 
             default:
-               
+               include "index2.php";
                 break;
         }
     } else {
