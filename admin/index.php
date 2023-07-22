@@ -138,6 +138,7 @@
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
+<<<<<<< HEAD
             case 'listlop':
                 if(isset($_POST['listlop'])&&($_POST['listlop'])){
                     $kyw=$_POST['kyw'];
@@ -152,9 +153,42 @@
                 include "lophoc/listlop.php";
                 break;
             case 'taikhoan':
+=======
+
+                case 'taikhoan':
+                    $listtaikhoan=loadall_user();
+                    include "taikhoan/list.php";
+                    break;
+                case 'deletetk':
+                    if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
+                        delete_tk($_GET['iduser']);
+                    }
+>>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/list.php";
                     break;
+                case 'suatk' :
+                    if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
+                        $taikhoan =loadone_tk($_GET['iduser']);
+                    }
+                    $listtaikhoan = loadalltaikhoan();
+                    include "taikhoan/updatetk.php";
+                    break;
+                case 'updatetk' :
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $iduser=$_POST['iduser'];
+                    $username=$_POST['username'];
+                    $password=$_POST['password'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $role=$_POST['role'];
+                    update_tk($iduser,$username,$password,$email,$address,$tel,$role);
+                    $thongbao="Cập nhật thành công";
+                }
+                $listtaikhoan = loadalltaikhoan();
+                include "taikhoan/updatetk.php";
+                break;
     //         case 'dsbl':
     //             $listbinhluan=loadall_binhluan(0);
     //             include "binhluan/list.php";

@@ -76,7 +76,7 @@
                                                 <li><a href="blog-details-dark.html">Blog-details (Dark)</a></li>
                                             </ul>
                                         </li>
-                                        <li><a class="headerarea__has__dropdown" href="course.html">Danh mục
+                                        <li><a class="headerarea__has__dropdown" href="index2.php">Danh mục
                                         <i class="icofont-rounded-down"></i>
                                     </a>
                                             <ul class="headerarea__submenu">
@@ -118,11 +118,30 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6">
                             <div class="headerarea__right">
+                            <!-- <img src="img/user.jpg" alt="" width="25px" height="25px"> -->
+                                <?php 
+                                    if(isset($_SESSION['username'])){
+                                        extract($_SESSION['username']);
+                                ?>
+                                        <div>
+                                            <img src="img/user.jpg" alt="" width="25px" height="25px"><?=$username?>
+                                        </div>
+                                        <div class="headerarea__login">
+                                            <a href="index2.php?act=capnhattk">Cập nhật</a>
+                                        </div>
+                                        <div class="headerarea__login">
+                                            <a href="index2.php?act=thoat">Đăng xuất</a>
+                                        </div>
+                                <?php
+                                    }else{
+                                        ?>
+                                   
                                 <div class="headerarea__login">
-                                    <a href="login.html">Đăng nhập</a>
+                                    <a href="index2.php?act=dangnhap">Đăng nhập</a>
                                 </div>
-                                <div class="headerarea__button">
-                                    <a href="#">Bắt đầu miến phí</a>
+                                <?php } ?>
+                                <div class="headerarea__login">
+                                    <a href="index2.php?act=dangky">Đăng ký</a>
                                 </div>
                             </div>
                         </div>
