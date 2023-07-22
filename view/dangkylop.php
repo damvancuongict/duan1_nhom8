@@ -1,97 +1,71 @@
+
 <style>
-  /* ... (existing styles) ... */
-
-  .class-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* This will create two columns with equal width */
-    grid-gap: 20px; /* Adjust this to set the gap between class boxes */
-    width: 1000px;
+    .green {
+    color: green;
   }
 
-  .class-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
+  .blue {
+    color: blue;
   }
-
-  .register-button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+  .yellow {
+    color:blue;
   }
-  .class-container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .class-box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      width: 300px;
-    }
-    .register-button {
-      margin-top: 10px;
-    }
+  .red {
+    color:red;
+  }
+  .boxphai{
+    margin-top:140px;
+  }
 </style>
-<div class="gridarea">
-  <div class="container">
-    <div class="gridarea__wraper">
-      <div class="gridarea__img">
-        <div class="boxphai">
-          <div class="form-container">
-            <h2>Đăng ký khóa học</h2>
-            <form action="process_registration.php" method="POST">
-    <div class="class-container">
-      <?php
-      // $lopch là mảng dữ liệu chứa thông tin lớp học
-      // Dữ liệu mẫu dưới đây, bạn cần điều chỉnh cho phù hợp với dữ liệu thực tế
-      $lopch = [
-        [
-          'tenlop' => 'Lớp Toán Cơ Bản',
-          'cahoc' => '08:00 - 10:00',
-          'ngaybatdau' => '2023-07-25',
-          'ngayketthuc' => '2023-09-15',
-          'ma_khoahoc' => '35',
-          'gia' => '120000',
-          'giangvien' => 'Hoàng Đình Thắng',
-          'idlop' => 1
-        ],
-        [
-          'tenlop' => 'Lớp Lập Trình PHP',
-          'cahoc' => '14:00 - 16:00',
-          'ngaybatdau' => '2023-08-10',
-          'ngayketthuc' => '2023-10-05',
-          'ma_khoahoc' => '36',
-          'gia' => '150000',
-          'giangvien' => 'Nguyễn Thị Hương',
-          'idlop' => 2
-        ],
-        // Thêm các dữ liệu lớp học khác nếu cần
-      ];
+<body>
+   
 
-      foreach ($lopch as $row) {
-        extract($row);
-        echo '<div class="class-box">';
-        echo '<label for="tenlop">Tên Lớp</label>: ' . $tenlop . '<br>';
-        echo '<label for="cahoc">Ca học</label>: ' . $cahoc . '<br>';
-        echo '<label for="ngaybatdau">Ngày bắt đầu</label>: ' . $ngaybatdau . '<br>';
-        echo '<label for="ngayketthuc">Ngày kết thúc</label>: ' . $ngayketthuc . '<br>';
-        echo '<label for="ma_khoahoc">Mã khóa học</label>: ' . $ma_khoahoc . '<br>';
-        echo '<label for="gia">Giá</label>: ' . $gia . '<br>';
-        echo '<label for="giangvien">Giảng viên</label>: ' . $giangvien . '<br>';
-        echo '<input type="checkbox" name="lop[]" value="' . $idlop . '"> Đăng ký<br>';
-        echo '<button type="submit" class="register-button">Đăng ký</button>';
-        echo '</div>';
-      }
-      ?>
-    </div>
-  </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    
+      <div class="boxphai">
+                           <h1>Thông tin cá nhân của học viên</h1>
+                          <div class="class-container">
+                          <table>
+                              <tr>
+                                  <th>Tên Lớp</th>
+                                  <th>Mã Lớp</th>
+                                  <th>Ca học</th>
+                                  <th>Ngày bắt đầu</th>
+                                  <th>Ngày kết thúc</th>
+                                  <th>Giá</th>
+                                  <th>Giảng viên</th>
+                                  <th>Số lượng</th>
+                                  <th>Đăng ký</th>
+                              </tr>
+                              <?php
+                           
+
+                            // Kiểm tra tính tồn tại và dữ liệu của biến $_SESSION['addlop']
+                            if (isset($_SESSION['addlop']) && !empty($_SESSION['addlop'])) {
+                                foreach ($_SESSION['addlop'] as $row) {
+                                    extract($row);
+                                    echo '<tr>';
+                                    echo '<td><span class="blue"> '.$row[0].'</td>';
+                                    echo '<td>' . $row[1] . '</td>';
+                                    echo '<td>' . $row[3] . '</td>';
+                                    echo '<td>' . $row[4] . '</td>';
+                                    echo '<td>' . $row[5] . '</td>';
+                                    echo '<td><span class="red"> '.$row[6] .'</td>';
+                                    echo '<td><span class="yellow"> '.$row[7].'';
+                                    echo ' <td><span class="green"> '.$row[8].' </span>/<span class="blue">  '.$row[9].'</span></td>';
+                                    echo '<td>';
+
+                                    // ... Code xử lý thêm nút Đăng ký hoặc các thao tác khác ...
+
+                                    echo '</tr>';
+                                }
+                            } else {
+                                // Xử lý trường hợp khi biến $_SESSION['addlop'] không tồn tại hoặc không có dữ liệu
+                                echo '<tr><td colspan="9">Không có thông tin lớp học đăng ký.</td></tr>';
+                            }
+                       
+                            ?>
+                          </table>
+
+                          </div>
+    
+

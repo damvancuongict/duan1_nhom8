@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
@@ -11,7 +12,23 @@
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'dangkylop':
+            case 'addlop':
+                // // Kiểm tra và khởi tạo biến $_SESSION['addlop'] nếu nó chưa tồn tại hoặc không phải là một mảng
+                // if (!isset($_SESSION['addlop']) || !is_array($_SESSION['addlop'])) {
+                //     $_SESSION['addlop'] = array();
+                // }
+    
+                // if (isset($_POST['idlop']) && $_POST['idlop']) {
+                   
+                //     $tenlop = $_POST['tenlop'];
+                //      $idlop = $_POST['idlop'];
+                //     $gia = $_POST['gia'];
+                //     $ngaybatdau = $_POST['ngaybatdau'];
+                //     $ngayketthuc = $_POST['ngayketthuc'];
+                //     $username = $_POST['username'];
+                //     $addlop = [$idlop, $tenlop, $gia, $ngaybatdau, $ngayketthuc, $username];
+                //     $_SESSION['addlop'][] = $addlop;
+                // }
                 include "view/dangkylop.php";
                 break;
             case 'khoahoc':               

@@ -4,7 +4,7 @@
         pdo_execute($sql);
     }
     function loadall_lop(){
-        $sql = "SELECT l.tenlop, l.cahoc,l.idlop,l.soluong,l.soluongtoida, l.ngaybatdau, l.ngayketthuc, l.soluong, u.username
+        $sql = "SELECT l.tenlop, l.cahoc,l.idlop,l.idkhoahoc,l.soluong,l.soluongtoida, l.ngaybatdau, l.ngayketthuc, l.soluong, u.username
         FROM lop l
         JOIN user u ON l.iduser = u.iduser
         WHERE u.role = 2";
