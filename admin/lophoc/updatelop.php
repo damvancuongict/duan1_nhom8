@@ -1,24 +1,87 @@
+<style>
+    .table {
+    width: 400px;
+    margin-top: 25px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-right:800px;
+}
+.formtitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formcontent {
+    text-align: center;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    margin-top: 5px;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+</style>
+
 <?php 
-if(is_array($lophoc)){
-    extract($lophoc);
+if(is_array($lop)){
+    extract($lop);
 }
 ?>
-<div class="row">
-            <div class="row formtitle">
-                <h1>CẬP NHẬT LỚP HỌC</h1>
-            </div>
+<div class="table">
+    <div class="row formtitle">
+        <h1>CẬP NHẬT LỚP HỌC</h1>
+    </div>
             <div class="row formcontent">
                 <form action="index.php?act=updatelop" method="post" enctype="multipart/form-data">
                     <div class="row mb10">
                         <select name="idkhoahoc">
                             <option value="0" selected>Tất cả</option>
                             <?php
-                                foreach ($listkhoahoc as $khoahoc){
-                                    extract($khoahoc);
-                                    if($idkhoahoc==$idkhoahoc) $s="selected"; else $s="";
-                                    echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
-                                }
-                            ?>
+                            foreach ($listkh as $kh) {
+                                extract($kh);
+                                echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
+                            }
+                        ?>
                         </select>
                     </div>
                     <div class="row mb10">
@@ -31,16 +94,16 @@ if(is_array($lophoc)){
                     </div>        
                     <div class="row mb10">
                         Ca học<br>
-                        <input type="text" name="cahoc"> <?= $cahoc?>
+                        <input type="text" name="cahoc" value="<?= $cahoc?>" > 
                     </div>               
                     <div class="row mb10">
                         Ngày bắt đầu<br>
-                        <!-- <textarea name="ngaybatdau" id="" cols="30" rows="10"><?=$ngaybatdau?></textarea> -->
-                       <input type="text" name="ngaybatdau"> <?= $ngaybatdau?>
+                       
+                       <input type="text" name="ngaybatdau" value="<?= $ngaybatdau ?>">
                     </div>  
                     <div class="row mb10">
                         Ngày kết thúc<br>
-                       <input type="text" name="ngayketthuc"> <?= $ngayketthuc?>
+                       <input type="text" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
                     </div>  
                                  
                                

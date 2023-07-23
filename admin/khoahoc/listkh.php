@@ -1,21 +1,23 @@
-<div class="row">
-            <div class="row formtitle">
-                <h1>DANH SÁCH KHÓA HỌC</h1>
-            </div>
-            <div class="row formcontent">
-                <div class="row mb10 formdanhsach">
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>Mã khóa học</th>
-                            <th>Tên khóa học</th>
-                            <th>Giá</th>
-                            <th>Ảnh</th>
-                            <!-- <th>Lượt xem</th> -->
-                            <th>Mô tả</th>  
-                            <th></th>
-                        </tr>
-                        <?php
+<div class="table">
+            <h2>Quản Lý Khóa Học</h2>
+            <table>
+                <tr class="daubai">
+                    <td style="width:15px;"></td>
+                    <td style="width:20px;">Mã khóa học</td>
+                    <td style="width:150px">Tên</td>
+                   
+                    <td style="width:130px">Giá</td> <td style="width:150px">Ảnh</td>
+                    <td style="width:450px">Mô Tả</td>
+                    <td style="width:100px">Sửa</td>
+                    <td>Xóa</td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="7"><div class="ngan"></div></td>
+                </tr>
+
+                
+                <?php
                             foreach($listkh as $khoahoc){
                                 extract($khoahoc);
                                 $suakh="index.php?act=suakh&idkhoahoc=".$idkhoahoc;
@@ -35,18 +37,20 @@
                                         <td>'.$hinh.'</td>
                                         <td>'.$mota.'</td>
                                         <td><a href="'.$suakh.'"><input type="button" value="Sửa"></a>
-                                        <a href="'.$xoakh.'"><input type="button" value="Xóa"></a></td>
+                                        </td>
+                                        <td><a href="'.$xoakh.'"><input type="button" value="Xóa"></a>
+                                        </td>
                                     </tr>';
+                                    echo' <td colspan="7"><hr></td>';
                             }
                         ?>
-                    </table>
+                        
+            </table>
+                    <div class="row mb10">
+                        <input type="button" value="Chọn tất cả">
+                        <input type="button" value="Bỏ chọn tất cả">
+                        <input type="button" value="Xóa các mục đã chọn">
+                        <a href="index.php?act=addkh"><input type="button" value="Nhập thêm"></a>
+                    </div>
                 </div>
-                <div class="row mb10">
-                    <input type="button" value="Chọn tất cả">
-                    <input type="button" value="Bỏ chọn tất cả">
-                    <input type="button" value="Xóa các mục đã chọn">
-                    <a href="index.php?act=addkh"><input type="button" value="Nhập thêm"></a>
                 </div>
-                
-            </div>
-        </div>

@@ -1,10 +1,6 @@
 <?php
-<<<<<<< HEAD
-function loadalltaikhoan() {
-    $sql = "SELECT * FROM user ORDER BY iduser DESC";
-    $listtaikhoan = pdo_query($sql);
-    return $listtaikhoan;
-}
+
+
 
 // function loadall_user(){
 //     $sql="select * from user order by id desc";
@@ -19,12 +15,11 @@ function checkuser($username,$password){
     $sql="select * from user where username='".$username."' AND password='".$password."'";
     $role=pdo_query_one($sql);
     return $role[0]['role'];
-=======
-function loadall_user(){
-    $sql="select * from user order by iduser desc";
-    $listuser=pdo_query($sql);
-    return $listuser;
->>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0
+}
+function loadall_user() {
+    $sql = "SELECT * FROM user ORDER BY iduser DESC";
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
 }
 function insert_user($username,$password,$email,$address,$tel){
     $sql="INSERT INTO `user` ( `username`, `password`, `email`, `address`, `tel`) VALUES ('$username', '$password', '$email', '$address', '$tel')";
@@ -36,11 +31,11 @@ function loadone_tk($iduser){
     return $us;
 }
 //Kiểm tra username và pass để đăng nhập
-function checkuser($username, $password){ 
-    $sql="select * from user where username='".$username."' AND password='".$password."'";
-    $tk=pdo_query_one($sql);
-    return $tk;
-}
+// function checkuser($username, $password){ 
+//     $sql="select * from user where username='".$username."' AND password='".$password."'";
+//     $tk=pdo_query_one($sql);
+//     return $tk;
+// }
 function checkemail($email){
     $sql="select * from user where email='".$email."'";
     $sp=pdo_query_one($sql);

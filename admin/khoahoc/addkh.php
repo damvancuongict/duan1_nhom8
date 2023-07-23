@@ -1,4 +1,71 @@
-<div class="row header" ><h1>THÊM MỚI KHÓA HỌC</h1></div>
+<style>
+  .table {
+    width: 400px;
+    margin-top: 25px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-right:800px;
+}
+.formtitle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formcontent {
+    text-align: center;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"], textarea, select {
+    width: 90%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    margin-top: 5px;
+}
+
+input[type="submit"], input[type="reset"], input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+</style>
+<div class="table">
+    <div class="row formtitle">
+    <h1>THÊM MỚI KHÓA HỌC</h1>
+    </div>
+ 
         <div class="row formcontend" >
             <form action="index.php?act=addkh" method="post" enctype="multipart/form-data">
                 <div class="row mb">
@@ -44,3 +111,4 @@
             </form>
 
         </div>
+    
