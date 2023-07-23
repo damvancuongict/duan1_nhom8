@@ -1,6 +1,14 @@
 <?php
+<<<<<<< HEAD
 
 
+=======
+function loadalltaikhoan() {
+    $sql = "SELECT * FROM user ORDER BY iduser DESC";
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
+}
+>>>>>>> 2141e4f93cae4db664d62a10c050a4c10f0501e6
 
 // function loadall_user(){
 //     $sql="select * from user order by id desc";
@@ -11,6 +19,7 @@
 //     $sql="insert into user(email,username,password) values('$email','$user','$pass')";
 //     pdo_execute($sql);
 // }
+<<<<<<< HEAD
 function checkuser($username,$password){
     $sql="select * from user where username='".$username."' AND password='".$password."'";
     $role=pdo_query_one($sql);
@@ -20,6 +29,17 @@ function loadall_user() {
     $sql = "SELECT * FROM user ORDER BY iduser DESC";
     $listtaikhoan = pdo_query($sql);
     return $listtaikhoan;
+=======
+// function checkuser($username,$password){
+//     $sql="select * from user where username='".$username."' AND password='".$password."'";
+//     $role=pdo_query_one($sql);
+//     return $role[0]['role'];
+// }
+function loadall_user(){
+    $sql="select * from user order by iduser desc";
+    $listuser=pdo_query($sql);
+    return $listuser;
+>>>>>>> 2141e4f93cae4db664d62a10c050a4c10f0501e6
 }
 function insert_user($username,$password,$email,$address,$tel){
     $sql="INSERT INTO `user` ( `username`, `password`, `email`, `address`, `tel`) VALUES ('$username', '$password', '$email', '$address', '$tel')";
