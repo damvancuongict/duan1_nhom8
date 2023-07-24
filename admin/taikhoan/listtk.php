@@ -18,13 +18,11 @@
                         
                             foreach ($listtaikhoan as $taikhoan) {
                                 extract($taikhoan);
-<<<<<<< HEAD:admin/taikhoan/listtk.php
-                                $suataikhoan="index.php?act=suataikhoan&iduser=".$iduser;
-                                $xoataikhoan="index.php?act=xoataikhoan&iduser=".$iduser;
-=======
+
+
                                 $suataikhoan="index.php?act=updatetk&iduser=".$iduser;
                                 $xoataikhoan="index.php?act=deletetk&iduser=".$iduser;
->>>>>>> 87babb0a028489752656b7e1d2d231773daa11d0:admin/taikhoan/list.php
+
                                 echo ' <tr>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td>'.$iduser.'</td>

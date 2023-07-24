@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <title>Document</title>
     <script>
         var gia=document.getElementsByClassName("gia");
@@ -30,11 +30,10 @@
             padding: 0;
             margin:0;
         }
-        ul{
-            margin-top: 50px;
-        }
+        
         ul li{
-            margin: 35px 30px;
+            
+            margin: 40px 30px;
             list-style: none;
             font-weight:bold;
             font-size:15px;
@@ -136,11 +135,11 @@
             background-color: #0f2027; /* Màu nền thay đổi khi hover */
         }
             </style>
-        </head><i class="fa-sharp fa-regular fa-graduation-cap"></i>
+        </head>
 <body>
     <section><i class=" "></i>
         <div class="menu">
-        <img width="150" src="../picture/footer_logo1.png" alt="">
+        <img width="150" src="" alt="">
             <ul>
                 <li><a href="index.php"><i class="fas fa-home"></i> - Trang chủ</a></li>
                 <li><a href="index.php?act=listdm"><i class="fas fa-certificate"></i> - Quản Lý Danh mục</a></li>
