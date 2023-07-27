@@ -20,19 +20,19 @@
         $sql.=" ORDER BY idlop desc";
         return $listlop;
     } 
-    function loadall_lop_khoahoc($kyw="",$idlop=0){
-        $sql = "SELECT * FROM lop WHERE 1";   
-        if ($kyw != "") {
-            $sql .= " AND tenlop LIKE '%" . $kyw . "%' ";
-        }   
-        if ($idlop > 0) {
-            $sql .= " AND idkhoahoc = '" .$idlop. "' ";
-        }    
-        $sql .= " ORDER BY idlop DESC";   
+    // function loadall_lop_khoahoc($kyw="",$idlop=0){
+    //     $sql = "SELECT * FROM lop WHERE 1";   
+    //     if ($kyw != "") {
+    //         $sql .= " AND tenlop LIKE '%" . $kyw . "%' ";
+    //     }   
+    //     if ($idlop > 0) {
+    //         $sql .= " AND idkhoahoc = '" .$idlop. "' ";
+    //     }    
+    //     $sql .= " ORDER BY idlop DESC";   
     
-        $listlop = pdo_query($sql); 
-        return $listlop;
-    }
+    //     $listlop = pdo_query($sql); 
+    //     return $listlop;
+    // }
     function loadall_lop($kyw="",$idlop=0){
         $sql="SELECT * FROM lop WHERE 1";
         if($kyw!=""){

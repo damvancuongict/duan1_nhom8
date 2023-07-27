@@ -150,7 +150,7 @@
                     $idlop=0;
                 }
                 $listlop = loadall_lop_user();
-                $listlop = loadall_lop($kyw,$idlop);
+                var_dump($listlop);
                 include "lophoc/listlop.php";
                 break;
             case 'xoalop':
