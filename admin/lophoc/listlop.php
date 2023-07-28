@@ -1,4 +1,3 @@
-
 <div class="table">
             <h2>Quản Lý Lớp Học</h2>
             <table>
@@ -6,7 +5,6 @@
                     <td style="width:15px;"></td>
                     <td style="width:20px;">Mã lớp học</td>
                     <td style="width:200px">Tên lớp học</td>
-                   
                     <td style="width:130px">Giáo viên</td>
                     <td style="width:130px">Ca học</td>
                     <td style="width:150px">Ngày bắt đầu</td>
@@ -26,7 +24,7 @@
                                 $xoalop="index.php?act=xoalop&idlop=".$idlop;
                                 echo '<tr>
                                         <td><input type="checkbox"></td>
-                                        <td>'.$idlop.'</td>
+                                        <td>'.$idlop.'</td>               
                                         <td>'.$tenlop.'</td>
                                         <td>'.$username.'</td>
                                         <td>'.$cahoc.'</td>

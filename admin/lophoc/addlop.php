@@ -68,7 +68,7 @@ a:hover {
 
         <div class="row formcontend" >
             <form action="index.php?act=addlop" method="post" enctype="multipart/form-data">
-                <div class="row mb">
+            <div class="row mb">
                     <label for="">Khóa học</label><br>
                      <select name="idkhoahoc" id="">
                         <?php
@@ -86,26 +86,8 @@ a:hover {
                 </div>
                 <div class="row mb">
                     <label for="">Giáo viên</label><br>
-                     <select name="iduser" id="">
+                     <select name="iduser" id="iduser">
                         <?php
-                        // $role = checkuser($username,$password);
-                        // $_SESSION['role'] = $role;
-                        // if($role==2){
-                            
-                        //     foreach ($listuser as $user) {
-                        //         extract($user);
-                                
-                        //         // if($iduser==$iduser) $s="selected"; else $s="";
-                        //         //  echo '<option value="'.$iduser.'" '.$s.'>'.$username.'</option>';
-                        //         echo '<option value="'.$iduser.'">'.$username.'</option>';
-                        //     }
-                        // } else{
-                        //     echo 'ok';
-                        // }
-                        // foreach ($listtk as $user) {
-                        //     extract($user);
-                        //     echo '<option value="'.$iduser.'">'.$username.'</option>';
-                        // }
                         foreach ($listtk as $taikhoan) {
                             extract($taikhoan);
                             echo '<option value="'.$iduser.'">'.$username.'</option>';
@@ -115,15 +97,15 @@ a:hover {
                 </div>
                 <div class="row mb10">
                     <label for="">Ca học</label><br>
-                     <input type="text" name="cahoc" id="" >
+                     <input type="time" name="cahoc" id="" >
                 </div>
                 <div class="row mb10">
                     <label for="">Ngày bắt đầu</label><br>
-                     <input type="text" name="ngaybatdau" id="" >
+                     <input type="date" name="ngaybatdau" id="" >
                 </div>
                 <div class="row mb10">
                     <label for="">Ngày kết thúc</label><br>
-                     <input type="text" name="ngayketthuc" id="" >
+                     <input type="date" name="ngayketthuc" id="" >
                 </div>
                 <div class="row mb10">
                     <input type="submit" name="themmoi" value="Thêm Mới">

@@ -1,5 +1,5 @@
 <?php
-    // session_start();
+    session_start();
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
@@ -9,6 +9,7 @@
     include "model/taikhoan.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
+    // include "view/taikhoan/dangnhap.php"; 
     $khoahoc =load8_khoahoc_home();
     $lopch = loadall_lop();
     $u = loadalltaikhoan();
@@ -41,26 +42,28 @@
                     }
                    
                 break;
-            case 'dangnhap': 
-                if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
-                    $username=$_POST['user'];
-                    $password=$_POST['pass'];
-                    $checkuser=checkuser($username, $password);
-                    if(is_array($checkuser))
-                    $_SESSION['user']=$checkuser;
-                    include "index2.php";
-                    $thongbao = "Bạn đã đăng nhập thành công !";
-                }else{
-                    $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
-                }
+                case 'dangnhap':
+                    if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                        $user=$_POST['user'];
+                        $pass=$_POST['pass'];
+                        $checkuser=checkuser($user, $pass);
+                        if(is_array($checkuser))
+                        $_SESSION['user']=$checkuser;
+                        header('Location: index2.php');
+                        exit;
+                        $thongbao = "Bạn đã đăng nhập thành công !";
+                    }else{
+                        $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
+                    }
 
-                include "view/taikhoan/dangnhap.php";
-                break;
-             case 'thoat':
-                    session_unset();
-                    
-                    include "index2.php";
+                    include "view/taikhoan/dangnhap.php"; 
                     break;
+             case 'thoat':
+                        session_unset();
+                        header('Location: index2.php');
+                        exit;
+                        include "view/gioithieu.php";
+                        break;
             case 'dangky': 
                 if(isset($_POST['dangky'])&&($_POST['dangky'])){
                     $username=$_POST['user'];

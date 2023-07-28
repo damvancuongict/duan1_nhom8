@@ -130,14 +130,13 @@
                     $idkhoahoc=$_POST['idkhoahoc'];
                     $tenlop=$_POST['tenlop'];
                     $iduser=$_POST['iduser'];
-                    // $username=$_POST['username'];
                     $cahoc=$_POST['cahoc'];
                     $ngaybatdau=$_POST['ngaybatdau'];
                     $ngayketthuc=$_POST['ngayketthuc'];
                       insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
                     $thongbao= "thêm thành công !";
                 }
-               $listkh = loadall_khoahoc();
+                $listkh=loadall_khoahoc();
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
@@ -150,30 +149,55 @@
                     $kyw='';
                     $idlop=0;
                 }
-                $listkhoahoc = loadall_khoahoc();
-                $listlop = loadall_lop($kyw,$idlop);             
+                $listlop = loadall_lop_user();
+                // var_dump($listlop);
                 include "lophoc/listlop.php";
                 break;
-
-                case 'sualop':
+            case 'xoalop':
+                if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
+                    delete_lop($_GET['idlop']);
+                }
+                $listlop=loadall_lop("",0);
+                include "lophoc/listlop.php";
+                break;
+            case 'sualop':
                     if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
                         $lop =loadone_lop($_GET['idlop']);
                     }
                     $listkh = loadall_khoahoc();
                     $listlop = loadall_lop();
+                    $listtk=loadalltaikhoan();
                     include "lophoc/updatelop.php";
                     break;
-
+            
+            case 'updatelop' :
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $idlop=$_POST['idlop'];
+                    $idkhoahoc=$_POST['idkhoahoc'];
+                    $tenlop=$_POST['tenlop'];
+                    $iduser=$_POST['iduser'];
+                    $cahoc=$_POST['cahoc'];
+                    $ngaybatdau=$_POST['ngaybatdau'];
+                    $ngayketthuc=$_POST['ngayketthuc'];
+                    
+                    update_lop($idlop,$tenlop,$cahoc,$ngaybatdau,$ngayketthuc,$iduser,$idkhoahoc);
+                    $thongbao="Cập nhật thành công";
+                }
+                $listkhoahoc = loadall_khoahoc();
+                $listtk=loadalltaikhoan();
+                $listlop = loadall_lop("",0);
+                include "lophoc/addlop.php";
+                break;
             case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
-                    include "taikhoan/list.php";
+                    include "taikhoan/listtk.php";
                     break;
                 case 'deletetk':
                     if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
                         delete_tk($_GET['iduser']);
                     }
                     $listtaikhoan=loadalltaikhoan();
-                    include "taikhoan/list.php";
+                    include "taikhoan/listtk.php";
                     break;
                 case 'suatk' :
                     if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
@@ -197,12 +221,8 @@
                 $listtaikhoan = loadalltaikhoan();
                 include "taikhoan/updatetk.php";
                 break;
-    //         case 'dsbl':
-    //             $listbinhluan=loadall_binhluan(0);
-    //             include "binhluan/list.php";
-    //             break;
             default:
-                include "home2.php";
+                include "home.php";
                 break;
         }
     }else {

@@ -77,8 +77,9 @@ if(is_array($lop)){
             <div class="row formcontent">
                 <form action="index.php?act=updatelop" method="post" enctype="multipart/form-data">
                     <div class="row mb10">
+                        Tên khóa học<br>
                         <select name="idkhoahoc">
-                            <option value="0" selected>Tất cả</option>
+                            <option value="0" selected>Khóa học</option>
                             <?php
                             foreach ($listkh as $kh) {
                                 extract($kh);
@@ -93,20 +94,28 @@ if(is_array($lop)){
                     </div>               
                     <div class="row mb10">
                         Giáo viên<br>
-                        <input type="text" name="username" value="<?= $username?>">
+                        <select name="idusername">
+                            <option value="0" selected>Giáo viên</option>
+                            <?php
+                            foreach ($listtk as $taikhoan) {
+                                extract($taikhoan);
+                                echo '<option value="'.$iduser.'">'.$username.'</option>';
+                            }
+                        ?>
+                        </select>
                     </div>        
                     <div class="row mb10">
                         Ca học<br>
-                        <input type="text" name="cahoc" value="<?= $cahoc?>" > 
+                        <input type="time" name="cahoc" value="<?= $cahoc?>" > 
                     </div>               
                     <div class="row mb10">
                         Ngày bắt đầu<br>
                        
-                       <input type="text" name="ngaybatdau" value="<?= $ngaybatdau ?>">
+                       <input type="date" name="ngaybatdau" value="<?= $ngaybatdau ?>">
                     </div>  
                     <div class="row mb10">
                         Ngày kết thúc<br>
-                       <input type="text" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
+                       <input type="date" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
                     </div>  
                                  
                                

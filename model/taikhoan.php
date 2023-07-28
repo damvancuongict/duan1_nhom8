@@ -5,11 +5,12 @@ function loadalltaikhoan() {
     $listtaikhoan = pdo_query($sql);
     return $listtaikhoan;
 }
-function checkuser($username, $password) {
-    $sql = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+function checkuser($user, $pass) {
+    $sql = "SELECT * FROM user WHERE username = '$user' AND password = '$pass'";
     $tk = pdo_query_one($sql);
     return $tk;
 }
+
 // function loadall_user(){
 //     $sql="select * from user order by id desc";
 //     $listuser=pdo_query($sql);

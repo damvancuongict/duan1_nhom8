@@ -1,3 +1,6 @@
+<?php
+// session_start();
+?>
 <style>
        body, {
   margin:0;

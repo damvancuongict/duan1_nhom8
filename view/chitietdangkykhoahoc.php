@@ -174,7 +174,10 @@
                                    <th>Đăng ký</th>
                                </tr>
                                <?php
-                            
+                
+
+                          $listlop = loadall_lop_user();
+
                                   foreach ($lopch as $row) {
                                    if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc) {
                                    extract($row);
@@ -186,6 +189,7 @@
                                    echo '<td>' . $ngayketthuc . '</td>';
                                    echo '<td><span class="red"> '.$gia .'</td>';
                                    echo '<td><span class="yellow"> '.$username.'';
+                                  //  var_dump($username);
                                   echo' <td><span class="green"> '.$soluong.' </span>/<span class="blue">  '.$soluongtoida.'</span></td>';
                                    echo '<td>';
                                    if ($soluong >= $soluongtoida) {
