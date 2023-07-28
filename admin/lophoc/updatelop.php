@@ -27,7 +27,7 @@ label {
 }
 
 input[type="text"], textarea, select {
-    width: 100%;
+    width: 80%;
     padding: 8px 10px;
     border-radius: 3px;
     border: 1px solid #ccc;
@@ -65,8 +65,11 @@ a:hover {
 <?php 
 if(is_array($lop)){
     extract($lop);
+    
+                       
 }
 ?>
+
 <div class="table">
     <div class="row formtitle">
         <h1>CẬP NHẬT LỚP HỌC</h1>

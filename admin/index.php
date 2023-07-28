@@ -137,7 +137,7 @@
                       insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
                     $thongbao= "thêm thành công !";
                 }
-               
+               $listkh = loadall_khoahoc();
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;

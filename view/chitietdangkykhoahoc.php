@@ -174,7 +174,7 @@
                                    <th>Đăng ký</th>
                                </tr>
                                <?php
-                             
+                            
                                   foreach ($lopch as $row) {
                                    if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc) {
                                    extract($row);
@@ -191,7 +191,17 @@
                                    if ($soluong >= $soluongtoida) {
                                        echo '<p style="color: red;">Số lượng học viên đã đầy</p>';
                                    } else {
-                                       echo '<button type="button" class="register-button" onclick="registerClass(' . $idlop . ')">Đăng ký</button>';
+                                    
+                                    echo '<form method="post" action="index2.php?act=dangkylop">';
+                                    echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
+                                    foreach ($u as $row) {
+                                      extract($row);
+                                    echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
+                                    }
+                                    echo '<button type="submit">Đăng ký</button>';
+                                    echo '</form>';
+                                       
+                                       
                                    }
                                    echo '</td>';
                                    echo '</tr>';
@@ -205,24 +215,11 @@
                            </table>
 
                            </div>
-                           <input type="hidden" id="selected_classes" name="selected_classes" value="">
-                           <button type="submit" style="display: none;" id="submit_button">Submit</button>
-                         
-
-                         <script>
-                           function registerClass(classId) {
-                             var selectedClasses = document.getElementById('selected_classes').value;
-                             if (selectedClasses.length > 0) {
-                               selectedClasses += ',';
-                             }
-                             selectedClasses += classId;
-                             document.getElementById('selected_classes').value = selectedClasses;
-                             document.getElementById('submit_button').click();
-                           }
+                           
                          </script>
-                       </div>
- </div>
-</div>
+                        </div>
+                  </div>
+                  </div>
 
        
                         

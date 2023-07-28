@@ -1,35 +1,31 @@
 <?php
-    session_start();
+    // session_start();
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
     include "model/lophoc.php";
+    include "model/dangkylop.php";
     include "global.php";
     include "model/taikhoan.php";
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
     $khoahoc =load8_khoahoc_home();
     $lopch = loadall_lop();
+    $u = loadalltaikhoan();
+    // $us =loadone_tk($iduser);
+    // var_dump($iduser);
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'addlop':
-                // // Kiểm tra và khởi tạo biến $_SESSION['addlop'] nếu nó chưa tồn tại hoặc không phải là một mảng
-                // if (!isset($_SESSION['addlop']) || !is_array($_SESSION['addlop'])) {
-                //     $_SESSION['addlop'] = array();
-                // }
+            case 'dangkylop':
+                
     
-                // if (isset($_POST['idlop']) && $_POST['idlop']) {
-                   
-                //     $tenlop = $_POST['tenlop'];
-                //      $idlop = $_POST['idlop'];
-                //     $gia = $_POST['gia'];
-                //     $ngaybatdau = $_POST['ngaybatdau'];
-                //     $ngayketthuc = $_POST['ngayketthuc'];
-                //     $username = $_POST['username'];
-                //     $addlop = [$idlop, $tenlop, $gia, $ngaybatdau, $ngayketthuc, $username];
-                //     $_SESSION['addlop'][] = $addlop;
-                // }
+                if (isset($_POST['idlop']) && $_POST['idlop']) {
+                    $idlop = $_POST['idlop'] ?? null;
+                    $iduser = $_POST['iduser'] ?? null;
+                    dangkylop($idlop,$iduser);
+                }
+                // $us =loadone_tk($iduser);
                 include "view/dangkylop.php";
                 break;
             case 'khoahoc':               
@@ -45,35 +41,38 @@
                     }
                    
                 break;
-            case 'dangky': 
-                if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                    $username=$_POST['username'];
-                    $password=$_POST['password'];
-                    $email=$_POST['email'];
-                    $address=$_POST['address'];
-                    $tel=$_POST['tel'];
-                    insert_user($username,$password,$email,$address,$tel);
-                    $thongbao="Đăng ký thành công";
-                }
-                include "view/dangky.php";
-                break;
             case 'dangnhap': 
                 if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
-                    $username=$_POST['username'];
-                    $password=$_POST['password'];
-                    $email=$_POST['email'];
+                    $username=$_POST['user'];
+                    $password=$_POST['pass'];
                     $checkuser=checkuser($username, $password);
-                   
-                    if(is_array($checkuser)){
-                        $_SESSION['username']=$checkuser; 
-                        // $thongbao="Đăng nhập thành công";
-                        header('Location: index2.php');
+                    if(is_array($checkuser))
+                    $_SESSION['user']=$checkuser;
+                    include "index2.php";
+                    $thongbao = "Bạn đã đăng nhập thành công !";
                 }else{
-                    $thongbao="Tài khoản không tồn tại! Vui lòng kiểm tra lại và đăng ký!";
+                    $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
                 }
-            }
-                include "view/dangnhap.php";
+
+                include "view/taikhoan/dangnhap.php";
                 break;
+             case 'thoat':
+                    session_unset();
+                    
+                    include "index2.php";
+                    break;
+            case 'dangky': 
+                if(isset($_POST['dangky'])&&($_POST['dangky'])){
+                    $username=$_POST['user'];
+                    $password=$_POST['pass'];
+                    $email=$_POST['email'];
+                    insert_taikhoan($username,$password,$email);
+                    $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
+                }
+
+                include "view/taikhoan/dangky.php";
+                break;
+                
             
             case 'dangkykhoahoc':
                 if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){

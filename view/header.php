@@ -120,8 +120,8 @@
                             <div class="headerarea__right">
                             <!-- <img src="img/user.jpg" alt="" width="25px" height="25px"> -->
                                 <?php 
-                                    if(isset($_SESSION['username'])){
-                                        extract($_SESSION['username']);
+                                    if(isset($_SESSION['user'])){
+                                        extract($_SESSION['user']);
                                 ?>
                                         <div>
                                             <img src="img/user.jpg" alt="" width="25px" height="25px"><?=$username?>
