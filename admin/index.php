@@ -188,7 +188,7 @@
                 $listlop = loadall_lop("",0);
                 include "lophoc/addlop.php";
                 break;
-            case 'taikhoan':
+                case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/listtk.php";
                     break;

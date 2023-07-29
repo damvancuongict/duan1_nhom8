@@ -49,7 +49,9 @@
                         $checkuser=checkuser($user, $pass);
                         if(is_array($checkuser))
                         $_SESSION['user']=$checkuser;
-                        header('Location: index2.php');
+                        
+                        $yourURL="index2.php";
+                        echo ("<script>location.href='$yourURL'</script>");
                         exit;
                         $thongbao = "Bạn đã đăng nhập thành công !";
                     }else{
@@ -60,19 +62,51 @@
                     break;
              case 'thoat':
                         session_unset();
-                        header('Location: index2.php');
-                        exit;
+                        $yourURL="index2.php";
+                        echo ("<script>location.href='$yourURL'</script>");
                         include "view/gioithieu.php";
                         break;
             case 'dangky': 
-                if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                    $username=$_POST['user'];
-                    $password=$_POST['pass'];
-                    $email=$_POST['email'];
-                    insert_taikhoan($username,$password,$email);
-                    $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
-                }
+if(!empty($_POST["user"]) && !empty($_POST["email"]) && !empty($_POST["pass"]))
+  {
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "duanmot";
 
+  try {
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $user=$_POST['user'];
+      $pass=$_POST['pass'];
+      $email=$_POST['email'];
+      $sql = "INSERT INTO `user` (`username`,`password`,`email`) values('$user','$pass','$email')";
+      $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
+      // use exec() because no results are returned
+      $conn->exec($sql);
+}
+    //   header("Location: dangnhap.php");
+    // $yourURL="dangky.php";
+    // echo ("<script>location.href='$yourURL'</script>");
+    //   }
+  catch(PDOException $e)
+      {
+      echo $sql . "<br>" . $e->getMessage();
+      }
+
+  $conn = null;
+}
+
+      
+                // if(isset($_POST['dangky'])&&($_POST['dangky'])){
+                //     $username=$_POST['user'];
+                //     $password=$_POST['pass'];
+                //     $email=$_POST['email'];
+                //     insert_taikhoan($username,$password,$email);
+                //     $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
+                // }
+            
                 include "view/taikhoan/dangky.php";
                 break;
                 
