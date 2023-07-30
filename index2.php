@@ -8,25 +8,55 @@
     include "global.php";
     include "model/taikhoan.php";
     $danhsach=loadall_danhmuc();
+   
     include "view/header.php"; 
     // include "view/taikhoan/dangnhap.php"; 
+    if(!isset($_SESSION['mylop'])) $_SESSION['mylop']=[];
     $khoahoc =load8_khoahoc_home();
-    $lopch = loadall_lop();
+    $lopch = loadall_lop_user();
     $u = loadalltaikhoan();
     // $us =loadone_tk($iduser);
     // var_dump($iduser);
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
-            case 'dangkylop':
+            // case 'dangkylop':
+            //     if (isset($_POST['idlop']) && $_POST['idlop']) {
+            //         $idlop = $_POST['idlop'] ?? null;
+            //         $iduser = $_POST['iduser'] ?? null;
+            //         dangkylop($idlop,$iduser);
+            //     }
+            //     // $us =loadone_tk($iduser);
                 
-    
-                if (isset($_POST['idlop']) && $_POST['idlop']) {
-                    $idlop = $_POST['idlop'] ?? null;
-                    $iduser = $_POST['iduser'] ?? null;
-                    dangkylop($idlop,$iduser);
+            //     include "view/dangkylop.php";
+            //     break;
+            case 'xoadklop':
+                if (isset($_GET['idlop'])) {
+                    array_slice($_SESSION['mylop'],$_GET['idlop'],1);
+                }else{
+                    $_SESSION['mylop']=[];
                 }
-                // $us =loadone_tk($iduser);
+                
+                include "view/dangkylop.php";
+                // header('Location: index2.php?act=dangkylop');
+                break;
+            case 'dangkylop':
+                if (isset($_POST['idlop']) && $_POST['idlop']) {
+                    $idlop = $_POST['idlop'];
+                    $iduser = $_POST['iduser'];
+                    $cahoc = $_POST['cahoc'];
+                    $ngaybatdau = $_POST['ngaybatdau'];
+                    $ngayketthuc = $_POST['ngayketthuc'];
+                    $gia = $_POST['gia'];
+                    $soluong =1;
+                    $thanhtien=$soluong*$gia;
+                    $addlop =[$idlop,$iduser,$cahoc,$ngaybatdau,$ngayketthuc,$gia,$soluong,$thanhtien];
+                    array_push($_SESSION['mylop'],$addlop);
+                    
+                   
+                }
+               
+                
                 include "view/dangkylop.php";
                 break;
             case 'khoahoc':               
@@ -49,8 +79,10 @@
                         $checkuser=checkuser($user, $pass);
                         if(is_array($checkuser))
                         $_SESSION['user']=$checkuser;
-                        header('Location: index2.php');
-                        exit;
+                        // header('Location: index2.php');
+                        $yourURL="index2.php";
+                        echo ("<script>location.href='$yourURL'</script>");
+                        // exit;
                         $thongbao = "Bạn đã đăng nhập thành công !";
                     }else{
                         $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
@@ -60,8 +92,8 @@
                     break;
              case 'thoat':
                         session_unset();
-                        header('Location: index2.php');
-                        exit;
+                        $yourURL="index2.php";
+                        echo ("<script>location.href='$yourURL'</script>");
                         include "view/gioithieu.php";
                         break;
             case 'dangky': 

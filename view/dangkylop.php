@@ -1,68 +1,97 @@
-
-    
 <style>
-       
+    .gridarea {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
 
-        .container {
-          
-            display: flex;
-            flex-direction: row;
-        }
+    .class-container table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        .left-sidebar {
-            width: 350px;
-            max-height: auto;
-            background-color: #f2f2f2;
-            padding: 20px;
-        }
+    .class-container th,
+    .class-container td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
 
-        .right-content {
-            width: 850px;
-            padding: 20px;
-        }
+    .class-container th {
+        background-color: #f2f2f2;
+    }
 
-        .profile-info {
-            text-align: center;
-        }
+    .class-container tr:hover {
+        background-color: #f5f5f5;
+    }
 
-        .profile-image {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+    .class-container tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-        .course-registration {
-            /* Nội dung đăng ký các lớp học */
-        }
-    </style>
-    <div class="gridarea">
+    /* Thêm CSS để căn giữa tiêu đề */
+    .gridarea__img h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="gridarea">
     <div class="container">
-        <div>
+        <div> 
             <div class="gridarea__wraper">
                 <div class="gridarea__img">
-    <div class="container">
-        <div class="left-sidebar">
-            <div class="profile-info">
-                <!-- Hiển thị thông tin người dùng -->
-                
-                <img class="profile-image" src="view/img/ass.png" alt="Avatar">
-                <p>Username: JohnDoe</p>
-                <p>Email: john.doe@example.com</p>
-                <p>Address: 123 Main Street</p>
-                <p>Tel: (555) 123-4567</p>
-            </div>
-        </div>
-        <div class="right-content">
-            <div class="course-registration">
-                <!-- Nội dung đăng ký các lớp học -->
-                <h2>Đăng ký các lớp học</h2>
-                <!-- Các form, bảng hoặc nội dung đăng ký lớp học ở đây -->
-            </div>
-        </div>
-    </div>
-    </div>
+                    <h2>Đã Đăng ký các lớp học</h2>
+                    <div class="class-container">
+                        <table>
+                       
+                            <tr> 
+                                <th style="width:60px">ID Lớp</th>
+                                <th style="width:60px">ID USER</th>
+                                <th style="width:130px">Ca học</th>
+                                <th style="width:130px">Ngày bắt đầu</th>
+                                <th style="width:130px">Ngày kết thúc</th>
+                                <th style="width:100px">Giá</th>                         
+                                <th style="width:100px">Số lượng</th>
+                                <th style="width:100px">Thành tiền</th>
+                                <th style="width:100px">Thao tác</th>
+                            </tr>
+                            <?php
+                             $tong = 0;
+                                $i=0;
+                             // Sắp xếp mảng $_SESSION['mylop'] theo cột "ID Lớp"
+                            //  usort($_SESSION['mylop'], function($a, $b) {
+                            //      return $a[0] <=> $b[0];
+                            //  });
+                             
+                             foreach ($_SESSION['mylop'] as $row) {
+                                 $thanhtien = $row[6] * $row[7];
+                                 $tong += $thanhtien;
+                                 $xoalop = '<a href="index2.php?act=xoadklop&idlop='.$i.'"><input type="button" value="xoa"></a>';
+                                 echo '<tr>';
+                                 echo '<td><span class="blue">' . $row[0] . '</td>';
+                                 echo '<td><span class="blue">' . $row[1] . '</td>';
+                                 echo '<td><span class="blue">' . $row[2] . '</td>';
+                                 echo '<td><span class="blue">' . $row[3] . '</td>';
+                                 echo '<td><span class="blue">' . $row[4] . '</td>';
+                                 echo '<td><span class="blue">' . $row[5] . '</td>';
+                                 echo '<td><span class="blue">' . $row[6] . '</td>';
+                                 echo '<td><span class="blue">' . $thanhtien . '</td>';
+                                 echo '<td>'.$xoalop.' </td>';
+                                 echo '</tr>';
+                                 $i+=1;
+                             }
+                             
+                             echo '<tr>';
+                             echo '<td colspan="7">Tổng đơn hàng</td>';
+                             echo '<td><span class="blue">' . $tong . '</td>';
+                             echo '</tr>';
+                            ?>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

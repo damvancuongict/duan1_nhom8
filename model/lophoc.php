@@ -20,6 +20,7 @@
         $sql.=" ORDER BY idlop desc";
         return $listlop;
     } 
+   
     // function loadall_lop_khoahoc($kyw="",$idlop=0){
     //     $sql = "SELECT * FROM lop WHERE 1";   
     //     if ($kyw != "") {

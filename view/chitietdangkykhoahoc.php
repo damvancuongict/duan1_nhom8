@@ -188,7 +188,7 @@
                                    echo '<td>' . $ngaybatdau . '</td>';
                                    echo '<td>' . $ngayketthuc . '</td>';
                                    echo '<td><span class="red"> '.$gia .'</td>';
-                                   echo '<td><span class="yellow"> '.$username.'';
+                                   echo '<td><span class="yellow"> '.$username.'</td>';
                                   //  var_dump($username);
                                   echo' <td><span class="green"> '.$soluong.' </span>/<span class="blue">  '.$soluongtoida.'</span></td>';
                                    echo '<td>';
@@ -198,6 +198,11 @@
                                     
                                     echo '<form method="post" action="index2.php?act=dangkylop">';
                                     echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
+                                    echo '<input type="hidden" name="cahoc" value="' . $cahoc . '">';
+                                    echo '<input type="hidden" name="ngaybatdau" value="' . $ngaybatdau . '">';
+                                    echo '<input type="hidden" name="ngayketthuc" value="' . $ngayketthuc . '">';
+                                    echo '<input type="hidden" name="gia" value="' . $gia . '">';
+                                   
                                     foreach ($u as $row) {
                                       extract($row);
                                     echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
@@ -220,7 +225,7 @@
 
                            </div>
                            
-                         </script>
+                       
                         </div>
                   </div>
                   </div>
