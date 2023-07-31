@@ -42,72 +42,98 @@
                     }
                    
                 break;
-                case 'dangnhap':
-                    if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
-                        $user=$_POST['user'];
-                        $pass=$_POST['pass'];
-                        $checkuser=checkuser($user, $pass);
-                        if(is_array($checkuser))
-                        $_SESSION['user']=$checkuser;
+                // case 'dangnhap':
+                //     if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
+                //         $user=$_POST['user'];
+                //         $pass=$_POST['pass'];
+                //         $checkuser=checkuser($user, $pass);
+                //         if(is_array($checkuser))
+                //         $_SESSION['user']=$checkuser;
                         
-                        $yourURL="index2.php";
-                        echo ("<script>location.href='$yourURL'</script>");
-                        exit;
-                        $thongbao = "Bạn đã đăng nhập thành công !";
-                    }else{
-                        $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
-                    }
+                        
+                //         $thongbao = "Bạn đã đăng nhập thành công !";
+                //         $yourURL="index2.php";
+                //         echo ("<script>location.href='$yourURL'</script>");
+                //         exit;
+                //     }else{
+                //         $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
+                //     }
 
-                    include "view/taikhoan/dangnhap.php"; 
-                    break;
-             case 'thoat':
+                //     include "view/taikhoan/dangnhap.php"; 
+                //     break;
+            
+            case 'thoat':
                         session_unset();
                         $yourURL="index2.php";
                         echo ("<script>location.href='$yourURL'</script>");
                         include "view/gioithieu.php";
                         break;
             case 'dangky': 
-if(!empty($_POST["user"]) && !empty($_POST["email"]) && !empty($_POST["pass"]))
-  {
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "duanmot";
+                //Nếu lỗi thì sẽ dừng việc gửi dữ liệu lên database
+                if(!empty($_POST["user"]) && !empty($_POST["email"]) && !empty($_POST["pass"]))
+                {
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "duanmot";
+                try {
+                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                    // set the PDO error mode to exception
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    $email=$_POST['email'];
+                    $sql = "INSERT INTO `user` (`username`,`password`,`email`) values('$user','$pass','$email')";
+                    $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
+                    // use exec() because no results are returned
+                    $conn->exec($sql);
+                }                
+                catch(PDOException $e)
+                    {
+                    echo $sql . "<br>" . $e->getMessage();
+                    }
 
-  try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-      // set the PDO error mode to exception
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $user=$_POST['user'];
-      $pass=$_POST['pass'];
-      $email=$_POST['email'];
-      $sql = "INSERT INTO `user` (`username`,`password`,`email`) values('$user','$pass','$email')";
-      $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
-      // use exec() because no results are returned
-      $conn->exec($sql);
-}
-    //   header("Location: dangnhap.php");
-    // $yourURL="dangky.php";
-    // echo ("<script>location.href='$yourURL'</script>");
-    //   }
-  catch(PDOException $e)
-      {
-      echo $sql . "<br>" . $e->getMessage();
-      }
-
-  $conn = null;
-}
-
-      
-                // if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                //     $username=$_POST['user'];
-                //     $password=$_POST['pass'];
-                //     $email=$_POST['email'];
-                //     insert_taikhoan($username,$password,$email);
-                //     $thongbao = "Đã đăng ký thành công !<br> Vui lòng đăng nhập";
-                // }
-            
+                $conn = null;
+                }       
                 include "view/taikhoan/dangky.php";
+                break;
+            case 'dangnhap': 
+                //Nếu lỗi thì sẽ dừng việc gửi dữ liệu lên database
+                if(!empty($_POST["user"]) && !empty($_POST["pass"]))
+                {
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "duanmot";
+                try {
+                    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                    // set the PDO error mode to exception
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $user=$_POST['user'];
+                    $pass=$_POST['pass'];
+                    $sql = "SELECT * FROM user WHERE username = '$user' AND password = '$pass'";
+                    $checkuser=checkuser($user, $pass);
+                        if(is_array($checkuser)){
+                        $_SESSION['user']=$checkuser;
+                        $thongbao = "Bạn đã đăng nhập thành công !";
+                        $yourURL="index2.php";
+                        echo ("<script>location.href='$yourURL'</script>");
+                        exit;
+                    }else{
+                        $thongbaoe="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
+                    }
+                    
+                    // use exec() because no results are returned
+                    $conn->exec($sql);
+                }                
+                catch(PDOException $e)
+                    {
+                    echo $sql . "<br>" . $e->getMessage();
+                    }
+
+                $conn = null;
+                }       
+                include "view/taikhoan/dangnhap.php";
                 break;
                 
             
