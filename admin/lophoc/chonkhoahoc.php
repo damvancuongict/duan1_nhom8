@@ -4,8 +4,7 @@
                 <tr class="khoahoc">
                     <td style="width:200px">Tên khóa học</td>
                     <td style="width:130px">Hình</td>
-                    <td style="width:200px">Sửa</td>
-                    <td>Xóa</td>
+                    <td style="width:200px">THAO TÁC</td>
                     
                 </tr>
                 <tr>

@@ -90,7 +90,6 @@ a:hover {
                         <?php
                         foreach ($listtk as $taikhoan) {
                             extract($taikhoan);
-                            
                             echo '<option value="'.$iduser.'">'.$username.'</option>';
                         }
                         ?>
@@ -98,16 +97,17 @@ a:hover {
                 </div>
                 <div class="row mb10">
                     <label for="">Ca học</label><br>
-                     <input type="time" name="cahoc" id="" >
+                     <input type="text" name="cahoc" id="" >
+                </div>
+                <div class="row mb10">
+                    <label for="">Địa điểm học</label><br>
+                     <input type="text" name="diadiemhoc" id="diadiemhoc" >
                 </div>
                 <div class="row mb10">
                     <label for="">Ngày bắt đầu</label><br>
                      <input type="date" name="ngaybatdau" id="" >
                 </div>
-                <div class="row mb10">
-                    <label for="">Ngày kết thúc</label><br>
-                     <input type="date" name="ngayketthuc" id="" >
-                </div>
+                
                 <div class="row mb10">
                     <input type="submit" name="themmoi" value="Thêm Mới">
                     <input type="reset" value="Nhập Lại">

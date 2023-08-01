@@ -79,8 +79,8 @@ if(is_array($lophoc)){
                         <select name="idkhoahoc" id="idkhoahoc">
                             <!-- <option value="0" selected>Khóa học</option> -->
                             <?php
-                            foreach ($listkhoahoc as $khoahoc) {
-                                extract($khoahoc);
+                            foreach ($listkh as $kh) {
+                                extract($kh);
                                 if($idkhoahoc==$idkhoahoc) $s = "selected"; else $s=""; 
                                     echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
                             }
@@ -96,9 +96,10 @@ if(is_array($lophoc)){
                         <select name="iduser" id="iduser">
                             <!-- <option value="0" selected>Giáo viên</option> -->
                             <?php
-                            foreach ($listtk as $taikhoan) {
-                                extract($taikhoan);
-                                if($iduser==$iduser) $s = "selected"; else $s=""; 
+                            foreach ($listtk as $tk) {
+                                extract($tk);
+                                var_dump($tk);
+                                // if($iduser==$iduser) $s = "selected"; else $s=""; 
                                 echo '<option value="'.$iduser.'">'.$username.'</option>';
                             }
                         ?>
@@ -106,17 +107,17 @@ if(is_array($lophoc)){
                     </div>        
                     <div class="row mb10">
                         <label for="cahoc">Ca học</label><br>
-                        <input type="time" id="cahoc" name="cahoc" value="<?= $cahoc?>" > 
-                    </div>               
+                        <input type="text" id="cahoc" name="cahoc" value="<?= $cahoc?>" > 
+                    </div>        
+                    <div class="row mb10">
+                        <label for="diadiemhoc">Địa điểm học</label><br>
+                       <input type="text" id="diadiemhoc" name="diadiemhoc" value="<?= $diadiemhoc ?>"> 
+                    </div>         
                     <div class="row mb10">
                         <label for="ngaybatdau">Ngày bắt đầu</label><br>
                        <input type="date" id="ngaybatdau" name="ngaybatdau" value="<?= $ngaybatdau ?>">
                     </div>  
-                    <div class="row mb10">
-                        <label for="ngayketthuc">Ngày kết thúc</label><br>
-                        
-                       <input type="date" id="ngayketthuc" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
-                    </div>  
+                    
                     <div class="row mb10">  
                         <input type="hidden" name="idlop" value="<?=$idlop?>">                     
                         <input type="submit" name="capnhat" value="Cập nhật">

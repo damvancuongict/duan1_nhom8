@@ -1,3 +1,5 @@
+<?php
+?>
 <div class="table">
             <h2>Quản Lý Lớp Học</h2>
             <table>
@@ -7,35 +9,36 @@
                     <td style="width:200px">Tên lớp học</td>
                     <td style="width:130px">Giáo viên</td>
                     <td style="width:130px">Ca học</td>
+                    <td style="width:150px">Địa điểm học</td>
                     <td style="width:150px">Ngày bắt đầu</td>
-                    <td style="width:150px">Ngày kết thúc</td>
-                    <td style="width:200px">Sửa</td>
-                    <td>Xóa</td>
+                    <td style="width:200px">THAO TÁC</td>
                     
                 </tr>
                 <tr>
                     <td colspan="7"><div class="ngan"></div></td>
                 </tr>
                 <?php
-                    foreach ($dslop as $lop) {    
-                       extract($lop); 
+                foreach ($listlop as $lop) {   
+                    if (isset($lop['idkhoahoc']) && $lop['idkhoahoc'] == $idkhoahoc) { 
+                        extract($lop);
                        $sualop="index.php?act=sualop&idlop=".$idlop;
                        $xoalop="index.php?act=xoalop&idlop=".$idlop;
                         echo '<tr>
                         <td><input type="checkbox"></td>
                         <td>'.$idlop.'</td>               
                         <td>'.$tenlop.'</td>
-                        <td>'.$username.'</td>
+                        <td>'.$username. '</td>
                         <td>'.$cahoc.'</td>
+                        <td>'.$diadiemhoc.'</td>
                         <td>'.$ngaybatdau.'</td>
-                        <td>'.$ngayketthuc.'</td>
                         <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a></td>
                         <td><a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
                         
                     </tr>';
                     echo' <td colspan="7"><hr></td>';
                     }
-             
+                }
+                
                 ?>
                     </table>
                     <div class="row mb10">

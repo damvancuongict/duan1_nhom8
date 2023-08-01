@@ -7,15 +7,13 @@
                     <td style="width:120px">Tên lớp học</td>
                     <td style="width:200px">Giáo viên</td>
                     <td style="width:120px">Ca học</td>
+                    <td style="width:120px">Địa điểm học</td>
                     <td style="width:120px">Ngày bắt đầu</td>
-                    <td style="width:120px">Ngày kết thúc</td>
-                    <td style="width:200px">THAO TÁC</td>
-                    
-                    
+                    <td style="width:300px">THAO TÁC</td>
                 </tr>
                 <tr>
                     <td colspan="9"><div class="ngan"></div></td>
-                </tr>
+                </tr>   
 
                         <?php
                             foreach($listlop as $lophoc){
@@ -28,8 +26,9 @@
                                         <td>'.$tenlop.'</td>
                                         <td>'.$username.'</td>
                                         <td>'.$cahoc.'</td>
+                                        <td>'.$diadiemhoc.'</td>
                                         <td>'.$ngaybatdau.'</td>
-                                        <td>'.$ngayketthuc.'</td>
+                                        
                                         <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a>
                                         <a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
                                         
