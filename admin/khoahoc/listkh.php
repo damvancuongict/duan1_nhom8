@@ -5,21 +5,10 @@
                     <td style="width:15px;"></td>
                     <td style="width:100px;">Mã khóa học</td>
                     <td style="width:100px">Tên</td>
-                   
                     <td style="width:100px">Giá</td> 
                     <td style="width:100px">Ảnh</td>
                     <td style="width:500px">Mô Tả</td>
                     <td style="width:200px">THAO TÁC</td>
-                   
-<<<<<<< HEAD
-                    <td style="width:130px">Giá</td>
-                    <td style="width:150px">Ảnh</td>
-                    <td style="width:450px">Mô Tả</td>
-                    <td style="width:100px">Sửa</td>
-                    <td>Xóa</td>
-=======
->>>>>>> 73796768f3e5ef83dc0006a49e7f7c6f4cf02441
-                    
                 </tr>
                 <tr>
                     <td colspan="8"><div class="ngan"></div></td>
