@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 <!-- Mirrored from html.themewin.com/edurock-preview/edurock/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Jul 2023 15:56:02 GMT -->
@@ -125,8 +123,10 @@ session_start();
                                         // $_SESSION['role'] = "1";
                                         // $_SESSION['role'] = "0";
                                         extract($_SESSION['user']);
-                                       
-                                        if((isset($_SESSION['role']) && $_SESSION['role'] == "1")){
+                                        // $sql = "SELECT user.role FROM user";
+                                        $_SESSION['role']= "SELECT * FROM user WHERE `role` = '$role'";
+                                        // var_dump($_SESSION['role']);
+                                        if((isset($_SESSION['role']) && $role == "1")){
                                         ?>
                                         <div style="width: 30px;margin-right: 10px">
                                             <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">
@@ -141,7 +141,7 @@ session_start();
                                         </div>
                                     <?php
                                     }
-                                   else if((isset($_SESSION['role']) && $_SESSION['role'] == "0")){
+                                   else{
                                         ?>
                                         <div style="width: 30px;margin-right: 10px">
                                             <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">

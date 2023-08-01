@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
 
     if (empty($_POST["pass"])) {
-      $passErr = "Bắt buộc nhập password";
+      $passErr = "Bạn chưa nhập password";
     } else {
       $pass = test_input($_POST["pass"]);
       //Xác thực mật khẩu: phải chứa ít nhất 1 chữ cái và số. Cho phép các ký tự !@#$% và có 6-15 ký tự

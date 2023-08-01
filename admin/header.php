@@ -141,7 +141,7 @@
         <div class="menu">
         <img width="150" src="" alt="">
             <ul>
-                <li><a href="index.php"><i class="fas fa-home"></i> - Trang chủ</a></li>
+                <li><a href="../index2.php"><i class="fas fa-home"></i> - Trang chủ</a></li>
                 <li><a href="index.php?act=listdm"><i class="fas fa-certificate"></i> - Quản Lý Danh mục</a></li>
                 <li><a href="index.php?act=listkh"><i class="fas fa-book-open"></i> - Quản Lý Khóa Học</a></li>
                 <li><a href="index.php?act=taikhoan"><i class="fas fa-user-circle"></i> - Quản Lý Tài Khoản</a></li>

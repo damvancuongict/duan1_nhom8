@@ -73,6 +73,11 @@
                                             <input class="common__login__input" type="text" name="tel">
 
                                         </div>
+                                        <div class="login__form">
+                                            <label class="form__label">Role</label>
+                                            <input class="common__login__input" type="text" name="role">
+
+                                        </div>
                                         <!-- <div class="login__form d-flex justify-content-between flex-wrap gap-2">
                                             <div class="form__check">
                                                 <input id="forgot" type="checkbox">
