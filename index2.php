@@ -43,26 +43,7 @@
                     }
                    
                 break;
-                // case 'dangnhap':
-                //     if(isset($_POST['dangnhap'])&&($_POST['dangnhap'])){
-                //         $user=$_POST['user'];
-                //         $pass=$_POST['pass'];
-                //         $checkuser=checkuser($user, $pass);
-                //         if(is_array($checkuser))
-                //         $_SESSION['user']=$checkuser;
-                        
-                        
-                //         $thongbao = "Bạn đã đăng nhập thành công !";
-                //         $yourURL="index2.php";
-                //         echo ("<script>location.href='$yourURL'</script>");
-                //         exit;
-                //     }else{
-                //         $thongbao="Tài khoản không tồn tại, vui lòng kiểm tra hoạc đăng ký";
-                //     }
-
-                //     include "view/taikhoan/dangnhap.php"; 
-                //     break;
-            
+               
             case 'thoat':
                         session_unset();
                         $yourURL="index2.php";

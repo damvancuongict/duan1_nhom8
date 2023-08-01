@@ -22,7 +22,7 @@
                                 $xoakh="index.php?act=xoakh&idkhoahoc=".$idkhoahoc;
                                 $hinhpath = "../upload/".$anh;
                                 if(is_file($hinhpath)){
-                                    $hinh = "<img src='".$hinhpath."' height='80'>";
+                                    $hinh = "<img src='".$hinhpath."' height='80' width = '200'>";
                                 }
                                 else{
                                     $hinh="no photo";

@@ -167,18 +167,15 @@
                                    <th>Mã Lớp</th>
                                    <th>Ca học</th>
                                    <th>Ngày bắt đầu</th>
-                                   <th>Ngày kết thúc</th>
+                                   <th>Địa điểm học</th>
                                    <th>Giá</th>
                                    <th>Giảng viên</th>
                                    <th>Số lượng</th>
                                    <th>Đăng ký</th>
                                </tr>
                                <?php
-                
-
                           $listlop = loadall_lop_user();
-
-                                  foreach ($lopch as $row) {
+                                  foreach ($listlop as $row) {
                                    if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc) {
                                    extract($row);
                                    echo '<tr>';
@@ -186,25 +183,25 @@
                                    echo '<td>' . $idlop . '</td>';
                                    echo '<td>' . $cahoc . '</td>';
                                    echo '<td>' . $ngaybatdau . '</td>';
-                                   echo '<td>' . $ngayketthuc . '</td>';
+                                   echo '<td>' . $ngaybatdau . '</td>';
                                    echo '<td><span class="red"> '.$gia .'</td>';
                                    echo '<td><span class="yellow"> '.$username.'';
-                                  echo' <td><span class="green"> '.$soluong.' </span>/<span class="blue">  '.$soluongtoida.'</span></td>';
+                                  echo' <td><span class="green"> '.$soluong.' </span></td>';
                                    echo '<td>';
-                                   if ($soluong >= $soluongtoida) {
-                                       echo '<p style="color: red;">Số lượng học viên đã đầy</p>';
-                                   } else {
+                                  //  if ($soluong >= $soluongtoida) {
+                                  //      echo '<p style="color: red;">Số lượng học viên đã đầy</p>';
+                                  //  } else {
                                     
-                                    echo '<form method="post" action="index2.php?act=dangkylop">';
-                                    echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
-                                    foreach ($u as $row) {
-                                      extract($row);
-                                    echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
-                                    }
-                                    echo '<button type="submit">Đăng ký</button>';
-                                    echo '</form>';
+                                  //   echo '<form method="post" action="index2.php?act=dangkylop">';
+                                  //   echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
+                                  //   foreach ($u as $row) {
+                                  //     extract($row);
+                                  //   echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
+                                  //   }
+                                  //   echo '<button type="submit">Đăng ký</button>';
+                                  //   echo '</form>';
 
-                                   }
+                                  //  }
                                    echo '</td>';
                                    echo '</tr>';
                                }
