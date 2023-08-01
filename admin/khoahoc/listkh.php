@@ -6,7 +6,8 @@
                     <td style="width:20px;">Mã khóa học</td>
                     <td style="width:150px">Tên</td>
                    
-                    <td style="width:130px">Giá</td> <td style="width:150px">Ảnh</td>
+                    <td style="width:130px">Giá</td>
+                    <td style="width:150px">Ảnh</td>
                     <td style="width:450px">Mô Tả</td>
                     <td style="width:100px">Sửa</td>
                     <td>Xóa</td>

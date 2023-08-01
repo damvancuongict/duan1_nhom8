@@ -9,7 +9,7 @@
     $danhsach=loadall_danhmuc();
     include "view/header.php"; 
     $khoahoc =load8_khoahoc_home();
-    $lopch = loadall_lop();
+    $lopch = loadall_lop_user();
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act) {
