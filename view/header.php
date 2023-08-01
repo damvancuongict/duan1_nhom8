@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <!-- Mirrored from html.themewin.com/edurock-preview/edurock/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Jul 2023 15:56:02 GMT -->
@@ -118,11 +120,14 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6">
                             <div class="headerarea__right">
-                            <!-- <img src="img/user.jpg" alt="" width="25px" height="25px"> -->
                                 <?php 
                                     if(isset($_SESSION['user'])){
+                                        // $_SESSION['role'] = "1";
+                                        // $_SESSION['role'] = "0";
                                         extract($_SESSION['user']);
-                                ?>
+                                       
+                                        if((isset($_SESSION['role']) && $_SESSION['role'] == "1")){
+                                        ?>
                                         <div style="width: 30px;margin-right: 10px">
                                             <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">
                                             <span style="color: red;">Hello</span> <?=$username?>
@@ -134,16 +139,30 @@
                                         <div class="headerarea__login" >
                                             <a href="index2.php?act=thoat">Đăng xuất</a>
                                         </div>
-                                <?php
-                                    }else{
+                                    <?php
+                                    }
+                                   else if((isset($_SESSION['role']) && $_SESSION['role'] == "0")){
                                         ?>
-                                   
-                                <div class="headerarea__login" style="width:100%">
-                                    <a href="index2.php?act=dangnhap">Đăng nhập</a>
-                                </div>
-                                <div class="headerarea__login" style="width:100%">
-                                    <a href="index2.php?act=dangky" >Đăng ký</a>
-                                </div>
+                                        <div style="width: 30px;margin-right: 10px">
+                                            <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">
+                                            <span style="color: red;">Hello</span> <?=$username?>
+                                        
+                                        </div>
+                                    
+                                        <div class="headerarea__login" >
+                                            <a href="index2.php?act=thoat">Đăng xuất</a>
+                                        </div>
+                                        <?php
+                                        }
+
+                                    }else{
+                                        ?>                                
+                                    <div class="headerarea__login" style="width:100%">
+                                        <a href="index2.php?act=dangnhap">Đăng nhập</a>
+                                    </div>
+                                    <div class="headerarea__login" style="width:100%">
+                                        <a href="index2.php?act=dangky" >Đăng ký</a>
+                                    </div>
                                 <?php } ?>
                                 
                             </div>
