@@ -17,8 +17,8 @@
                     <td colspan="7"><div class="ngan"></div></td>
                 </tr>
                 <?php
-                    foreach ($dslop as $lophoc) {    
-                       extract($lophoc); 
+                    foreach ($dslop as $lop) {    
+                       extract($lop); 
                        $sualop="index.php?act=sualop&idlop=".$idlop;
                        $xoalop="index.php?act=xoalop&idlop=".$idlop;
                         echo '<tr>

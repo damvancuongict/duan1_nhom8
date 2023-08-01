@@ -174,6 +174,10 @@
                                    <th>Đăng ký</th>
                                </tr>
                                <?php
+                
+
+                          $listlop = loadall_lop_user();
+
                                   foreach ($lopch as $row) {
                                    if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc) {
                                    extract($row);
@@ -199,6 +203,7 @@
                                     }
                                     echo '<button type="submit">Đăng ký</button>';
                                     echo '</form>';
+
                                    }
                                    echo '</td>';
                                    echo '</tr>';
@@ -212,24 +217,11 @@
                            </table>
 
                            </div>
-                           <input type="hidden" id="selected_classes" name="selected_classes" value="">
-                           <button type="submit" style="display: none;" id="submit_button">Submit</button>
-                         
-
-                         <script>
-                           function registerClass(classId) {
-                             var selectedClasses = document.getElementById('selected_classes').value;
-                             if (selectedClasses.length > 0) {
-                               selectedClasses += ',';
-                             }
-                             selectedClasses += classId;
-                             document.getElementById('selected_classes').value = selectedClasses;
-                             document.getElementById('submit_button').click();
-                           }
+                           
                          </script>
-                       </div>
- </div>
-</div>
+                        </div>
+                  </div>
+                  </div>
 
        
                         

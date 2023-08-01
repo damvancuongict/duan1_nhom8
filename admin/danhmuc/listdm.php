@@ -6,10 +6,10 @@
                 <tr class="daubai">
                    
                     <td style="width: 20px;"></td>
-                    <td style="width: 250px;">ID</td>
+                    <td style="width: 120px;">Mã danh mục</td>
                     <td style="width: 250px;">Tên Danh Mục</td>
-                    <td  style="width: 80px;">Sửa</td>
-                    <td  style="width: 80px;">Xóa</td>
+                    <td  style="width: 200px;">THAO TÁC</td>
+                    
                     
                 </tr>
                 <tr>
@@ -24,8 +24,8 @@
                                          <td><input type="checkbox"></td>
                                         <td>'.$iddm.'</td>
                                         <td>'.$tendm.'</td>
-                                        <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a></td>
-                                        <td><a href="'.$xoadm.'"><input type="button" value="Xóa"></a></td>
+                                        <td><a href="'.$suadm.'"><input type="button" value="Sửa"></a>
+                                        <a href="'.$xoadm.'"><input type="button" value="Xóa"></a></td>
                                         
                                     
                                         
@@ -34,7 +34,7 @@
                             }
                         ?>
                         </table>
-                        <div class="row mb10">
+                        <div class="row mb10" style="margin-left:7%">
                     <input type="button" value="Chọn tất cả">
                     <input type="button" value="Bỏ chọn tất cả">
                     <input type="button" value="Xóa các mục đã chọn">

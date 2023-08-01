@@ -27,7 +27,7 @@ label {
 }
 
 input[type="text"], textarea, select {
-    width: 100%;
+    width: 90%;
     padding: 8px 10px;
     border-radius: 3px;
     border: 1px solid #ccc;

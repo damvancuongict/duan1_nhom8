@@ -1,6 +1,6 @@
 <div class="gridarea">
     <div class="container">
-        <div>
+      
             <div class="gridarea__wraper">
                 <div class="gridarea__img">
                     <?php
@@ -39,6 +39,6 @@
                     
                 </div>
             </div>
-        </div>
+      
     </div>
 </div>

@@ -172,6 +172,7 @@
                     $idlop=0;
                 }
                 $listlop = loadall_lop_user();
+                // var_dump($listlop);
                 include "lophoc/listlop.php";
                 break;
             case 'xoalop':
@@ -205,7 +206,7 @@
                 $listlop = loadall_lop("",0);
                 include "lophoc/addlop.php";
                 break;
-            case 'taikhoan':
+                case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
                     include "taikhoan/listtk.php";
                     break;

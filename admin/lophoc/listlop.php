@@ -3,18 +3,18 @@
             <table>
                 <tr class="daubai">
                     <td style="width:15px;"></td>
-                    <td style="width:20px;">Mã lớp học</td>
-                    <td style="width:200px">Tên lớp học</td>
-                    <td style="width:130px">Giáo viên</td>
-                    <td style="width:130px">Ca học</td>
-                    <td style="width:150px">Ngày bắt đầu</td>
-                    <td style="width:150px">Ngày kết thúc</td>
-                    <td style="width:200px">Sửa</td>
-                    <td>Xóa</td>
+                    <td style="width:120px;">Mã lớp học</td>
+                    <td style="width:120px">Tên lớp học</td>
+                    <td style="width:200px">Giáo viên</td>
+                    <td style="width:120px">Ca học</td>
+                    <td style="width:120px">Ngày bắt đầu</td>
+                    <td style="width:120px">Ngày kết thúc</td>
+                    <td style="width:200px">THAO TÁC</td>
+                    
                     
                 </tr>
                 <tr>
-                    <td colspan="7"><div class="ngan"></div></td>
+                    <td colspan="9"><div class="ngan"></div></td>
                 </tr>
 
                         <?php
@@ -30,15 +30,15 @@
                                         <td>'.$cahoc.'</td>
                                         <td>'.$ngaybatdau.'</td>
                                         <td>'.$ngayketthuc.'</td>
-                                        <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a></td>
-                                        <td><a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
+                                        <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a>
+                                        <a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
                                         
                                     </tr>';
-                                    echo' <td colspan="7"><hr></td>';
+                                    echo' <td colspan="9"><hr></td>';
                             }
                         ?>
                     </table>
-                    <div class="row mb10">
+                    <div class="row mb10" style="margin-left:7%">
                         <input type="button" value="Chọn tất cả">
                         <input type="button" value="Bỏ chọn tất cả">
                         <input type="button" value="Xóa các mục đã chọn">
