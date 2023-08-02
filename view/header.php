@@ -20,9 +20,11 @@
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="view/style.css">   
+    <style>
+  
+</style> 
 </head>
-<style>
-</style>
+
 <body class="body__wrapper">
     <main class="main_wrapper">
         <!-- header section start -->
@@ -123,26 +125,29 @@
                                     if(isset($_SESSION['user'])){
                                         extract($_SESSION['user']);
                                 ?>
-                                        <div>
-                                            <img src="img/user.jpg" alt="" width="25px" height="25px"><?=$username?>
+                                        <div style="width: 30px;margin-right: 10px">
+                                            <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">
+                                            <span style="color: red;">Hello</span> <?=$username?>
+                                            
                                         </div>
                                         <div class="headerarea__login">
-                                            <a href="index2.php?act=capnhattk">Cập nhật</a>
+                                            <a href="admin/index.php">Quản lý</a>
                                         </div>
-                                        <div class="headerarea__login">
+                                        <div class="headerarea__login" >
                                             <a href="index2.php?act=thoat">Đăng xuất</a>
                                         </div>
                                 <?php
                                     }else{
                                         ?>
                                    
-                                <div class="headerarea__login">
+                                <div class="headerarea__login" style="width:100%">
                                     <a href="index2.php?act=dangnhap">Đăng nhập</a>
                                 </div>
-                                <?php } ?>
-                                <div class="headerarea__login">
-                                    <a href="index2.php?act=dangky">Đăng ký</a>
+                                <div class="headerarea__login" style="width:100%">
+                                    <a href="index2.php?act=dangky" >Đăng ký</a>
                                 </div>
+                                <?php } ?>
+                                
                             </div>
                         </div>
                     </div>
@@ -166,4 +171,6 @@
                 </div>
             </div>
         </header>
+       
         <!-- header section end -->
+        

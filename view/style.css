@@ -1,4 +1,4 @@
-.boxsp {
+/* .boxsp {
     float: left;
     width: 22%;
     min-height: 250px;
@@ -42,12 +42,12 @@
     width: 80px;
     border-radius: 5px;
     border: 1px #6b6363 solid;
-    background-color:rgb(80, 80, 231); /* Hoặc màu hồng đậm khác */
+    background-color:rgb(80, 80, 231); 
     color: white;
 
 }
 .boxsp .btnaddtocart input[type="submit"]:hover {
-    background-color:white; /* Hoặc màu hồng đậm khác */
+    background-color:white; 
     color: blue;
     border: 1px blue solid;
 }
@@ -57,5 +57,6 @@
     justify-content: space-between;
 }
 
-
-/* class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 grid-item filter2 filter3" */
+ */
+ /* Nền màu xám nhạt cho gridarea */
+ 
