@@ -20,9 +20,11 @@
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="view/style.css">   
+    <style>
+  
+</style> 
 </head>
-<style>
-</style>
+
 <body class="body__wrapper">
     <main class="main_wrapper">
         <!-- header section start -->
@@ -188,4 +190,6 @@
                 </div>
             </div>
         </header>
+       
         <!-- header section end -->
+        

@@ -28,7 +28,6 @@
                                         <td>'.$cahoc.'</td>
                                         <td>'.$diadiemhoc.'</td>
                                         <td>'.$ngaybatdau.'</td>
-                                        
                                         <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a>
                                         <a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
                                         

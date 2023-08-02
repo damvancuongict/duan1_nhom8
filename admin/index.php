@@ -139,7 +139,6 @@
                     $thongbao= "thêm thành công !";
                 }
                 $listkh=loadall_khoahoc();
-
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
@@ -177,7 +176,7 @@
                 if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
                     delete_lop($_GET['idlop']);
                 }
-                $listlophoc = loadall_lop_user();
+                // $listlophoc = loadall_lop_user();
                 $listlop=loadall_lop("",0);
                 include "lophoc/listlop.php";
                 break;
