@@ -132,9 +132,10 @@
                     $tenlop=$_POST['tenlop'];
                     $iduser=$_POST['iduser'];
                     $cahoc=$_POST['cahoc'];
+                    $diadiemhoc=$_POST['diadiemhoc'];
                     $ngaybatdau=$_POST['ngaybatdau'];
-                    $ngayketthuc=$_POST['ngayketthuc'];
-                      insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);
+                    
+                      insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$diadiemhoc,$idkhoahoc);
                     $thongbao= "thêm thành công !";
                 }
                 $listkh=loadall_khoahoc();
@@ -155,13 +156,10 @@
                 break;
             case 'lop':               
                     if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
-                       
                         $idkhoahoc=$_GET['idkhoahoc'];
-                        $dslop=loadall_lop_khoahoc("",$idkhoahoc); 
                     }
-                    $listlophoc = loadall_lop_user2();
-                    // var_dump($listlophoc);
-                    include "lophoc/lop.php";
+                        $listlop = loadall_lop_user();
+                        include "lophoc/lop.php";
                 break;
             case 'listlop':
                 if(isset($_POST['listlop'])&&($_POST['listlop'])){
@@ -172,13 +170,13 @@
                     $idlop=0;
                 }
                 $listlop = loadall_lop_user();
-                // var_dump($listlop);
                 include "lophoc/listlop.php";
                 break;
             case 'xoalop':
                 if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
                     delete_lop($_GET['idlop']);
                 }
+                // $listlophoc = loadall_lop_user();
                 $listlop=loadall_lop("",0);
                 include "lophoc/listlop.php";
                 break;
@@ -196,11 +194,13 @@
                     $iduser = $_POST['iduser'];
                     $tenlop=$_POST['tenlop'];
                     $cahoc=$_POST['cahoc'];
+                    $diadiemhoc=$_POST['diadiemhoc'];
                     $ngaybatdau=$_POST['ngaybatdau'];
-                    $ngayketthuc=$_POST['ngayketthuc'];
-                    update_lop($idlop,$iduser,$tenlop,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);                    
+                    
+                    update_lop($idlop,$iduser,$tenlop,$cahoc,$ngaybatdau,$diadiemhoc,$idkhoahoc);                    
                     $thongbao="Cập nhật thành công";
                 }
+                $listtk = loadall_lop_user();
                 $listkh = loadall_khoahoc();
                 $listtaikhoan = loadalltaikhoan();
                 $listlop = loadall_lop("",0);

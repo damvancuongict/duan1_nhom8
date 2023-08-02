@@ -186,6 +186,7 @@
                                 <li>Kế hoạch học tập: </li>
                             </ul>
                        <div class="boxphai">
+
                        
                            <table >
                                <tr style="color:#fff;background-color:#0082c8; height:38px">
@@ -201,9 +202,10 @@
                                <?php
                 
                                
-                          $listlop = loadall_lop_user();
 
-                                  foreach ($lopkh as $row) {
+                          $lopch = loadall_lop_user();
+                                  foreach ($lopch as $row) {
+
                                     if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc && strtotime($row['ngaybatdau']) > time() - (24 * 3600 * 7)) {
                                         extract($row);
                                 

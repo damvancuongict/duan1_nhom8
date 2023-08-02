@@ -51,9 +51,6 @@
                    
                 break;
 
-               
-               
-            
             case 'thoat':
 
                         session_unset();
@@ -93,8 +90,6 @@
                         $conn = null;
                         }
 
-      
-               
             
                 include "view/taikhoan/dangky.php";
                 break;

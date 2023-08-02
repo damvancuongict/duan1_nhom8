@@ -67,7 +67,7 @@ if(is_array($khoahoc)){
 }
 $hinhpath="../upload/".$anh;
 if(is_file($hinhpath)){
-    $hinh="<img src='".$hinhpath."' height='80'>";
+    $hinh="<img src='".$hinhpath."' height='100' width='300'>";
 }else{
     $hinh="no photo";
 }

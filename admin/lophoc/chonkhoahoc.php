@@ -4,9 +4,7 @@
                 <tr class="khoahoc">
                     <td style="width:200px">Tên khóa học</td>
                     <td style="width:130px">Hình</td>
-                    <td style="width:200px">Sửa</td>
-                    <td>Xóa</td>
-                    
+                    <td style="width:100px">THAO TÁC</td>                    
                 </tr>
                 <tr>
                     <td colspan="7"><div class="ngan"></div></td>
@@ -19,7 +17,7 @@
                                     $xoakh="index.php?act=xoakh&idkhoahoc=".$idkhoahoc;
                                     $hinhpath = "../upload/".$anh;
                                     if(is_file($hinhpath)){
-                                        $hinh = "<img src='".$hinhpath."' height='80'>";
+                                        $hinh = "<img src='".$hinhpath."' height='80' width='300'>";
                                     }
                                     else{
                                         $hinh="no photo";
@@ -36,10 +34,8 @@
                                 
                             ?>
                     </table>
-                    <div class="row mb10">
-                        <input type="button" value="Chọn tất cả">
-                        <input type="button" value="Bỏ chọn tất cả">
-                        <input type="button" value="Xóa các mục đã chọn">
+                    <div class="row mb10" style="margin-left:7%">
+                        
                         <a href="index.php?act=addkh"><input type="button" value="Nhập thêm"></a>
                     </div>
                 </div>
