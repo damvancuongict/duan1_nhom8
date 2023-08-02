@@ -67,7 +67,8 @@ function delete_tk($iduser){
     pdo_execute($sql);
 }
 function update_tk($iduser,$username,$password,$email,$address,$tel,$role){
-    $sql="update user set user='".$username."',password='".$password."',email='".$email."',address='".$address."',tel='".$tel."',role='".$role."' where iduser=".$iduser;
+    // $sql="update user set username='".$username."',password='".$password."',email='".$email."',address='".$address."',tel='".$tel."',role='".$role."' where iduser=".$iduser;
+    $sql="UPDATE `user` SET `username` = '".$username."', `password` = '".$password."', `email` = '".$email."', `address` = '".$address."', `tel` = '".$tel."', `role` = '".$role."' WHERE `user`.`iduser` = ".$iduser;
     pdo_execute($sql);
 }
 ?>

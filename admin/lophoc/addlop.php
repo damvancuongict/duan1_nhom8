@@ -90,6 +90,7 @@ a:hover {
                         <?php
                         foreach ($listtk as $taikhoan) {
                             extract($taikhoan);
+                            
                             echo '<option value="'.$iduser.'">'.$username.'</option>';
                         }
                         ?>

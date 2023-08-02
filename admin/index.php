@@ -6,6 +6,7 @@
     include "../model/lophoc.php";
     // include "../model/binhluan.php";
     $listdanhmuc = loadall_danhmuc();
+    $khoahoc=loadall_khoahoc();
     include "header.php";
     //controller
 
@@ -140,7 +141,28 @@
                 $listtk=loadalltaikhoan();
                 include "lophoc/addlop.php";
                 break;
-
+            case 'chonkhoahoc':
+                if(isset($_POST['listok'])&&($_POST['listok'])){
+                    $kyw=$_POST['kyw'];
+                    $idkhoahoc=$_POST['idkhoahoc'];
+                }else{
+                    $kyw='';
+                    $idkhoahoc=0;
+                }
+                $listdanhmuc = loadall_danhmuc();
+                $listkh = loadall_khoahoc($kyw,$idkhoahoc);
+                    include "lophoc/chonkhoahoc.php";
+                break;
+            case 'lop':               
+                    if(isset($_GET['idkhoahoc'])&&($_GET['idkhoahoc']>0)){
+                       
+                        $idkhoahoc=$_GET['idkhoahoc'];
+                        $dslop=loadall_lop_khoahoc("",$idkhoahoc); 
+                    }
+                    $listlophoc = loadall_lop_user2();
+                    // var_dump($listlophoc);
+                    include "lophoc/lop.php";
+                break;
             case 'listlop':
                 if(isset($_POST['listlop'])&&($_POST['listlop'])){
                     $kyw=$_POST['kyw'];
@@ -161,30 +183,26 @@
                 include "lophoc/listlop.php";
                 break;
             case 'sualop':
-                    if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
-                        $lop =loadone_lop($_GET['idlop']);
-                    }
-                    $listkh = loadall_khoahoc();
-                    $listlop = loadall_lop();
-                    $listtk=loadalltaikhoan();
-                    include "lophoc/updatelop.php";
-                    break;
-            
+                if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
+                    $lophoc =loadone_lop($_GET['idlop']);
+                }
+                $listkh = loadall_khoahoc();
+                include "lophoc/updatelop.php";
+                break;
             case 'updatelop' :
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                     $idlop=$_POST['idlop'];
                     $idkhoahoc=$_POST['idkhoahoc'];
+                    $iduser = $_POST['iduser'];
                     $tenlop=$_POST['tenlop'];
-                    $iduser=$_POST['iduser'];
                     $cahoc=$_POST['cahoc'];
                     $ngaybatdau=$_POST['ngaybatdau'];
                     $ngayketthuc=$_POST['ngayketthuc'];
-                    
-                    update_lop($idlop,$tenlop,$cahoc,$ngaybatdau,$ngayketthuc,$iduser,$idkhoahoc);
+                    update_lop($idlop,$iduser,$tenlop,$cahoc,$ngaybatdau,$ngayketthuc,$idkhoahoc);                    
                     $thongbao="Cập nhật thành công";
                 }
-                $listkhoahoc = loadall_khoahoc();
-                $listtk=loadalltaikhoan();
+                $listkh = loadall_khoahoc();
+                $listtaikhoan = loadalltaikhoan();
                 $listlop = loadall_lop("",0);
                 include "lophoc/addlop.php";
                 break;

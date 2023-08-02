@@ -5,13 +5,10 @@
                     <td style="width:15px;"></td>
                     <td style="width:100px;">Mã khóa học</td>
                     <td style="width:100px">Tên</td>
-                   
                     <td style="width:100px">Giá</td> 
                     <td style="width:100px">Ảnh</td>
                     <td style="width:500px">Mô Tả</td>
                     <td style="width:200px">THAO TÁC</td>
-                   
-                    
                 </tr>
                 <tr>
                     <td colspan="8"><div class="ngan"></div></td>

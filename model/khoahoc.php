@@ -49,6 +49,5 @@ function load8_khoahoc_home(){
     $sql="SELECT * from khoahoc where 1 order by idkhoahoc desc limit 0,8";
     $listkh=pdo_query($sql);
     return $listkh;
-
   }
 ?>

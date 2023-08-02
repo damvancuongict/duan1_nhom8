@@ -12,7 +12,7 @@
             $_SESSION['role'] = $role;
             if($iduser==$iduser) $s="selected"; else $s="";
                 {
-                    if($role==2){
+                    if($role=="2"){
                         echo '<option value="'.$iduser.'">'.$username.'</option>';
                     }else{
                         echo 'Học sinh';

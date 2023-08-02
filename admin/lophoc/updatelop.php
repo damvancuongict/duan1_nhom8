@@ -63,10 +63,8 @@ a:hover {
 </style>
 
 <?php 
-if(is_array($lop)){
-    extract($lop);
-    
-                       
+if(is_array($lophoc)){
+    extract($lophoc);                 
 }
 ?>
 
@@ -77,48 +75,48 @@ if(is_array($lop)){
             <div class="row formcontent">
                 <form action="index.php?act=updatelop" method="post" enctype="multipart/form-data">
                     <div class="row mb10">
-                        Tên khóa học<br>
-                        <select name="idkhoahoc">
-                            <option value="0" selected>Khóa học</option>
+                    <label for="idkhoahoc">Khóa học</label><br>
+                        <select name="idkhoahoc" id="idkhoahoc">
+                            <!-- <option value="0" selected>Khóa học</option> -->
                             <?php
-                            foreach ($listkh as $kh) {
-                                extract($kh);
-                                echo '<option value="'.$idkhoahoc.'">'.$tenkhoahoc.'</option>';
+                            foreach ($listkhoahoc as $khoahoc) {
+                                extract($khoahoc);
+                                if($idkhoahoc==$idkhoahoc) $s = "selected"; else $s=""; 
+                                    echo '<option value="'.$idkhoahoc.'" '.$s.'>'.$tenkhoahoc.'</option>';
                             }
                         ?>
                         </select>
                     </div>
                     <div class="row mb10">
-                        Tên lớp học<br>
-                        <input type="text" name="tenlop" value="<?= $tenlop?>">
+                        <label for="tenlop">Tên lớp học</label><br>
+                        <input type="text" name="tenlop" id="tenlop" value="<?= $tenlop?>">
                     </div>               
                     <div class="row mb10">
-                        Giáo viên<br>
-                        <select name="idusername">
-                            <option value="0" selected>Giáo viên</option>
+                        <label for="iduser">Giáo viên</label><br>
+                        <select name="iduser" id="iduser">
+                            <!-- <option value="0" selected>Giáo viên</option> -->
                             <?php
                             foreach ($listtk as $taikhoan) {
                                 extract($taikhoan);
+                                if($iduser==$iduser) $s = "selected"; else $s=""; 
                                 echo '<option value="'.$iduser.'">'.$username.'</option>';
                             }
                         ?>
                         </select>
                     </div>        
                     <div class="row mb10">
-                        Ca học<br>
-                        <input type="time" name="cahoc" value="<?= $cahoc?>" > 
+                        <label for="cahoc">Ca học</label><br>
+                        <input type="time" id="cahoc" name="cahoc" value="<?= $cahoc?>" > 
                     </div>               
                     <div class="row mb10">
-                        Ngày bắt đầu<br>
-                       
-                       <input type="date" name="ngaybatdau" value="<?= $ngaybatdau ?>">
+                        <label for="ngaybatdau">Ngày bắt đầu</label><br>
+                       <input type="date" id="ngaybatdau" name="ngaybatdau" value="<?= $ngaybatdau ?>">
                     </div>  
                     <div class="row mb10">
-                        Ngày kết thúc<br>
-                       <input type="date" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
+                        <label for="ngayketthuc">Ngày kết thúc</label><br>
+                        
+                       <input type="date" id="ngayketthuc" name="ngayketthuc" value="<?= $ngayketthuc ?>"> 
                     </div>  
-                                 
-                               
                     <div class="row mb10">  
                         <input type="hidden" name="idlop" value="<?=$idlop?>">                     
                         <input type="submit" name="capnhat" value="Cập nhật">

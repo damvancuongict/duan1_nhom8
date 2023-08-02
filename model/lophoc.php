@@ -1,16 +1,5 @@
 <?php
 
-// function return_oder($idlop, $iduser)
-// {
-  
-//     $sql = "SELECT COUNT(*) as KQ FROM dangky WHERE idlop = ? AND iduser = ?";
-
-//     // Truyền tham số vào câu lệnh SQL và thực hiện truy vấn
-//     $dklophoc = pdo_query($sql);
-
-
-//     return $dklophoc;
-// }
 
 // Hàm kiểm tra xem người dùng đã đăng ký lớp học chưa
 function checkIfUserRegistered($idLop, $idUser) {
@@ -56,19 +45,6 @@ function checkIfUserRegistered($idLop, $idUser) {
          return $idlop;
     } 
    
-    // function loadall_lop_khoahoc($kyw="",$idlop=0){
-    //     $sql = "SELECT * FROM lop WHERE 1";   
-    //     if ($kyw != "") {
-    //         $sql .= " AND tenlop LIKE '%" . $kyw . "%' ";
-    //     }   
-    //     if ($idlop > 0) {
-    //         $sql .= " AND idkhoahoc = '" .$idlop. "' ";
-    //     }    
-    //     $sql .= " ORDER BY idlop DESC";   
-    
-    //     $listlop = pdo_query($sql); 
-    //     return $listlop;
-    // }
     function loadall_lop($kyw="",$idlop=0){
         $sql="SELECT * FROM lop WHERE 1";
         if($kyw!=""){
