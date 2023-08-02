@@ -100,8 +100,8 @@
                              <div class="">
                                  <div class="gridarea__img">
                                  <div class="chitietdangky">
-    
-            <form method="post" action="" id="confirmForm">
+                                 <div>
+           
                 <div class="tieude">
                  <h2 style="text-align: center; color: blue;">Đăng ký khóa học</h2>
             </div>
@@ -122,6 +122,7 @@
                                 ?>        
                
              </div>
+            
              <div class="phai">
                 <div class="payment-options">
                     <div class="nutthanhtoan">
@@ -153,11 +154,22 @@
                 
         </div>
         <div class="form-xacnhan" style="text-align: center;">
-            <button name="xacnhan" type="button" class="btn-submit"onclick="validateForm()" onclick="dangKy()">Xác Nhận</button>
+                <form method="post" action="index2.php?act=dangkydanhsachlop" id="confirmForm">
+            <?php 
+                $iaus = $_SESSION['user'];
+                $iduser = $iaus['iduser'];
+                echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
+                echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
+                echo '<input type="hidden" name="trangthai" id="trangthai" value="">';
+            ?>
+            <button type="button" class="btn-submit" onclick="validateForm()">Xác Nhận</button>
             <button type="button" class="btn-cancel" onclick="huyBo()">Hủy bỏ</button>
-        </div> 
+        </form>
+
+    </div> 
+    </div> 
        
-            </form>
+            
      
        
  </div>
@@ -184,17 +196,14 @@
             var isThanhToanTrucTiep = document.getElementById("diaChi").style.display === "block";
 
             if (isThanhToanTrucTiep) {
-                form.action = "index2.php?act=thanhtoantructiep"; // Thay thế 'url_trang_thanh_toan_truc_tiep' bằng URL thực tế của trang thanh toán trực tiếp
+                form.action = "index2.php?act=dangkydanhsachlop&idlop=<?php echo $idlop; ?>"; // Thay thế 'url_trang_thanh_toan_truc_tiep' bằng URL thực tế của trang thanh toán trực tiếp
             } else {
-                form.action = "index2.php?act=thanhtoanchuyenkhoan"; // Thay thế 'url_trang_chuyen_khoan' bằng URL thực tế của trang chuyển khoản
+                form.action = "index2.php?act=dangkydanhsachlop&idlop=<?php echo $idlop; ?>"; // Thay thế 'url_trang_chuyen_khoan' bằng URL thực tế của trang chuyển khoản
             }
 
             form.submit();
         }
 
-        function huyBo() {
-            // Hành động hủy bỏ nếu cần thiết
-        }
         function validateForm() {
         var isThanhToanTrucTiep = document.getElementById("diaChi").style.display === "block";
         var isThanhToanChuyenKhoan = document.getElementById("hinhAnh").style.display === "block";
@@ -202,6 +211,11 @@
         if (!isThanhToanTrucTiep && !isThanhToanChuyenKhoan) {
             alert("Vui lòng chọn hình thức thanh toán!");
         } else {
+            // Đặt giá trị cho trường ẩn "trangthai" dựa trên phương thức thanh toán được chọn
+            var trangthaiInput = document.getElementById("trangthai");
+            trangthaiInput.value = isThanhToanTrucTiep ? "0" : "1";
+
+            // Gửi biểu mẫu
             dangKy();
         }
     }
