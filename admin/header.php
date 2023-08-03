@@ -146,7 +146,7 @@
                 <li><a href="index.php?act=listkh"><i class="fas fa-book-open"></i> - Quản Lý Khóa Học</a></li>
                 <li><a href="index.php?act=taikhoan"><i class="fas fa-user-circle"></i> - Quản Lý Tài Khoản</a></li>
                 <li><a href="index.php?act=chonkhoahoc"><i class="fas fa-school"></i> - Quản Lý Lớp Học</a></li>
-                <li><a href="index.php?act=listhv"><i class="fas fa-regular fa-graduation-cap"></i> - Quản Lý Học Viên</a></li>
+                <li><a href="index.php?act=quanlydangky"><i class="fas fa-regular fa-graduation-cap"></i> - Quản Lý Đăng Ký</a></li>
             </ul>
         </div>
         

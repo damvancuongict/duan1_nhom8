@@ -202,8 +202,10 @@
                                <?php
                 
                                
+
                           $lopch = loadall_lop_user();
                                   foreach ($lopch as $row) {
+
                                     if (isset($row['idkhoahoc']) && $row['idkhoahoc'] == $idkhoahoc && strtotime($row['ngaybatdau']) > time() - (24 * 3600 * 7)) {
                                         extract($row);
                                 

@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/aos.min.css">
@@ -20,17 +21,27 @@
     <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/swiper%409/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="view/style.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
-  
+ .cart-icon {
+    font-size: 30px;    
+}
 </style> 
 </head>
 
 <body class="body__wrapper">
+    
     <main class="main_wrapper">
         <!-- header section start -->
+        
         <header>
+    
+
             <div class="headerarea transparent__header header__sticky header__area">
+            
                 <div class="container desktop__menu__wrapper">
+                    
                     <div class="row">
                         <div class="col-xl-2 col-lg-2 col-md-6">
                             <div class="headerarea__left">
@@ -119,7 +130,7 @@
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6">
-                            <div class="headerarea__right">
+                        <div class="headerarea__right">
                                 <?php 
                                     if(isset($_SESSION['user'])){
                                         // $_SESSION['role'] = "1";
@@ -151,7 +162,17 @@
                                         
                                         </div>
                                     
-                                        <div class="headerarea__login" >
+                                        <div class="">
+                                        <?php
+                                            $lopnguoidung = thongtinlopcuanguoidung();
+                                            $soLuongDangKy = count($lopnguoidung);
+                                            ?>
+                                        <a href="index2.php?act=canhan">
+                                                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+                                            <span><?php echo $soLuongDangKy; ?></span>
+                                        </a>
+                                        </div>
+                                             <div class="headerarea__login" >
                                             <a href="index2.php?act=thoat">Đăng xuất</a>
                                         </div>
                                         <?php
@@ -161,7 +182,7 @@
                                         ?>                                
                                     <div class="headerarea__login" style="width:100%">
                                         <a href="index2.php?act=dangnhap">Đăng nhập</a>
-                                    </div>
+                                        </div>
                                     <div class="headerarea__login" style="width:100%">
                                         <a href="index2.php?act=dangky" >Đăng ký</a>
                                     </div>

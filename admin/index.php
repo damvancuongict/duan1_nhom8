@@ -237,6 +237,10 @@
                 $listtaikhoan = loadalltaikhoan();
                 include "taikhoan/updatetk.php";
                 break;
+                case 'quanlydangky':
+                
+                include "dangky/dangky.php";
+                break;
             default:
                 include "home.php";
                 break;

@@ -13,8 +13,10 @@
     // include "view/taikhoan/dangnhap.php"; 
     if(!isset($_SESSION['mylop'])) $_SESSION['mylop']=[];
     $khoahoc =load8_khoahoc_home();
-    $lopch = loadall_lop_user();
-
+    $lopkh = loadall_lop_user();
+    $lopnguoidung = thongtinlopcuanguoidung();
+    $new =newclass();
+    // $idlopw = loadall_idlop($idlop);
     $lopch = loadall_lop();
 
     $u = loadalltaikhoan();
@@ -48,6 +50,7 @@
                     }
                    
                 break;
+
             case 'thoat':
 
                         session_unset();
@@ -155,6 +158,26 @@
                     include "view/home.php";
                 }
                 break;
+                case 'canhan':
+                    if (isset($_SESSION['user'])) {
+                        // Nếu đã đăng nhập, hiển thị trang cá nhân
+                        include "view/canhan.php";}else {
+                            include "view/home.php";
+                        }
+                    break;
+                case 'dangkydanhsachlop':
+                    if (isset($_POST['idlop']) && $_POST['idlop']) {
+                        $idlop = $_POST['idlop'];
+                        $iduser = $_POST['iduser'];
+                        $trangthai = $_POST['trangthai'];
+                        insert_dangky($idlop, $trangthai, $iduser);
+                        include "view/thongbao.php";
+                    } else {
+                        include "view/home.php";
+                    }
+                    break;
+                    
+                
            
             default:
                include "index2.php";

@@ -1,5 +1,4 @@
 <?php
-
 // Hàm kiểm tra xem người dùng đã đăng ký lớp học chưa
 function checkIfUserRegistered($idLop, $idUser) {
     // Truy vấn kiểm tra đăng ký
@@ -75,4 +74,28 @@ function checkIfUserRegistered($idLop, $idUser) {
             $sql = "INSERT INTO dangky (idlop, trangthai, iduser) VALUES ('$idlop', '$trangthai', '$iduser')";
             pdo_execute($sql);
         }
+
+        function thongtinlopcuanguoidung(){
+            if (isset($_SESSION['user']['iduser'])) {
+                $iduser = $_SESSION['user']['iduser'];
+                $sql = "SELECT dangky.*, lop.*, khoahoc.tenkhoahoc FROM dangky
+                        INNER JOIN lop ON dangky.idlop = lop.idlop
+                        INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc
+                        WHERE dangky.iduser = '$iduser'";
+                $lopnguoidung = pdo_query($sql);
+                return $lopnguoidung;
+            } else {
+                return array(); // Trả về một mảng rỗng nếu người dùng chưa đăng nhập
+            }
+        }
+        function newclass(){
+            $sql = "SELECT lop.*, khoahoc.tenkhoahoc,khoahoc.idkhoahoc 
+                    FROM lop 
+                    INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc 
+                    ORDER BY lop.ngaybatdau DESC 
+                    LIMIT 3";
+            $new = pdo_query($sql);
+            return $new;
+        }
+        
 ?>
