@@ -194,9 +194,8 @@
     <script src="js/main.js"></script>
 
     <script>
-        function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+       
+               
 
 // Thumbnail image controls
 

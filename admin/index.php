@@ -7,6 +7,7 @@
     // include "../model/binhluan.php";
     $listdanhmuc = loadall_danhmuc();
     $khoahoc=loadall_khoahoc();
+    $dsdangkylop=thongtinlopcuanguoidungdangky();
     include "header.php";
     //controller
 

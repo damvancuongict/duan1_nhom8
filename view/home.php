@@ -47,82 +47,98 @@
 
   /* Grid layout */
   .gridarea .container {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(4, 1fr); /* Chia thành 4 cột */
     grid-gap: 20px; /* Khoảng cách giữa các cột */
   }
 
+  
+
   .event-wrapper {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  list-style: none;
+  padding: 0;
 }
 
-.event-wrapper li {
-    width: 500px; /* Điều chỉnh chiều rộng của mỗi lớp học */
-    display: flex;
-    gap: 20px;
+.event-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s; /* Change to box-shadow for transition */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Add box shadow for a subtle effect */
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.event-wrapper li .event-container {
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+.event-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increase the shadow on hover */
+  background-color: #f0ad4e; /* Màu vàng khi hover vào khung lớp */
+  color: #fff; /* Change text color on hover */
 }
 
-.event-wrapper li:hover .event-container {
-    background-color: #f0ad4e; /* Màu vàng khi hover vào khung lớp */
+.left-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-.event-content-holder h3 a {
-    color: #333;
-    text-decoration: none;
-}
-
-.event-content-holder h3 a:hover {
-    color: #007bff;
+.right-side {
+  flex: 1;
+  text-align: right;
 }
 
 .event-calender-holder {
-    display: flex;
-    flex-direction: column;
+  margin-right: 10px;
 }
 
-.date-wrapper {
-    display: flex;
-    align-items: center;
+.event-calender-wrapper .circle {
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.circle {
-    width: 15px;
-    height: 15px;
-    background-color: #f0ad4e;
-    border-radius: 50%;
-    margin-right: 10px;
+.event-calender-wrapper .date {
+  display: inline-block;
+  margin-left: 5px;
 }
 
-.date {
-    font-size: 16px;
-    font-weight: bold;
+.event-content-holder h3 {
+  margin: 0;
+  font-size: 18px;
 }
 
-.day {
-    font-size: 24px;
-    margin-right: 5px;
+.event-content-holder ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.month {
-    font-size: 16px;
+.event-content-holder li {
+  font-size: 14px;
+  color: #555;
 }
+
+.right-side ul li {
+  margin-bottom: 5px;
+}
+
+.right-side a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.right-side a:hover {
+  text-decoration: underline;
+}
+
 
 </style>
 
 <div class="gridarea">
   <div class="container">
+    
     <?php
     $i = 0;
     foreach ($khoahoc as $sp) {
@@ -145,10 +161,14 @@
         </div>
         <div class="courses-content-wrapper">
           <h3 class="item-title"><a href="' . $linkkh . '"><strong>' . $tenkhoahoc . '</strong></a></h3>
+          
+        </div>
+        <div class="thoigian">
           <ul class="courses-info">
             <li>Thời gian học: ' . $thoigiankhoahoc . ' Tuần</li>
           </ul>
         </div>
+        
       </div>';
       $i += 1;
     }
@@ -159,25 +179,35 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 news-inner-area">
-                <h2 class="title-default-left">Tin tức gần đây</h2>
+              
                 <ul class="news-wrapper">
-                    <?php
-                        foreach ($news as $ns) {
-                            ?>
-                            <li>
-                                <div class="news-img-holder">
-                                    <a href="#"><img style="width: 150px;height: 101px" src="public/layout/imagesnews/<?php echo $ns->hinh; ?> " class="img-responsive"
-                                                     alt="news"></a>
-                                </div>
-                                <div class="news-content-holder">
-                                    <h3><a href="single-news.html"><?php echo $ns->ten_tin_tuc?></a></h3>
-                                    <div class="post-date"><?php echo date('d-m-Y', strtotime($ns->ngay_tao));?></div>
-                                    <p><?php echo $ns->mo_ta_ngan;?></p>
-                                </div>
-                            </li>
-                            <?php
-                        }
-                    ?>
+                <div class="boxstitle">BÌNH LUẬN</div>
+                    <div class="boxcontent binhluan">
+                        <table>
+                                   
+                        </table>
+                        <div class="boxfooter guibl"> 
+                            <?php if (isset($_SESSION['user'])) : ?>
+                                <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
+                                    <input type="hidden" name="idpro" value="<?=$idpro?>">
+                                    <input type="text" name="noidung" id="">
+                                    <input class="gui" type="submit" name="guibinhluan" value="GỦI BÌNH LUẬN">
+                                </form>
+                                <?php
+                                if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
+                                    $noidung = $_POST['noidung'];
+                                    $idpro = $_POST['idpro'];
+                                    $isuser = $_SESSION['user']['id'];
+                                    $ngaybinhluan = date('h:i:sa d/m/y');
+                                    inser_binhluan($noidung, $idpro, $isuser, $ngaybinhluan);
+                                    header("Location: ".$_SERVER['HTTP_REFERER']);
+                                }
+                                ?>
+                            <?php else : ?>
+                                <p>Vui lòng đăng nhập để gửi bình luận.</p>
+                            <?php endif; ?>
+                        </div>
+
                 </ul>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 event-inner-area">
@@ -189,41 +219,45 @@
     ?>
         <li class="wow bounceInUp" data-wow-duration="2s" data-wow-delay=".1s">
             <div class="event-container">
-                <div class="event-calender-wrapper">
-                    <div class="event-calender-holder">
-                        <div class="date-wrapper">
-                            <div class="circle"></div>
-                            <div class="date">
-                                <span class="day"><?php echo date('d', strtotime($ngaybatdau)); ?></span>
-                                <span class="month"><?php echo date('M', strtotime($ngaybatdau)); ?></span>
+                <div class="left-side">
+                    <div class="event-calender-wrapper">
+                        <div class="event-calender-holder">
+                            <div class="date-wrapper">
+                               
+                                <div class="date">
+                                    <span class="day"><?php echo date('d', strtotime($ngaybatdau)); ?></span>
+                                    <span class="month"><?php echo date('M', strtotime($ngaybatdau)); ?></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="event-content-holder">
-                <?php
+                    <div class="event-content-holder">
+                        <?php
                         if (isset($_SESSION['user']['iduser'])) {
-                          // Người dùng đã đăng nhập
-                          $daDangKy = false;
-                          foreach ($lopnguoidung as $lophoc) {
-                              if ($lophoc['idkhoahoc'] == $idkhoahoc && $lophoc['idlop'] == $idlop) {
-                                  $daDangKy = true;
-                                  break;
-                              }
-                          }
-                      
-                          if ($daDangKy) {
-                              // Người dùng đã đăng ký lớp này, hiển thị tên lớp và chuyển hướng đến trang xem chi tiết khóa học
-                              echo "<h3><a href=\"index2.php?act=dangkykhoahoc&idkhoahoc={$idkhoahoc}\">$tenlop</a></h3>";
-                          } else {
-                              // Người dùng chưa đăng ký lớp này, hiển thị link đăng ký lớp
-                              echo "<h3><a href=\"index2.php?act=dangkylop&idlop={$idkhoahoc}\">$tenlop</a></h3>";
-                          }
-                      } else {
-                          // Người dùng chưa đăng nhập, hiển thị link đăng nhập
-                          echo "<h3><a href=\"index2.php?act=dangnhap\">$tenlop</a></h3>";
-                      }
+                            // Người dùng đã đăng nhập
+                            $daDangKy = false;
+                            foreach ($lopnguoidung as $lophoc) {
+                                if ($lophoc['idkhoahoc'] == $idkhoahoc && $lophoc['idlop'] == $idlop) {
+                                    $daDangKy = true;
+                                    break;
+                                }
+                            }
+
+                            if ($daDangKy) {
+                                // Người dùng đã đăng ký lớp này, hiển thị tên lớp và chuyển hướng đến trang xem chi tiết khóa học
+                                echo "<h3><a href=\"index2.php?act=dangkykhoahoc&idkhoahoc={$idkhoahoc}\">$tenlop</a></h3>";
+                            } else {
+                                // Người dùng chưa đăng ký lớp này, hiển thị link đăng ký lớp
+                                echo "<h3><a href=\"index2.php?act=dangkylop&idlop={$idkhoahoc}\">$tenlop</a></h3>";
+                            }
+                        } else {
+                            // Người dùng chưa đăng nhập, hiển thị link đăng nhập
+                            echo "<h3><a href=\"index2.php?act=dangnhap\">$tenlop</a></h3>";
+                        }
                         ?>
+                    </div>
+                </div>
+                <div class="right-side">
                     <ul>
                         <li><?php echo $cahoc; ?></li>
                         <li><?php echo $tenkhoahoc; ?></li>
@@ -235,6 +269,7 @@
     };
     ?>
 </ul>
+
             </div>
         </div>
     </div>

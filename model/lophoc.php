@@ -82,6 +82,17 @@ function insert_lop($tenlop,$iduser,$cahoc,$ngaybatdau,$diadiemhoc,$idkhoahoc){
                 return array(); // Trả về một mảng rỗng nếu người dùng chưa đăng nhập
             }
         }
+        // ham này lấy về dss admin nhé
+        function thongtinlopcuanguoidungdangky() {
+            $sql = "SELECT dangky.*, lop.*, khoahoc.tenkhoahoc, user.username
+                    FROM dangky
+                    INNER JOIN lop ON dangky.idlop = lop.idlop
+                    INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc
+                    INNER JOIN user ON dangky.iduser = user.iduser";
+        
+            $lopnguoidung = pdo_query($sql);
+            return $lopnguoidung;
+        }
         function newclass(){
             $sql = "SELECT lop.*, khoahoc.tenkhoahoc,khoahoc.idkhoahoc 
                     FROM lop 
