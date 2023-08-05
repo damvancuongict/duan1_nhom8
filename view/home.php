@@ -138,43 +138,41 @@
 
 <div class="gridarea">
   <div class="container">
-    
     <?php
     $i = 0;
     foreach ($khoahoc as $sp) {
+      if ($i >= 4) {
+        break; 
+      }
+
       extract($sp);
       $linkkh = "index2.php?act=dangkykhoahoc&idkhoahoc=" . $idkhoahoc;
       $anh = $img_path . $anh;
-      if (($i == 2) || ($i == 5) || ($i == 8)) {
-        $mr = "";
-      } else {
-        $mr = "mr";
-      }
-    //   <div class="roww img"><a href="' . $linkkh . '"><img src="' . $anh . '" alt=""></a></div>
+      $mr = ($i % 3 === 0) ? "" : "mr"; 
+
       echo '
       <div class="' . $mr . '">
         <div class="courses-img-wrapper hvr-bounce-to-bottom">
           <a href="' . $linkkh . '">
-            <img class="img-responsive" style="width: 265px;height: 190px;" src="' . $anh . '" alt="courses">
+            <img class="img-responsive" style="width: 265px; height: 190px;" src="' . $anh . '" alt="courses">
             <div class="overlay">Xem chi tiết</div>
           </a>
         </div>
         <div class="courses-content-wrapper">
           <h3 class="item-title"><a href="' . $linkkh . '"><strong>' . $tenkhoahoc . '</strong></a></h3>
-          
         </div>
         <div class="thoigian">
           <ul class="courses-info">
             <li>Thời gian học: ' . $thoigiankhoahoc . ' Tuần</li>
           </ul>
         </div>
-        
       </div>';
       $i += 1;
     }
     ?>
   </div>
 </div>
+
 <div class="news-event-area">
     <div class="container">
         <div class="row">
@@ -188,11 +186,7 @@
                         </table>
                         <div class="boxfooter guibl"> 
                             <?php if (isset($_SESSION['user'])) : ?>
-                                <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
-                                    <input type="hidden" name="idpro" value="<?=$idpro?>">
-                                    <input type="text" name="noidung" id="">
-                                    <input class="gui" type="submit" name="guibinhluan" value="GỦI BÌNH LUẬN">
-                                </form>
+                                
                                 <?php
                                 if(isset($_POST['guibinhluan']) && ($_POST['guibinhluan'])){
                                     $noidung = $_POST['noidung'];

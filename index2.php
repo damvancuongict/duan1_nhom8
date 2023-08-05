@@ -5,6 +5,7 @@
     include "model/khoahoc.php";
     include "model/danhmuc.php";
     include "model/lophoc.php";
+    include "model/dangky.php";
     include "model/dangkylop.php";
     include "global.php";
     include "model/taikhoan.php";

@@ -25,7 +25,16 @@
 
     <style>
  .cart-icon {
-    font-size: 30px;    
+    font-size: 30px; 
+    
+}
+.giohang{
+     margin-left:40px;   
+    margin-right:20px;  
+}
+.nguoidung{
+     margin-left:20px;   
+    margin-right:80px;  
 }
 </style> 
 </head>
@@ -57,25 +66,7 @@
                                 <nav>
                                     <ul>
                                         <li><a class="headerarea__has__dropdown" href="index2.php">Trang chủ
-                                        <!-- <i class="icofont-rounded-down"></i></a>
-                                            <ul class="headerarea__submenu ">
-                                                <li><a href="index.html">Home Style 1</a></li>
-                                                <li><a href="index-dark.html">Home 1 (Dark)</a></li>
-                                                <li><a href="home-2.html">Home Style 2</a></li>
-                                                <li><a href="home-2-dark.html">Home 2 (Dark)</a></li>
-                                                <li><a href="home-3.html">Home Style 3</a></li>
-                                                <li><a href="home-3-dark.html">Home 3 (Dark)</a></li>
-                                                <li><a href="home-4.html">Home 4 </a></li>
-                                                <li><a href="home-4-dark.html">Home 4 (Dark)</a></li>
-                                                <li><a href="home-5.html">Home 5 </a></li>
-                                                <li><a href="home-5-dark.html">Home 5 (Dark)</a></li>
-                                                <li><a href="home-6.html">Home 6 </a></li>
-                                                <li><a href="home-6-dark.html">Home 6 (Dark)</a></li>
-                                            </ul>
-                                        </li> -->
-
-                                        <!-- <li><a class="headerarea__has__dropdown" href="about.html">About -->
-                                      
+                                       
                                     </a>
 
                                         </li>
@@ -85,8 +76,7 @@
                                             <ul class="headerarea__submenu">
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="blog-dark.html">Blog (Dark)</a></li>
-                                                <li><a href="blog-details.html">Blog-details</a></li>
-                                                <li><a href="blog-details-dark.html">Blog-details (Dark)</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li><a class="headerarea__has__dropdown" href="index2.php">Danh mục
@@ -104,25 +94,7 @@
                                             ?>                            
                                             </ul>
                                         </li>
-                                        <li><a class="headerarea__has__dropdown" href="instructor.html">Tin tức
-                                        <!-- <i class="icofont-rounded-down"></i> </a>
-                                            <ul class="headerarea__submenu">
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="about-dark.html">About (Dark)</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="contact-dark.html">Contact (Dark)</a></li>
-                                                <li><a href="instructor.html">Instructor</a></li>
-                                                <li><a href="instructor-dark.html">Instructor (Dark)</a></li>
-                                                <li><a href="instructor-details.html">Instructor-Details</a></li>
-                                                <li><a href="instructor-details-dark.html">Details (Dark)</a></li>
-                                                <li><a href="event-details.html">Event-Details</a></li>
-                                                <li><a href="event-details-dark.html">Details (Dark)</a></li>
-                                                <li><a href="login.html">Login</a></li>
-                                                <li><a href="login-dark.html">Login (Dark)</a></li>
-                                                <li><a href="error.html">Error</a></li>
-                                                <li><a href="error-dark.html">Error (Dark)</a></li>
-                                            </ul>
-                                        </li> -->
+                                        
                                         <li><a href="contact.html">Liên hệ</a>
                                         </li>
                                     </ul>
@@ -141,7 +113,7 @@
                                         // var_dump($_SESSION['role']);
                                         if((isset($_SESSION['role']) && $role == "1")){
                                         ?>
-                                        <div style="width: 30px;margin-right: 10px">
+                                        <div style="width: 30px;margin-right: 10px" class="nguoidung">
                                             <img src="img/user.jpg" alt="" width="30px" height="30px" style="margin-right:20px">
                                             <span style="color: red;">Hello</span> <?=$username?>
                                             
@@ -162,7 +134,7 @@
                                         
                                         </div>
                                     
-                                        <div class="">
+                                        <div class="giohang">
                                         <?php
                                             $lopnguoidung = thongtinlopcuanguoidung();
                                             $soLuongDangKy = count($lopnguoidung);
@@ -213,4 +185,8 @@
         </header>
        
         <!-- header section end -->
-        
+         <!-- theme fixed shadow -->
+         <div>
+            <div class="theme__shadow__circle"></div>
+            <div class="theme__shadow__circle shadow__right"></div>
+        </div>

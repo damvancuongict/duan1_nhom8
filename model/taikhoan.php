@@ -5,6 +5,25 @@ function loadalltaikhoan() {
     $listtaikhoan = pdo_query($sql);
     return $listtaikhoan;
 }
+
+// loc tai khoan nhoc sinh
+function taikhoanhocvien() {
+    $sql = "SELECT * FROM user WHERE role = 0 ORDER BY iduser DESC";
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
+}
+// loc tai khoan giao vien
+function taikhoangiaovien() {
+    $sql = "SELECT * FROM user WHERE role = 2 ORDER BY iduser DESC";
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
+}
+// loc tai khoan giao vien
+function taikhoanadmin() {
+    $sql = "SELECT * FROM user WHERE role = 1 ORDER BY iduser DESC";
+    $listtaikhoan = pdo_query($sql);
+    return $listtaikhoan;
+}
 function checkuser($user, $pass) {
     $sql = "SELECT * FROM user WHERE username = '$user' AND password = '$pass'";
     $tk = pdo_query_one($sql);
@@ -46,10 +65,11 @@ function insert_taikhoan($username,$password,$email){
     $sql="INSERT INTO `user` (`username`,`password`,`email`) values('$username','$password','$email')";
     pdo_execute($sql);
 }
-function loadone_tk($iduser){
-    $sql="select * from user where iduser=".$iduser;
-    $us=pdo_query_one($sql);
-    return $us;
+
+function loadone_taikhoan($iduser){
+    $sql = "SELECT * FROM user WHERE iduser = '".$iduser."'";
+    $tk=pdo_query_one($sql);
+    return $tk;
 }
 //Kiểm tra username và pass để đăng nhập
 // function checkuser($username, $password){ 

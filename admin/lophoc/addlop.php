@@ -6,17 +6,18 @@
         padding: 20px;
         border-radius: 5px;
         background-color: #f9f9f9;
-        margin-right: 800px;
+        margin-right:500px;
+        margin-top:20px;
     }
 
-    .formtitle {
+    /* .formtitle {
         text-align: center;
         margin-bottom: 20px;
-    }
+    } */
 
-    .formcontent {
+    /* .formcontent {
         text-align: center;
-    }
+    } */
 
     .row {
         margin-bottom: 10px;

@@ -19,7 +19,13 @@
             .form1{
                 display: flex;
             }
+            .trai p{
+               
+                margin-top: 50px;
+                
+            }
             .trai {
+                text-align: center;
                 width: 500px;
                 height: 600px;
                 flex: 1;
@@ -94,6 +100,9 @@
                 
                 margin-top: 30px;
         }
+        .button{
+            margin-left: 500px;
+        }
     </style>
  <div class="gridarea">
                          <div class="container2">
@@ -118,38 +127,42 @@
                             echo ' <h4 style="color: #444444">Ngày Khai Giảng: ' . $idlopw['ngaybatdau'] . '</h4>';
                             echo ' <h4 style="color:red">Còn Lại: ' . $idlopw['soluong'] . ' Slot</h4>';
                             echo ' <h4 style="color:red">Học Phí: ' . $idlopw['gia'] . '</h4>';  
+                            
                            
                                 ?>        
                
              </div>
             
              <div class="phai">
-                <div class="payment-options">
-                    <div class="nutthanhtoan">
-                            <div class="tructiep">
-                            <button type="button" onclick="showDiaChi()">THANH TOÁN TRỰC TIẾP</button>     
-                        </div>
-                        <div class="online">
-                            <button type="button" onclick="showHinhAnh()">CHUYỂN KHOẢN</button>
-                        </div> 
-                    </div>
-                    
-                    <div class="noidungthanhtoan">
-                         <div class="duoi" id="diaChi" style="display: none;">
-                            <p>
-                                 Địa chỉ: 52A Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TPHCM<br>
-                            Số tài khoản: 0071000944930 VIETCOMBANK - HOANG QUANG THANG
-                            </p>
-                           
-                        </div>
-                        <div class="duoi" id="hinhAnh" style="display: none;">
-                        <img src="view/img/vimomo.png" alt="">
-                 </div>     
+                    <div class="payment-options">
+                            <div class="nutthanhtoan">
+
+                                    <div class="tructiep">
+                                    <button type="button" onclick="showDiaChi()">THANH TOÁN TRỰC TIẾP</button>     
+                                    </div>
+
+                                    <div class="online">
+                                    <button type="button" onclick="showHinhAnh()">CHUYỂN KHOẢN</button>
+                                    </div> 
+                            </div>
+                        
+                            <div class="noidungthanhtoan">
+                                <div class="duoi" id="diaChi" style="display: none;">
+                                <p>
+                                    Địa chỉ: 52A Nguyễn Thái Sơn, Phường 3, Quận Gò Vấp, TPHCM<br>
+                                    Số tài khoản: 0071000944930 VIETCOMBANK - HOANG QUANG THANG
+                                </p>
+                            
+                            </div>
+
+                            <div class="duoi" id="hinhAnh" style="display: none;">
+                                <img src="view/img/vimomo.png" alt="">
+                            </div>     
                     </div>
                      
                 </div>
                        
-                                 
+                          <a href=""></a>
             </div>
                 
         </div>
@@ -161,9 +174,13 @@
                 echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
                 echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
                 echo '<input type="hidden" name="trangthai" id="trangthai" value="">';
-            ?>
-            <button type="button" class="btn-submit" onclick="validateForm()">Xác Nhận</button>
-            <button type="button" class="btn-cancel" onclick="huyBo()">Hủy bỏ</button>
+            ?><div class="button">
+                <button type="button" class="btn-submit" onclick="validateForm()">Xác Nhận</button>
+                <button type="button" class="btn-submit" ><a href="index2.php">Hủy</a></button>
+               
+                
+            </div>
+            
         </form>
 
     </div> 
@@ -203,6 +220,11 @@
 
             form.submit();
         }
+        function huyBo() {
+        // Thực hiện các thao tác cần thiết khi click vào nút "Hủy bỏ"
+        // Ví dụ: chuyển hướng sang trang khác
+        window.location.href = "index2.php";
+    }
 
         function validateForm() {
         var isThanhToanTrucTiep = document.getElementById("diaChi").style.display === "block";

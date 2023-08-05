@@ -4,10 +4,17 @@
     include "../model/khoahoc.php";
     include "../model/taikhoan.php";
     include "../model/lophoc.php";
+    include "../model/dangky.php";
     // include "../model/binhluan.php";
     $listdanhmuc = loadall_danhmuc();
     $khoahoc=loadall_khoahoc();
     $dsdangkylop=thongtinlopcuanguoidungdangky();
+    $dathanhtoan = dathanhtoan();
+    $chuathanhtoan = chuathanhtoan();
+    $taikhoanhocsinh = taikhoanhocvien();
+    $taikhoangiaovien = taikhoangiaovien();
+    $taikhoanadmin = taikhoanadmin();
+    
     include "header.php";
     //controller
 
@@ -217,12 +224,14 @@
                     include "taikhoan/listtk.php";
                     break;
                 case 'suatk' :
+                   
                     if(isset($_GET['iduser'])&&($_GET['iduser']>0)){
-                        $taikhoan =loadone_tk($_GET['iduser']);
+                        $mtaikhoan =loadone_taikhoan($_GET['iduser']);
                     }
-                    $listtaikhoan = loadalltaikhoan();
+                   
                     include "taikhoan/updatetk.php";
-                    break;
+                   
+                    break; 
                 case 'updatetk' :
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                     $iduser=$_POST['iduser'];
@@ -236,6 +245,13 @@
                     $thongbao="Cập nhật thành công";
                 }
                 $listtaikhoan = loadalltaikhoan();
+                include "taikhoan/updatetk.php";
+                break;
+                case 'xoadangky' :
+                    if(isset($_GET['iddangky'])&&($_GET['iddangky']>0)){
+                        delete_dangky($_GET['iddangky']);
+                    }
+                    // $listtaikhoan=loadalltaikhoan();
                 include "taikhoan/updatetk.php";
                 break;
                 case 'quanlydangky':
