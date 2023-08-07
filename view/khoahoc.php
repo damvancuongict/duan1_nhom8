@@ -57,7 +57,7 @@
     margin-top: 10px;
   }
 </style>
-<div class="gridarea">
+<div class="gridarea"  style="margin-top:150px">
     <div class="container">
       
             <div class="gridarea__wraper">

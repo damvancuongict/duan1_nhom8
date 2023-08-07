@@ -133,8 +133,7 @@
                                             extract($taikhoan);
 
 
-                                            $suataikhoan="index.php?act=updatetk&iduser=".$iduser;
-                                            $xoataikhoan="index.php?act=deletetk&iduser=".$iduser;
+                                            $tttaikhoan="index.php?act=thongtintk&iduser=".$iduser;                                          
                                             $roleName = ''; // Biến lưu tên vai trò
                                             if ($role == 0) {
                                                 $roleName = 'Học viên';
@@ -154,8 +153,8 @@
                                             <td>'.$address.'</td>
                                             <td>'.$tel.'</td>
                                             <td>'.$roleName.'</td>
-                                            <td><a href="'.$suataikhoan.'"><input type="button" value="Sửa"></a>
-                                            <a href="'.$xoataikhoan.'"><input type="button" value="Xóa"></a>
+                                            <td><a href="'.$tttaikhoan.'">xem chi tiêt</a>
+                                           
                                             </td>   
                                                 </tr>';
                                                 
@@ -193,10 +192,7 @@
                                 
                                                 foreach ($taikhoanhocsinh as $taikhoan) {
                                             extract($taikhoan);
-
-
-                                            $suataikhoan="index.php?act=updatetk&iduser=".$iduser;
-                                            $xoataikhoan="index.php?act=deletetk&iduser=".$iduser;
+                                            $tttaikhoan="index.php?act=thongtintk&iduser=".$iduser;                                          
                                             $roleName = ''; // Biến lưu tên vai trò
                                             if ($role == 0) {
                                                 $roleName = 'Học viên';
@@ -216,8 +212,8 @@
                                             <td>'.$address.'</td>
                                             <td>'.$tel.'</td>
                                             <td>'.$roleName.'</td>
-                                            <td><a href="'.$suataikhoan.'"><input type="button" value="Sửa"></a>
-                                            <a href="'.$xoataikhoan.'"><input type="button" value="Xóa"></a>
+                                            <td><a href="'.$tttaikhoan.'">xem chi tiêt</a>
+                                           
                                             </td>   
                                                 </tr>';
                                                 
@@ -257,8 +253,7 @@
                                             extract($taikhoan);
 
 
-                                            $suataikhoan="index.php?act=updatetk&iduser=".$iduser;
-                                            $xoataikhoan="index.php?act=deletetk&iduser=".$iduser;
+                                            $tttaikhoan="index.php?act=thongtingiaovien&iduser=".$iduser;                                          
                                             $roleName = ''; // Biến lưu tên vai trò
                                             if ($role == 0) {
                                                 $roleName = 'Học viên';
@@ -278,11 +273,10 @@
                                             <td>'.$address.'</td>
                                             <td>'.$tel.'</td>
                                             <td>'.$roleName.'</td>
-                                            <td><a href="'.$suataikhoan.'"><input type="button" value="Sửa"></a>
-                                            <a href="'.$xoataikhoan.'"><input type="button" value="Xóa"></a>
+                                            <td><a href="'.$tttaikhoan.'">xem chi tiêt</a>
+                                           
                                             </td>   
                                                 </tr>';
-                                                
                                         }
                                         ?> 
                                     </table>

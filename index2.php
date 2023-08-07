@@ -1,6 +1,6 @@
 <?php
     session_start();
- 
+    
     include "model/pdo.php";
     include "model/khoahoc.php";
     include "model/danhmuc.php";
@@ -49,6 +49,23 @@
                     }else{
                         include "view/home.php";
                     }
+                   
+                break;
+            case 'timkiemkh':               
+                    if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                        $kyw=$_POST['kyw'];
+                    }else{
+                        $kyw="";
+                    }
+                    if(isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                        $iddm=$_GET['iddm'];
+                         
+                    }else{
+                        $iddm=0;
+                    }
+                        $dskh=loadall_kh_danhmuc($kyw,$iddm);
+                         $tendm=loadone_danhmuc($iddm);
+                          include "view/khoahoc.php";
                    
                 break;
 
@@ -171,7 +188,8 @@
                         $idlop = $_POST['idlop'];
                         $iduser = $_POST['iduser'];
                         $trangthai = $_POST['trangthai'];
-                        insert_dangky($idlop, $trangthai, $iduser);
+                        $gia = $_POST['gia'];
+                        insert_dangky($idlop, $trangthai, $iduser,$gia);
                         include "view/thongbao.php";
                     } else {
                         include "view/home.php";

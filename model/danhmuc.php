@@ -13,9 +13,13 @@
         return $listdanhmuc;
     }
     function loadone_danhmuc($iddm){
+        if($iddm>0){
         $sql="select * from danhmuc where iddm=".$iddm;
         $dm=pdo_query_one($sql);
-        return $dm;
+        return $name;
+        }else{
+            return "";
+        }
         
     }
     function update_danhmuc($iddm,$tendm){

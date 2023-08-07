@@ -147,6 +147,7 @@
                     }
                     $listkh=loadall_khoahoc();
                     $listtk=loadall_lop_user();
+                    // var_dump($listtk);
                     include "lophoc/addlop.php";
                     break;
                 case 'chonkhoahoc':
@@ -177,6 +178,7 @@
                         $idlop=0;
                     }
                     $listlop = loadall_lop_user();
+                    $danhsach=loadall_danhmuc();
                     include "lophoc/listlop.php";
                     break;
                 case 'xoalop':
@@ -211,6 +213,25 @@
                     // var_dump($listtk);
                     $listkh = loadall_khoahoc();
                     include "lophoc/addlop.php";
+                    break;
+                case 'thongtinlophoc' : 
+                    if(isset($_GET['idlop'])&&($_GET['idlop']>0)){
+                        $idlop = ($_GET['idlop']);                                      
+                    }
+                   $thongtinlophoc = loadall_idlop($idlop);
+                     $loadnguoidung=loadnguoidungralop($idlop);
+                    // $ca4 =loccahoc();
+                    
+                    include "lophoc/thongtinlophoc.php";
+                    break;
+                case 'cahoc' : 
+                    $cahoc1 =lophocca1();
+                    $cahoc2 =lophocca2();
+                    $cahoc3 =lophocca3();
+                    $cahoc4 =lophocca4();
+                    $cahoc5 =lophocca5();
+                    $cahoc6 =lophocca6();
+                    include "lophoc/cahoc.php";
                     break;
                 case 'taikhoan':
                     $listtaikhoan=loadalltaikhoan();
@@ -247,6 +268,26 @@
                 $listtaikhoan = loadalltaikhoan();
                 include "taikhoan/updatetk.php";
                 break;
+             case 'thongtintk':
+                            if (isset($_GET['iduser']) && ($_GET['iduser'] > 0)) {
+                                $iduser = isset($_GET['iduser']) ? intval($_GET['iduser']) : 0;
+                                $lopmot = thongtinmotlop($iduser); // Gọi hàm loadone_lop() với tham số $iduser
+                                // var_dump( $lopmot); // Hiển thị thông tin lấy được từ hàm
+                            }
+                        
+                            $listtaikhoan = loadalltaikhoan();
+                            include "taikhoan/thongtinhv.php";
+                            break;
+             case 'thongtingiaovien':
+                            if (isset($_GET['iduser']) && ($_GET['iduser'] > 0)) {
+                                $iduser = isset($_GET['iduser']) ? intval($_GET['iduser']) : 0;
+                                $lopmot = thongtindaycaclop($iduser); // Gọi hàm loadone_lop() với tham số $iduser
+                                // var_dump( $lopmot); // Hiển thị thông tin lấy được từ hàm
+                            }
+                        
+                            $listtaikhoan = loadalltaikhoan();
+                            include "taikhoan/thongtingiaovien.php";
+                            break;
                 case 'xoadangky' :
                     if(isset($_GET['iddangky'])&&($_GET['iddangky']>0)){
                         delete_dangky($_GET['iddangky']);

@@ -105,7 +105,7 @@
         }
     </style>
  <div class="gridarea">
-                         <div class="container2">
+                         <div class="container2" style="margin-top:100px">
                              <div class="">
                                  <div class="gridarea__img">
                                  <div class="chitietdangky">
@@ -171,9 +171,11 @@
             <?php 
                 $iaus = $_SESSION['user'];
                 $iduser = $iaus['iduser'];
-                echo '<input type="hidden" name="iduser" value="' . $iduser . '">';
-                echo '<input type="hidden" name="idlop" value="' . $idlop . '">';
-                echo '<input type="hidden" name="trangthai" id="trangthai" value="">';
+                echo '<input type="" name="iduser" value="' . $iduser . '">';
+                echo '<input type="" name="idlop" value="' . $idlop . '">';
+                echo '<input type="" name="gia" value="' . $gia . '">';
+                echo '<input type="" name="trangthai" id="trangthai" value="">';
+                
             ?><div class="button">
                 <button type="button" class="btn-submit" onclick="validateForm()">Xác Nhận</button>
                 <button type="button" class="btn-submit" ><a href="index2.php">Hủy</a></button>

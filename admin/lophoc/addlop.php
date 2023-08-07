@@ -109,7 +109,7 @@
                             $giaovien[] = $userPair;
                             echo '<option value="' . $iduser . '">' . $username . '</option>';
                         }
-                    }
+                    } 
                     ?>
                 </select>
             </div>

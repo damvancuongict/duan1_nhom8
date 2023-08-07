@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
    
-   <style>
+   <
     /* Thiết lập bảng dữ liệu */
     table {
         width: 100%;
@@ -36,7 +36,7 @@
     /* Thiết lập các nút trong bảng */
     .btn-tk {
         cursor: pointer;
-        background-color: #e0e0e0;
+        /* background-color: #e0e0e0; */
         border: none;
         padding: 5px 10px;
         border-radius: 5px;
@@ -84,8 +84,10 @@
         margin: 0 5px; /* Khoảng cách giữa các phần tử con */
         transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
     }
-
-    
+    .boxdk h2{
+        margin-left: 500px;
+    }
+  
 </style>
 </head>
 <body>
@@ -93,20 +95,16 @@
                     <div class="payment-options">
                                 <div class="nutthanhtoan">
                                         <div class="thongtindk1">
-                                            <h3>Danh sách Lớp</h3>
+                                            <h1 class="thongtindk1">Danh sách Lớp</h1>
                                         </div>
-                                        
-                                            
-                                            <div class="thongtindk5">
-                                            <h3>Lớp Theo Ca học</h3>
-                                          </div>
-                                        <div class="thongtindk6">
-                                            <h3>Lớp học Theo khóa học</h3>
-                                        </div>
-                                        
-                                  </div>                                  
+                                        <div class="thongtindk1">
+                                            <h1 class="thongtindk1"><a href="index.php?act=cahoc">Lớp Theo Ca học</a></h1>
+                                        </div>                                                                                                                       
+                                  </div>                
+                                   <!-- <a href="index.php?act=cahoc">Lớp Theo Ca học</a> -->                 
                                <div class="thongtindkl thongtindkl1">
                                <div class="boxdk">
+                                        
                                     <div class="table">
                                             <table>
                                                     <tr class="daubai">
@@ -127,8 +125,7 @@
                                         foreach($listlop as $lophoc){
                                             extract($lophoc);
 
-                                            $sualop="index.php?act=sualop&idlop=".$idlop;
-                                             $xoalop="index.php?act=xoalop&idlop=".$idlop;
+                                            $ttlophoc="index.php?act=thongtinlophoc&idlop=".$idlop;         
                                             
                                             echo ' <tr>
                                             
@@ -138,35 +135,40 @@
                                             <td>'.$cahoc.'</td>
                                             <td>'.$diadiemhoc.'</td>
                                             <td>'.$ngaybatdau.'</td>
-                                            <td><a href="'.$sualop.'"><input type="button" value="Sửa"></a>
-                                            <a href="'.$xoalop.'"><input type="button" value="Xóa"></a></td>
+                                            <td><a href="'.$ttlophoc.'">xem chi tiêt</a>                                         
+                                            </td> 
                                                 </tr>';
                                                 
                                         }
                                         ?> 
                                     </table>
-                                       
-                                    </div>
-                             </div>
-                         </div>
-                              
+                                      </div>
+                                </div>
+                            </div>
+                               <div class="thongtindkl thongtindkl2">
+                               <div class="boxdk">
+                               <h2>dam vanc uong</h2>
+                            </div>
+                        </div>
+                    </div> 
                 <script>
         $(document).ready(function () {
             $(".nutthanhtoan > div").on("click", function () {
                 // Hide all .thongtindklX divs first
                 $(".payment-options > div:not(.nutthanhtoan)").hide();
 
-                // Remove active class from all buttons and add to the clicked button
+               
                 $(".nutthanhtoan h3").removeClass("active");
                 $(this).find("h3").addClass("active");
 
-                // Show the corresponding .thongtindklX div based on the clicked element
+                
                 var targetId = $(this).index() + 1;
                 $(".thongtindkl" + targetId).fadeIn();
             });
         });
-      
-      
+       
+
+    
     </script>     
     </body>
 </html>

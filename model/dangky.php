@@ -23,6 +23,29 @@ function thongtinlopcuanguoidungdangky() {
     $lopnguoidung = pdo_query($sql);
     return $lopnguoidung;
 }
+// hàm này lấy về xem chi tiết thong tin ròi load ra nhung iduser nào đã đang ký khóa học day
+function thongtinmotlop($iduser) {
+        $sql = "SELECT dangky.*, lop.*, khoahoc.tenkhoahoc, user.username
+                FROM dangky
+                INNER JOIN lop ON dangky.idlop = lop.idlop
+                INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc
+                INNER JOIN user ON dangky.iduser = user.iduser
+                WHERE dangky.iduser = '$iduser'";
+
+            $idusera=pdo_query($sql);
+            return  $idusera;
+}
+// hàm lấy lop của user giao viên day lớp nào
+function thongtindaycaclop($iduser) { 
+    $sql = "SELECT lop.*, khoahoc.tenkhoahoc
+    FROM lop
+    INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc
+        WHERE iduser = '$iduser'";              
+$idusera=pdo_query($sql);
+
+    return $idusera;
+}
+
 // hàm này lấy diều kiện đã thanh toán 
 function dathanhtoan() {
     $sql = "SELECT dangky.*, lop.*, khoahoc.tenkhoahoc, user.username

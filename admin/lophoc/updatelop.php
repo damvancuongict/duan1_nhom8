@@ -129,6 +129,7 @@ if (is_array($lophoc)) {
                     <option value="0" selected>Giáo viên</option>
                     <?php
                     $giaovien = [];
+            
                     foreach ($listtk as $taikhoan) {
                         extract($taikhoan);
 
@@ -142,6 +143,7 @@ if (is_array($lophoc)) {
                             echo '<option value="' . $iduser . '">' . $username . '</option>';
                         }
                     }
+                   
                     ?>
                 </select>
             </div>

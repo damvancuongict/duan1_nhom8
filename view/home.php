@@ -136,8 +136,9 @@
 
 </style>
 
-<div class="gridarea">
+<div class="gridarea" style="margin-top:150px">
   <div class="container">
+  
     <?php
     $i = 0;
     foreach ($khoahoc as $sp) {

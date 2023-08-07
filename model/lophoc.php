@@ -48,16 +48,26 @@ function checkIfUserRegistered($idLop, $idUser) {
         $sql.=" ORDER BY idlop desc";
         return $listlop;
     } 
-
+    /// láy thông tin lớp ra thông tin lop có cả tên giao viên
     function loadall_idlop($idlop){
-        $sql = "SELECT lop.idlop, lop.tenlop, lop.idkhoahoc, lop.cahoc, lop.diadiemhoc, lop.iduser, lop.ngaybatdau, lop.soluong, khoahoc.tenkhoahoc, khoahoc.gia
+        $sql = "SELECT lop.idlop, lop.tenlop, lop.idkhoahoc, lop.cahoc, lop.diadiemhoc, lop.iduser, lop.ngaybatdau, lop.soluong, khoahoc.tenkhoahoc, khoahoc.gia, user.username
         FROM lop
         INNER JOIN khoahoc ON lop.idkhoahoc = khoahoc.idkhoahoc
-        WHERE lop.idlop = $idlop";
-         $idlop=pdo_query_one($sql);
-         return $idlop;
+        INNER JOIN user ON lop.iduser = user.iduser
+        WHERE lop.idlop = $idlop AND user.role = 2";
+        
+        $idlop_data = pdo_query_one($sql);
+        return $idlop_data;
     } 
-   
+    // lấy người dùng da dang ky ra thong tin lop
+  function loadnguoidungralop($idlop){
+    $sql = "SELECT user.* 
+        FROM dangky 
+        INNER JOIN user ON dangky.iduser = user.iduser 
+        WHERE dangky.idlop = '$idlop'";  
+        $listlop1=pdo_query($sql);
+        return $listlop1;
+  }
     function loadall_lop($kyw="",$idlop=0){
         $sql="SELECT * FROM lop WHERE 1";
         if($kyw!=""){
@@ -70,8 +80,8 @@ function checkIfUserRegistered($idLop, $idUser) {
         $listlop=pdo_query($sql);
         return $listlop;
     }
-        function insert_dangky($idlop,$trangthai,$iduser){
-            $sql = "INSERT INTO dangky (idlop, trangthai, iduser) VALUES ('$idlop', '$trangthai', '$iduser')";
+        function insert_dangky($idlop,$trangthai,$iduser,$gia){
+            $sql = "INSERT INTO dangky (idlop, trangthai, iduser,gia) VALUES ('$idlop', '$trangthai', '$iduser','$gia')";
             pdo_execute($sql);
         }
 
@@ -85,5 +95,69 @@ function checkIfUserRegistered($idLop, $idUser) {
             $new = pdo_query($sql);
             return $new;
         }
+
+        // ham lọc các ca học 
+     
+        function lophocca1() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca1%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        function lophocca2() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca2%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        function lophocca3() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca3%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        function lophocca4() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca4%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        function lophocca5() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca5%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        function lophocca6() {
+            $sql = "SELECT l.tenlop, l.cahoc, l.idlop, l.idkhoahoc, l.diadiemhoc, l.soluong, l.ngaybatdau, l.soluong, u.username
+                    FROM lop l
+                    JOIN user u ON l.iduser = u.iduser
+                    WHERE u.role = 2 AND l.cahoc LIKE 'ca6%'";
+            $sql .= " ORDER BY idlop DESC";
+            
+            $listlop = pdo_query($sql);
+            return $listlop;
+        }
+        
         
 ?>

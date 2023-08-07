@@ -149,7 +149,7 @@
         color: #000000; /* Màu chữ là đen */
     }
 </style> 
-                       <div class="gridarea">
+                       <div class="gridarea "style="margin-top:150px">
                          <div class="container">
                              <div class="">
                                  <div class="gridarea__img">
